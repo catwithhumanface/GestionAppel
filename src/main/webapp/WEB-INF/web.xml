@@ -8,8 +8,16 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CtrlConfirmation</servlet-name>
         <url-pattern>/ctrlConfirmation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
 
 
@@ -17,6 +25,10 @@
     <servlet>
         <servlet-name>Home</servlet-name>
         <jsp-file>/jsp/Home.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <jsp-file>/jsp/Index.jsp</jsp-file>
     </servlet>
 
 
@@ -28,6 +40,6 @@
 
 <!-- default page -->
     <welcome-file-list>
-        <welcome-file>home</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 </web-app>
