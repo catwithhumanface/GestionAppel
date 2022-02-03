@@ -1,10 +1,11 @@
-package ctrl;
+package dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+
 
 
 /**
@@ -21,7 +22,7 @@ public class HibernateUtil
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
             System.out.println("Hibernate Configuration loaded");
-           // configuration.addAnnotatedClass(ctrl.NomClass.class);
+            //configuration.addAnnotatedClass(ctrl.NomClass.class);
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             System.out.println("Hibernate serviceRegistry created");
             SESSION_FACTORY = configuration.buildSessionFactory(serviceRegistry);
