@@ -6,10 +6,10 @@
 
 |*Members*|*Contact*|
 |:---:|---|
-|**Zijing ZHOU**|[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/Annie-create) [![Gmail Badge](https://img.shields.io/badge/-Lielyannie@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Lielyannie@gmail.com)](mailto:Lielyannie@gmail.com)|
+|**Zijing ZHOU**|[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/StevenZZJ) [![Gmail Badge](https://img.shields.io/badge/-Lielyannie@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Lielyannie@gmail.com)](mailto:zijian.zhou@ut-capitole.fr)|
 |**Joohyun ANN**|[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](http://github.com/catwithhumanface) [![Gmail Badge](https://img.shields.io/badge/-annjh11@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:annjh11@gmail.com)](mailto:annjh11@gmail.com)|
 |**Tong LIU**|[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/Gabrielle07) [![Gmail Badge](https://img.shields.io/badge/-tongliu024@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tongliu024@gmail.com)](mailto:tongliu024@gmail.com)|
-|**Fares MEGARI**|[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/Annie-create) [![Gmail Badge](https://img.shields.io/badge/-Lielyannie@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Lielyannie@gmail.com)](mailto:Lielyannie@gmail.com)|
+|**Fares MEGARI**|[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/faresmegari) [![Gmail Badge](https://img.shields.io/badge/-Lielyannie@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Lielyannie@gmail.com)](mailto:fares.megari@ut.capitole.fr)|
 
 ## 2. Installation du projet
 1. Copier Code Github 
