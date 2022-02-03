@@ -8,9 +8,9 @@ package dao;
  *
  * @author steve
  */
-public class ExceptionDor extends Exception {
+public class MyException extends Exception {
 
-    public ExceptionDor(String message) {
+    public MyException(String message) {
         super(message);
     }
     

@@ -6,13 +6,13 @@ package dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import dao.ExceptionDor;
+
 import metier.MessageDor;
 /**
  *
  * @author steve
  */
-public class MessageDao {
+public class Dao {
     /*--------Propriétés de connexion--------*/
     private static String URL = "jdbc:mysql://localhost:3306/db_21912808";
     private static String LOGIN = "";
@@ -21,29 +21,29 @@ public class MessageDao {
     
     
     /*--------Méthode de connexion--------*/
-    private static void connexion() throws ExceptionDor{
+    private static void connexion() throws MyException {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch(ClassNotFoundException ex){
-            throw new ExceptionDor("Message.Dao.connexion() - failed loading driver"+ex.getMessage());
+            throw new MyException("Message.Dao.connexion() - failed loading driver"+ex.getMessage());
         }
     
         try{
-            MessageDao.cx = DriverManager.getConnection(URL,LOGIN,PWD);
+            Dao.cx = DriverManager.getConnection(URL,LOGIN,PWD);
         }
         catch(SQLException ex){
-            throw new ExceptionDor("Message.Dao.connexion() - failed to connect"+ex.getMessage());
+            throw new MyException("Message.Dao.connexion() - failed to connect"+ex.getMessage());
         }
     }
     /*--------Lire les message--------*/
     
-    public static List<MessageDor> getMessages() throws ExceptionDor{
+    public static List<MessageDor> getMessages() throws MyException {
         List<MessageDor> liste = new ArrayList<>();
         
         if (cx == null){
-            MessageDao.connexion();
+            Dao.connexion();
         }
         
         
@@ -58,16 +58,16 @@ public class MessageDao {
             }
             
         } catch (SQLException ex) {
-            throw new ExceptionDor("MessageDao.enregistrer() - " + ex.getMessage());
+            throw new MyException("Dao.enregistrer() - " + ex.getMessage());
         }
         
         
         return liste;
     }
     /*--------Ecrire/insérer un message--------*/
-    public static int enregistrer(MessageDor msg) throws ExceptionDor{
+    public static int enregistrer(MessageDor msg) throws MyException {
         if (cx == null){
-            MessageDao.connexion();
+            Dao.connexion();
         }
         int nb = 0;
         
@@ -81,7 +81,7 @@ public class MessageDao {
             
             nb = st.executeUpdate();
         } catch (SQLException ex) {
-            throw new ExceptionDor("MessageDao.enregistrer() - " + ex.getMessage());
+            throw new MyException("Dao.enregistrer() - " + ex.getMessage());
         }
         
         
@@ -89,9 +89,9 @@ public class MessageDao {
     }
     
     /*--------Supprimer un message--------*/
-    public static int supprimer(MessageDor msg) throws ExceptionDor{
+    public static int supprimer(MessageDor msg) throws MyException {
         if (cx == null){
-            MessageDao.connexion();
+            Dao.connexion();
         }
         int nb = 0;
         
@@ -104,16 +104,16 @@ public class MessageDao {
             
             nb = st.executeUpdate();
         } catch (SQLException ex) {
-            throw new ExceptionDor("MessageDao.supprimer() - " + ex.getMessage());
+            throw new MyException("Dao.supprimer() - " + ex.getMessage());
         }
         
         return nb;
     }
     
     /*--------Modifier un message--------*/
-    public static int modifier(MessageDor msg) throws ExceptionDor{
+    public static int modifier(MessageDor msg) throws MyException {
         if (cx == null){
-            MessageDao.connexion();
+            Dao.connexion();
         }
         int nb = 0;
         
@@ -128,7 +128,7 @@ public class MessageDao {
             
             nb = st.executeUpdate();
         } catch (SQLException ex) {
-            throw new ExceptionDor("MessageDao.supprimer() - " + ex.getMessage());
+            throw new MyException("Dao.supprimer() - " + ex.getMessage());
         }
         
         return nb;
@@ -140,14 +140,14 @@ public class MessageDao {
         try{
 //            
 //            MessageDor m = new MessageDor("Test","reussi");
-//            int nb = MessageDao.enregistrer(m);
+//            int nb = Dao.enregistrer(m);
 //            System.out.println("nb: " + nb);
-            List<MessageDor> liste = MessageDao.getMessages();
+            List<MessageDor> liste = Dao.getMessages();
             for (MessageDor m : liste){
                 System.out.println(m);
             }
         }
-        catch (ExceptionDor ex){
+        catch (MyException ex){
             System.out.println(ex.getMessage());
         }
     }
