@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../">
 <style>
     html, body, h1, h2, h3, h4, h5 {
         font-family: "Raleway", sans-serif
@@ -16,7 +17,7 @@
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
-            class="fa fa-bars"></i>  Menu
+            class="fa fa-bars"></i> Menu
     </button>
     <span class="w3-bar-item w3-right">Logo</span>
 </div>
@@ -29,9 +30,9 @@
         </div>
         <div class="w3-col s8 w3-bar">
             <span>Welcome, <strong>Mike</strong></span><br>
-            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>--%>
             <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>--%>
         </div>
     </div>
     <hr>
@@ -40,16 +41,12 @@
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
-           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un justificatif</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap des pr&eacute;sence</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes alertes</a>
     </div>
 </nav>
 
@@ -67,44 +64,181 @@
     </header>
 
     <div class="w3-row-padding w3-margin-bottom">
-        <div class="w3-quarter">
-            <div class="w3-container w3-red w3-padding-16">
-                <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-                <div class="w3-right">
-                    <h3>52</h3>
-                </div>
-                <div class="w3-clear"></div>
-                <h4>Messages</h4>
+        <div class="container">
+            <div class="timetable-img text-center">
+                <img src="img/content/timetable.png" alt="">
             </div>
-        </div>
-        <div class="w3-quarter">
-            <div class="w3-container w3-blue w3-padding-16">
-                <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-                <div class="w3-right">
-                    <h3>99</h3>
-                </div>
-                <div class="w3-clear"></div>
-                <h4>Views</h4>
-            </div>
-        </div>
-        <div class="w3-quarter">
-            <div class="w3-container w3-teal w3-padding-16">
-                <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-                <div class="w3-right">
-                    <h3>23</h3>
-                </div>
-                <div class="w3-clear"></div>
-                <h4>Shares</h4>
-            </div>
-        </div>
-        <div class="w3-quarter">
-            <div class="w3-container w3-orange w3-text-white w3-padding-16">
-                <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-                <div class="w3-right">
-                    <h3>50</h3>
-                </div>
-                <div class="w3-clear"></div>
-                <h4>Users</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead>
+                    <tr class="bg-light-gray">
+                        <th class="text-uppercase">Time
+                        </th>
+                        <th class="text-uppercase">Monday</th>
+                        <th class="text-uppercase">Tuesday</th>
+                        <th class="text-uppercase">Wednesday</th>
+                        <th class="text-uppercase">Thursday</th>
+                        <th class="text-uppercase">Friday</th>
+                        <th class="text-uppercase">Saturday</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="align-middle">09:00am</td>
+                        <td>
+                            <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">Dance</span>
+                            <div class="margin-10px-top font-size14">9:00-10:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                        <td>
+                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                            <div class="margin-10px-top font-size14">9:00-10:00</div>
+                            <div class="font-size13 text-light-gray">Marta Healy</div>
+                        </td>
+
+                        <td>
+                            <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                            <div class="margin-10px-top font-size14">9:00-10:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                        <td>
+                            <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
+                            <div class="margin-10px-top font-size14">9:00-10:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                        <td>
+                            <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
+                            <div class="margin-10px-top font-size14">9:00-10:00</div>
+                            <div class="font-size13 text-light-gray">Kate Alley</div>
+                        </td>
+                        <td>
+                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                            <div class="margin-10px-top font-size14">9:00-10:00</div>
+                            <div class="font-size13 text-light-gray">James Smith</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="align-middle">10:00am</td>
+                        <td>
+                            <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                            <div class="margin-10px-top font-size14">10:00-11:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                        <td class="bg-light-gray">
+
+                        </td>
+                        <td>
+                            <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
+                            <div class="margin-10px-top font-size14">10:00-11:00</div>
+                            <div class="font-size13 text-light-gray">Kate Alley</div>
+                        </td>
+                        <td>
+                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                            <div class="margin-10px-top font-size14">10:00-11:00</div>
+                            <div class="font-size13 text-light-gray">Marta Healy</div>
+                        </td>
+                        <td>
+                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                            <div class="margin-10px-top font-size14">10:00-11:00</div>
+                            <div class="font-size13 text-light-gray">James Smith</div>
+                        </td>
+                        <td class="bg-light-gray">
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="align-middle">11:00am</td>
+                        <td>
+                            <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                            <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        </td>
+                        <td>
+                            <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                            <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        </td>
+                        <td>
+                            <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                            <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        </td>
+                        <td>
+                            <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                            <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        </td>
+                        <td>
+                            <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                            <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        </td>
+                        <td>
+                            <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                            <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="align-middle">12:00pm</td>
+                        <td class="bg-light-gray">
+
+                        </td>
+                        <td>
+                            <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
+                            <div class="margin-10px-top font-size14">12:00-1:00</div>
+                            <div class="font-size13 text-light-gray">Kate Alley</div>
+                        </td>
+                        <td>
+                            <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
+                            <div class="margin-10px-top font-size14">12:00-1:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                        <td>
+                            <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                            <div class="margin-10px-top font-size14">12:00-1:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                        <td class="bg-light-gray">
+
+                        </td>
+                        <td>
+                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                            <div class="margin-10px-top font-size14">12:00-1:00</div>
+                            <div class="font-size13 text-light-gray">Marta Healy</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="align-middle">01:00pm</td>
+                        <td>
+                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                            <div class="margin-10px-top font-size14">1:00-2:00</div>
+                            <div class="font-size13 text-light-gray">James Smith</div>
+                        </td>
+                        <td>
+                            <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                            <div class="margin-10px-top font-size14">1:00-2:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                        <td class="bg-light-gray">
+
+                        </td>
+                        <td>
+                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                            <div class="margin-10px-top font-size14">1:00-2:00</div>
+                            <div class="font-size13 text-light-gray">James Smith</div>
+                        </td>
+                        <td>
+                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                            <div class="margin-10px-top font-size14">1:00-2:00</div>
+                            <div class="font-size13 text-light-gray">Marta Healy</div>
+                        </td>
+                        <td>
+                            <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
+                            <div class="margin-10px-top font-size14">1:00-2:00</div>
+                            <div class="font-size13 text-light-gray">Ivana Wong</div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
