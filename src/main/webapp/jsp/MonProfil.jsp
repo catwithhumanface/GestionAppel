@@ -31,7 +31,7 @@
         <div class="w3-col s8 w3-bar">
             <span>Welcome, <strong>Mike</strong></span><br>
             <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>--%>
-            <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>--%>
         </div>
     </div>
@@ -60,18 +60,25 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+        <h5><b>My Profil :</b></h5>
     </header>
-
-    <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-col s4">
+        <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:150px">
+    </div>
+<%--    <div class="w3-row-padding w3-margin-bottom">
         <div class="container">
             <div class="timetable-img text-center">
                 <img src="img/content/timetable.png" alt="">
-            </div>
+            </div>--%>
             <div class="table-responsive">
                 <table class="table table-bordered text-center">
-                    <thead>
-                    <tr class="bg-light-gray">
+                    <div class=container">
+                    Nom : <input disabled><br>
+                    Prenom : <input disabled><br>
+                    Date De Naissance : <input disabled><br>
+                    </div>
+
+                    <%--<tr class="bg-light-gray">
                         <th class="text-uppercase">Time
                         </th>
                         <th class="text-uppercase">Monday</th>
@@ -81,8 +88,8 @@
                         <th class="text-uppercase">Friday</th>
                         <th class="text-uppercase">Saturday</th>
                     </tr>
-                    </thead>
-                    <tbody>
+                    </thead>--%>
+                    <tbody><%--
                     <tr>
                         <td class="align-middle">09:00am</td>
                         <td>
@@ -241,7 +248,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>--%>
 <!--
     <div class="w3-panel">
         <div class="w3-row-padding" style="margin:0 -16px">
@@ -412,8 +419,7 @@
 
     <!-- Footer -->
     <footer class="w3-container w3-padding-16 w3-light-grey">
-        <h4>FOOTER</h4>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+
     </footer>
 
     <!-- End page content -->
