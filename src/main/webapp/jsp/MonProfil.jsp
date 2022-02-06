@@ -64,20 +64,24 @@
     </header>
     <div class="w3-col s4">
         <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:150px">
-    </div>
+    <br>
 <%--    <div class="w3-row-padding w3-margin-bottom">
         <div class="container">
             <div class="timetable-img text-center">
                 <img src="img/content/timetable.png" alt="">
             </div>--%>
-            <div class="table-responsive">
-                <table class="table table-bordered text-center">
-                    <div class=container">
-                    Nom : <input disabled><br>
+        <div class=container">
+            <div class=container">
+                <div class=container">
+                    id : <input disabled><br>
+                    Mail : <input disabled><br>
+                    Mdp : <input disabled><br>
                     Prenom : <input disabled><br>
-                    Date De Naissance : <input disabled><br>
-                    </div>
-
+                    Nom : <input disabled><br>
+                </div>
+            </div>
+        </div>
+    </div>
                     <%--<tr class="bg-light-gray">
                         <th class="text-uppercase">Time
                         </th>
@@ -89,7 +93,7 @@
                         <th class="text-uppercase">Saturday</th>
                     </tr>
                     </thead>--%>
-                    <tbody><%--
+                    <%--
                     <tr>
                         <td class="align-middle">09:00am</td>
                         <td>
