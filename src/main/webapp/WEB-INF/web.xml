@@ -12,6 +12,10 @@
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ficheAppel</servlet-name>
+        <url-pattern>/ficheAppel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CtrlConfirmation</servlet-name>
         <url-pattern>/ctrlConfirmation</url-pattern>
     </servlet-mapping>
@@ -19,6 +23,7 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
+
 
 
 <!--  servlets jsp  -->
@@ -29,6 +34,10 @@
     <servlet>
         <servlet-name>Index</servlet-name>
         <jsp-file>/jsp/Index.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ficheAppel</servlet-name>
+        <jsp-file>/jsp/ficheAppel.jsp</jsp-file>
     </servlet>
 
 
