@@ -9,8 +9,36 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>DepotJustif</servlet-name>
+        <url-pattern>/depotJustif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListeAlert</servlet-name>
+        <url-pattern>/listAlert</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListeCours</servlet-name>
+        <url-pattern>/listeCours</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListeEtudiants</servlet-name>
+        <url-pattern>/listeEtudiants</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecapFichePres</servlet-name>
+        <url-pattern>/recapFichePres</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StatEtudiants</servlet-name>
+        <url-pattern>/statEtudiants</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MonProfil</servlet-name>
+        <url-pattern>/monProfil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListeEtudiant</servlet-name>
@@ -33,6 +61,10 @@
         <url-pattern>/ficheAppelController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>FicheAppel</servlet-name>
+        <url-pattern>/ficheAppel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CtrlLogin</servlet-name>
         <url-pattern>/ctrlLogin</url-pattern>
     </servlet-mapping>
@@ -48,8 +80,36 @@
         <jsp-file>/jsp/Home.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>DepotJustif</servlet-name>
+        <jsp-file>/jsp/DepotJustif.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ListeAlert</servlet-name>
+        <jsp-file>/jsp/ListeAlert.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ListeCours</servlet-name>
+        <jsp-file>/jsp/ListeCours.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ListeEtudiants</servlet-name>
+        <jsp-file>/jsp/ListeEtudiants.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>RecapFichePres</servlet-name>
+        <jsp-file>/jsp/RecapFichePres.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>StatEtudiants</servlet-name>
+        <jsp-file>/jsp/StatEtudiants.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>Index</servlet-name>
         <jsp-file>/jsp/Index.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>MonProfil</servlet-name>
+        <jsp-file>/jsp/MonProfil.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>ListeEtudiant</servlet-name>
@@ -67,20 +127,18 @@
 
     <!--  servlets java  -->
     <servlet>
-        <servlet-name>CtrlConfirmation</servlet-name>
-        <servlet-class>ctrl.CtrlLogin</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CtrlLogin</servlet-name>
         <servlet-class>ctrl.MemberController</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>FicheAppelController</servlet-name>
         <servlet-class>ctrl.FicheAppelController</servlet-class>
     </servlet>
 
+
     <!-- default page -->
     <welcome-file-list>
-        <welcome-file>ficheAppelController</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 </web-app>

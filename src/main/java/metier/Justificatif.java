@@ -1,9 +1,7 @@
 package metier;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Entité Justificatif.
@@ -35,6 +33,8 @@ public class Justificatif {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "IdE")
     private Etudiant etudiant;
+
+
 
     /*initialisation*/
 

@@ -1,6 +1,7 @@
 package metier;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Entité Presence.
@@ -16,6 +17,28 @@ public class Presence implements java.io.Serializable{
     @Column(name ="EtatP")
     private String etatP;
 
+    @Column(name ="UrlJustificatif")
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getEtatValider() {
+        return etatValider;
+    }
+
+    public void setEtatValider(String etatValider) {
+        this.etatValider = etatValider;
+    }
+
+    @Column(name ="EtatValider")
+    private String etatValider;
+
     /*Relation*/
 
     @ManyToOne
@@ -30,7 +53,21 @@ public class Presence implements java.io.Serializable{
     /*Initialisation*/
 
     public Presence(){}
-    public Presence(PresenceID idP,String etatP,SeanceCours sc1,Etudiant e1){
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Presence presence = (Presence) o;
+        return idP.equals(presence.idP);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idP);
+    }
+
+    public Presence(PresenceID idP, String etatP, SeanceCours sc1, Etudiant e1){
         this.etatP = etatP;
         this.idP = idP;
         this.seanceCours =sc1;
@@ -60,14 +97,6 @@ public class Presence implements java.io.Serializable{
     public void setSeanceCours(SeanceCours seanceCours) {
         this.seanceCours = seanceCours;
     }
-
-   /* public Justificatif getJustificatif() {
-        return justificatif;
-    }
-
-    public void setJustificatif(Justificatif justificatif) {
-        this.justificatif = justificatif;
-    }*/
 
     public Etudiant getEtudiant() {
         return etudiant;
