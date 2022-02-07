@@ -105,23 +105,27 @@ public class BdTestClass {
     }
 
     public static void main(String[] args) {
-        createCours();
-        createEtudiant();
-        createLesCours();
-        createSeance();
-        createpresence();
+//        createCours();
+//        createEtudiant();
+//        createLesCours();
+//        createSeance();
+//        createpresence();
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 
             session.beginTransaction();
 
             List listeAppel = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
-                    "from Etudiant e,Presence p " +
-                    "where e.idE=p.etudiant.idE").list();
+                                                    "from Etudiant e,Presence p " +
+                                                    "where e.idE=p.etudiant.idE").list();
             BdTestClass.affichage(listeAppel);
-            System.out.println("------------");
+
             List listeAppel2 = session.createSQLQuery("select * from Presence").list();
-            System.out.println(listeAppel2.size());
+
             BdTestClass.affichage(listeAppel2);
+
+            List listeAppel3 = session.createQuery("select sc.dateValidation from SeanceCours sc where sc.idSC=2").list();
+            System.out.println(listeAppel3);
+            System.out.println(listeAppel3.get(0));
         }
 
     }
