@@ -15,10 +15,10 @@
         <servlet-name>FicheAppel</servlet-name>
         <url-pattern>/ficheAppel</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CtrlConfirmation</servlet-name>
-        <url-pattern>/ctrlConfirmation</url-pattern>
-    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>CtrlConfirmation</servlet-name>-->
+<!--        <url-pattern>/ctrlConfirmation</url-pattern>-->
+<!--    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
@@ -42,10 +42,10 @@
 
 
 <!--  servlets java  -->
-    <servlet>
-        <servlet-name>CtrlConfirmation</servlet-name>
-        <servlet-class>ctrl.CtrlLogin</servlet-class>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>CtrlConfirmation</servlet-name>-->
+<!--        <servlet-class>ctrl.CtrlLogin</servlet-class>-->
+<!--    </servlet>-->
 
 <!-- default page -->
     <welcome-file-list>
