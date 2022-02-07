@@ -79,58 +79,51 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">21572198</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">21912808</th>
-                <td>ZHOU Zijing</td>
-                <td>
-                    <select class="w3-select">
-                        <option value="Present">Present</option>
-                        <option value="Retard">Retard</option>
-                        <option value="Absent">Absent</option>
-                    </select></td>
-                <td><a class="fa fa-file" aria-hidden="true"></a></td>
-            </tr>
             <%
+                String msg_e = (String) request.getAttribute("msg_e");
+                if (msg_e != null) {
+                    out.println("<div>" + msg_e + "</div>");
+                }
                 /**
                  * Affichage de la liste d'appel
                  */
                 FicheAppelUtile utile = new FicheAppelUtile();
-                //List<Object[]> l = (List<Object[]>) request.getAttribute("listeAppel");
-                List<Object[]> l = new ArrayList<>();
-                // Test liste
-                String l1[] = {"21912808", "ZHOU", "Zijing", "present", "File"};
-                l.add(l1);
-                pageContext.setAttribute("activateFlag", true);
+                List<Object[]> l = (List<Object[]>) request.getAttribute("listeAppel");
+//                String l1[] = {"21912808", "ZHOU", "Zijing", "present", "File"};
+//                l.add(l1);
+                pageContext.setAttribute("activateFlag", Boolean.parseBoolean((String) request.getParameter("activateFlag")));
                 pageContext.setAttribute("liste", l);
             %>
             <c:forEach items="${liste}" var="row">
-                <th>${row[0]}</th>
-                <td>${row[1]}&nbsp${row[2]}</td>
-                <td>
-                    <select class='w3-select'
-                            <c:if test="${!activateFlag}">disabled</c:if> >
-                        <option value="Present"
-                                <c:if test="${row[3]=='Present'}">selected</c:if> >Present
-                        </option>
-                        <option value="Retard"
-                                <c:if test="${row[3]=='Retard'}">selected</c:if> >Retard
-                        </option>
-                        <option value="Absent"
-                                <c:if test="${row[3]=='Absent'}">selected</c:if> >Absent
-                        </option>
-                    </select>
-                </td>
-                <td><a class="fa fa-file" aria-hidden="true" href="resources/images/avatar-01.jpg"></a></td>
+                <tr>
+                    <th>${row[0]}</th>
+                    <td>${row[1]}&nbsp${row[2]}</td>
+                    <td>
+                        <select id="${row[0]}" class='w3-select'
+                                <c:if test="${!activateFlag}">disabled</c:if> >
+                            <option value="Present"
+                                    <c:if test="${row[3]=='Present'}">selected</c:if> >Present
+                            </option>
+                            <option value="Retard"
+                                    <c:if test="${row[3]=='Retard'}">selected</c:if> >Retard
+                            </option>
+                            <option value="Absent"
+                                    <c:if test="${row[3]=='Absent'}">selected</c:if> >Absent
+                            </option>
+                        </select>
+                    </td>
+                    <td><a class="fa fa-file" aria-hidden="true" href="resources/images/avatar-01.jpg"></a></td>
+                </tr>
             </c:forEach>
 
             </tbody>
         </table>
+    </div>
+    <div class="w3-container">
+        <div class="w3-col w3-container s4 m4 l4"></div>
+        <div class="w3-col w3-container s2 m4 l4">
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge">Button</button>
+        </div>
     </div>
 
 
@@ -204,3 +197,4 @@
 
 </body>
 </html>
+
