@@ -22,7 +22,13 @@
     <servlet-mapping>
         <servlet-name>CtrlConfirmation</servlet-name>
         <url-pattern>/ctrlConfirmation</url-pattern>
+        <servlet-name>FicheAppel</servlet-name>
+        <url-pattern>/ficheAppel</url-pattern>
     </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>CtrlConfirmation</servlet-name>-->
+<!--        <url-pattern>/ctrlConfirmation</url-pattern>-->
+<!--    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>CtrlLogin</servlet-name>
         <url-pattern>/ctrlLogin</url-pattern>
@@ -31,6 +37,7 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
+
 
 
 <!--  servlets jsp  -->
@@ -49,6 +56,8 @@
     <servlet>
         <servlet-name>Index_msg</servlet-name>
         <jsp-file>/jsp/Index_msg.jsp</jsp-file>
+        <servlet-name>FicheAppel</servlet-name>
+        <jsp-file>/jsp/FicheAppel.jsp</jsp-file>
     </servlet>
 
 
@@ -61,9 +70,13 @@
         <servlet-name>CtrlLogin</servlet-name>
         <servlet-class>ctrl.MemberController</servlet-class>
     </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>CtrlConfirmation</servlet-name>-->
+<!--        <servlet-class>ctrl.CtrlLogin</servlet-class>-->
+<!--    </servlet>-->
 
 <!-- default page -->
     <welcome-file-list>
-        <welcome-file>index</welcome-file>
+        <welcome-file>ficheAppel</welcome-file>
     </welcome-file-list>
 </web-app>
