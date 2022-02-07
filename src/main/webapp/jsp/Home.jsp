@@ -342,6 +342,10 @@
         overlayBg.style.display = "none";
     }
 </script>
+<script type="text/javascript">
+    console.log('fff');
+    alert('sss');
 
+</script>
 </body>
 </html>
