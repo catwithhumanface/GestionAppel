@@ -46,12 +46,10 @@ public class Etudiant extends Utilisateur{
     public void present (SeanceCours sc1, String etatPre)
     {
         Presence pre1 = (Presence) this.presences.get(sc1);
-
         if (pre1 == null)
         {
             /*----- La décision est créée et ajoutée -----*/
             Presence preAdd = new Presence(new PresenceID(this.getIdE(),sc1.getIdSC()),etatPre,sc1,this);
-
             this.presences.put(sc1,preAdd);
             sc1.getPresences().put(this,preAdd);
         }
@@ -61,6 +59,7 @@ public class Etudiant extends Utilisateur{
             pre1.setEtatP(etatPre);
         }
     }
+
 
     @Override
     public String toString() {

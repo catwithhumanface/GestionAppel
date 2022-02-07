@@ -1,16 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"  import="dao.*" pageEncoding="utf-8"%>
-<%@ page import="metier.Utilisateur" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="resources/css/timetable.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="../">
 <style>
     html, body, h1, h2, h3, h4, h5 {
         font-family: "Raleway", sans-serif
@@ -32,20 +28,16 @@
         <div class="w3-col s4">
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
-        <div class="w3-col s8 w3-bar">>
-            <% Utilisateur user = (Utilisateur)request.getSession().getAttribute("Utilisateur");%>
-        <c:if test="${!empty Utilisateur}">
-            <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
-            <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-        </c:if>
-        <c:if test="${empty Utilisateur}">
-            <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
-        </c:if>
+        <div class="w3-col s8 w3-bar">
+            <span>Welcome, <strong>Mike</strong></span><br>
+            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>--%>
+            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>--%>
         </div>
     </div>
     <hr>
     <div class="w3-container">
-        <h5>Mon emploi du temps</h5>
+        <h5>Dashboard</h5>
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
@@ -68,22 +60,29 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-dashboard"></i> Mon emploi du temps</b></h5>
+        <h5><b>My Profil :</b></h5>
     </header>
-    <div>
-        <i class="fa fa-arrow-left dateTimetable"></i>
-            2022-02-07
-        <i class="fa fa-arrow-right"></i>
-    </div>
-
-    <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-col s4">
+        <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:150px">
+    <br>
+<%--    <div class="w3-row-padding w3-margin-bottom">
         <div class="container">
             <div class="timetable-img text-center">
+                <img src="img/content/timetable.png" alt="">
+            </div>--%>
+        <div class=container">
+            <div class=container">
+                <div class=container">
+                    id : <input disabled><br>
+                    Mail : <input disabled><br>
+                    Mdp : <input disabled><br>
+                    Prenom : <input disabled><br>
+                    Nom : <input disabled><br>
+                </div>
             </div>
-            <div class="table-responsive">
-                <table class="table table-bordered text-center timetable">
-                    <thead>
-                    <tr class="bg-light-gray">
+        </div>
+    </div>
+                    <%--<tr class="bg-light-gray">
                         <th class="text-uppercase">Time
                         </th>
                         <th class="text-uppercase">Monday</th>
@@ -91,9 +90,10 @@
                         <th class="text-uppercase">Wednesday</th>
                         <th class="text-uppercase">Thursday</th>
                         <th class="text-uppercase">Friday</th>
+                        <th class="text-uppercase">Saturday</th>
                     </tr>
-                    </thead>
-                    <tbody>
+                    </thead>--%>
+                    <%--
                     <tr>
                         <td class="align-middle">09:00am</td>
                         <td>
@@ -122,6 +122,11 @@
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
                             <div class="font-size13 text-light-gray">Kate Alley</div>
                         </td>
+                        <td>
+                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
+                            <div class="margin-10px-top font-size14">9:00-10:00</div>
+                            <div class="font-size13 text-light-gray">James Smith</div>
+                        </td>
                     </tr>
 
                     <tr>
@@ -149,10 +154,17 @@
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
                             <div class="font-size13 text-light-gray">James Smith</div>
                         </td>
+                        <td class="bg-light-gray">
+
+                        </td>
                     </tr>
 
                     <tr>
                         <td class="align-middle">11:00am</td>
+                        <td>
+                            <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                            <div class="margin-10px-top font-size14">11:00-12:00</div>
+                        </td>
                         <td>
                             <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
@@ -198,6 +210,11 @@
                         <td class="bg-light-gray">
 
                         </td>
+                        <td>
+                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
+                            <div class="margin-10px-top font-size14">12:00-1:00</div>
+                            <div class="font-size13 text-light-gray">Marta Healy</div>
+                        </td>
                     </tr>
 
                     <tr>
@@ -225,28 +242,18 @@
                             <div class="margin-10px-top font-size14">1:00-2:00</div>
                             <div class="font-size13 text-light-gray">Marta Healy</div>
                         </td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">02:00pm</td>
-                        <td>
-                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            <div class="margin-10px-top font-size14">2:00-3:00</div>
-                            <div class="font-size13 text-light-gray">James Smith</div>
-                        </td>
                         <td>
                             <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            <div class="margin-10px-top font-size14">2:00-3:00</div>
+                            <div class="margin-10px-top font-size14">1:00-2:00</div>
                             <div class="font-size13 text-light-gray">Ivana Wong</div>
                         </td>
-
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-
+    </div>--%>
+<!--
     <div class="w3-panel">
         <div class="w3-row-padding" style="margin:0 -16px">
             <div class="w3-third">
@@ -280,83 +287,139 @@
                         <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
                         <td>Check transactions.</td>
                         <td><i>28 mins</i></td>
-
-                        <td class="bg-light-gray">
-
-                        </td>
-                        <td>
-                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            <div class="margin-10px-top font-size14">2:00-3:00</div>
-                            <div class="font-size13 text-light-gray">James Smith</div>
-                        </td>
-                        <td>
-                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                            <div class="margin-10px-top font-size14">2:00-3:00</div>
-                            <div class="font-size13 text-light-gray">Marta Healy</div>
-                        </td>
-
                     </tr>
-
                     <tr>
-                        <td class="align-middle">03:00pm</td>
-                        <td>
-                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            <div class="margin-10px-top font-size14">3:00-4:00</div>
-                            <div class="font-size13 text-light-gray">James Smith</div>
-                        </td>
-                        <td>
-                            <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            <div class="margin-10px-top font-size14">3:00-4:00</div>
-                            <div class="font-size13 text-light-gray">Ivana Wong</div>
-                        </td>
-                        <td class="bg-light-gray">
-
-                        </td>
-                        <td>
-                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            <div class="margin-10px-top font-size14">3:00-4:00</div>
-                            <div class="font-size13 text-light-gray">James Smith</div>
-                        </td>
-                        <td>
-                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                            <div class="margin-10px-top font-size14">3:00-4:00</div>
-                            <div class="font-size13 text-light-gray">Marta Healy</div>
-                        </td>
+                        <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+                        <td>CPU overload.</td>
+                        <td><i>35 mins</i></td>
                     </tr>
-
                     <tr>
-                        <td class="align-middle">04:00pm</td>
-                        <td>
-                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            <div class="margin-10px-top font-size14">4:00-5:00</div>
-                            <div class="font-size13 text-light-gray">James Smith</div>
-                        </td>
-                        <td>
-                            <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            <div class="margin-10px-top font-size14">4:00-5:00</div>
-                            <div class="font-size13 text-light-gray">Ivana Wong</div>
-                        </td>
-                        <td class="bg-light-gray">
-
-                        </td>
-                        <td>
-                            <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            <div class="margin-10px-top font-size14">4:00-5:00</div>
-                            <div class="font-size13 text-light-gray">James Smith</div>
-                        </td>
-                        <td>
-                            <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                            <div class="margin-10px-top font-size14">4:00-5:00</div>
-                            <div class="font-size13 text-light-gray">Marta Healy</div>
-                        </td>
+                        <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+                        <td>New shares.</td>
+                        <td><i>39 mins</i></td>
                     </tr>
-
-                    </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <hr>
+    <div class="w3-container">
+        <h5>General Stats</h5>
+        <p>New Visitors</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+        </div>
 
+        <p>New Users</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+        </div>
+
+        <p>Bounce Rate</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="w3-container">
+        <h5>Countries</h5>
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+            <tr>
+                <td>United States</td>
+                <td>65%</td>
+            </tr>
+            <tr>
+                <td>UK</td>
+                <td>15.7%</td>
+            </tr>
+            <tr>
+                <td>Russia</td>
+                <td>5.6%</td>
+            </tr>
+            <tr>
+                <td>Spain</td>
+                <td>2.1%</td>
+            </tr>
+            <tr>
+                <td>India</td>
+                <td>1.9%</td>
+            </tr>
+            <tr>
+                <td>France</td>
+                <td>1.5%</td>
+            </tr>
+        </table>
+        <br>
+        <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
+    </div>
+    <hr>
+    <div class="w3-container">
+        <h5>Recent Users</h5>
+        <ul class="w3-ul w3-card-4 w3-white">
+            <li class="w3-padding-16">
+                <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                <span class="w3-xlarge">Mike</span><br>
+            </li>
+            <li class="w3-padding-16">
+                <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                <span class="w3-xlarge">Jill</span><br>
+            </li>
+            <li class="w3-padding-16">
+                <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                <span class="w3-xlarge">Jane</span><br>
+            </li>
+        </ul>
+    </div>
+    <hr>
+
+    <div class="w3-container">
+        <h5>Recent Comments</h5>
+        <div class="w3-row">
+            <div class="w3-col m2 text-center">
+                <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
+            </div>
+            <div class="w3-col m10 w3-container">
+                <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+                <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="w3-col m2 text-center">
+                <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
+            </div>
+            <div class="w3-col m10 w3-container">
+                <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="w3-container w3-dark-grey w3-padding-32">
+        <div class="w3-row">
+            <div class="w3-container w3-third">
+                <h5 class="w3-bottombar w3-border-green">Demographic</h5>
+                <p>Language</p>
+                <p>Country</p>
+                <p>City</p>
+            </div>
+            <div class="w3-container w3-third">
+                <h5 class="w3-bottombar w3-border-red">System</h5>
+                <p>Browser</p>
+                <p>OS</p>
+                <p>More</p>
+            </div>
+            <div class="w3-container w3-third">
+                <h5 class="w3-bottombar w3-border-orange">Target</h5>
+                <p>Users</p>
+                <p>Active</p>
+                <p>Geo</p>
+                <p>Interests</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="w3-container w3-padding-16 w3-light-grey">
