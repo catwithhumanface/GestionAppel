@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="../">
+<link rel="stylesheet" href="resources/css/ficheAppel.css">
 
 <body class="w3-light-grey">
 
@@ -69,7 +69,7 @@
     </header>
 
     <div class="w3-container">
-        <table class="table">
+        <table class="table middle">
             <thead class="thead-dark">
             <tr>
                 <th scope="col">&#8470 Etudiant</th>
@@ -94,7 +94,7 @@
                         <option value="Retard">Retard</option>
                         <option value="Absent">Absent</option>
                     </select></td>
-                <td>@mdo</td>
+                <td><a class="fa fa-file" aria-hidden="true"></a></td>
             </tr>
             <%
                 /**
@@ -126,6 +126,7 @@
                         </option>
                     </select>
                 </td>
+                <td><a class="fa fa-file" aria-hidden="true" href="resources/images/avatar-01.jpg"></a></td>
             </c:forEach>
 
             </tbody>
