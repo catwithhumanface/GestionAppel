@@ -80,17 +80,17 @@ public class GenererBd {
             SeanceCours SC3 = session.get(SeanceCours.class, 3);
             SeanceCours SC4 = session.get(SeanceCours.class, 4);
 
-            e1.present(SC1,"Présent");
+            e1.present(SC1,"Present");
             e2.present(SC1,"Retard");
 
             e1.present(SC2,"Absent");
-            e2.present(SC2,"Présent");
+            e2.present(SC2,"Present");
 
             e3.present(SC3,"Retard");
-            e3.present(SC3,"Présent");
+            e3.present(SC3,"Present");
             e4.present(SC4,"Retard");
             e4.present(SC4,"Absent");
-            e1.present(SC1,"Présent");
+            e1.present(SC1,"Present");
 
             t.commit();
         }

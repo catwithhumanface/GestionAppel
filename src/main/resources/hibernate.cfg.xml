@@ -6,7 +6,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://etu-web2.ut-capitole.fr:3306/db_21912808</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_21912808</property>
     <property name="hibernate.connection.username">21912808</property>
     <property name="hibernate.connection.password">U01W44</property>
 
@@ -16,6 +16,6 @@
 
     <!-- Gestion des sessions par Hibernate lui-même -->
     <property name="hibernate.current_session_context_class">thread</property> <!-- Pour getCurrentSession() -->
-    <property name="hibernate.hbm2ddl.auto">create</property> <!-- create, validate, update, none -->
+    <property name="hibernate.hbm2ddl.auto">update</property> <!-- create, validate, update, none -->
   </session-factory>
 </hibernate-configuration>

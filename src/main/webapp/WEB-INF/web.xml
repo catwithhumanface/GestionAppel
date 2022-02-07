@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <display-name>Archetype Created Web Application</display-name>
-<!--  servlet mappings  -->
+    <!--  servlet mappings  -->
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -35,12 +36,10 @@
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>MonProfil</servlet-name>
         <url-pattern>/monProfil</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>ListeEtudiant</servlet-name>
         <url-pattern>/listeEtudiant</url-pattern>
@@ -48,6 +47,18 @@
     <servlet-mapping>
         <servlet-name>Index_msg</servlet-name>
         <url-pattern>/index_msg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlConfirmation</servlet-name>
+        <url-pattern>/ctrlConfirmation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FicheAppel</servlet-name>
+        <url-pattern>/ficheAppel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FicheAppelController</servlet-name>
+        <url-pattern>/ficheAppelController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FicheAppel</servlet-name>
@@ -63,8 +74,7 @@
     </servlet-mapping>
 
 
-
-<!--  servlets jsp  -->
+    <!--  servlets jsp  -->
     <servlet>
         <servlet-name>Home</servlet-name>
         <jsp-file>/jsp/Home.jsp</jsp-file>
@@ -115,15 +125,20 @@
     </servlet>
 
 
-<!--  servlets java  -->
+    <!--  servlets java  -->
     <servlet>
         <servlet-name>CtrlLogin</servlet-name>
         <servlet-class>ctrl.MemberController</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>FicheAppelController</servlet-name>
+        <servlet-class>ctrl.FicheAppelController</servlet-class>
+    </servlet>
 
-<!-- default page -->
+
+    <!-- default page -->
     <welcome-file-list>
-        <welcome-file>ficheAppel</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 </web-app>
