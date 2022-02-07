@@ -12,7 +12,7 @@
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ficheAppel</servlet-name>
+        <servlet-name>FicheAppel</servlet-name>
         <url-pattern>/ficheAppel</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -36,8 +36,8 @@
         <jsp-file>/jsp/Index.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>ficheAppel</servlet-name>
-        <jsp-file>/jsp/ficheAppel.jsp</jsp-file>
+        <servlet-name>FicheAppel</servlet-name>
+        <jsp-file>/jsp/FicheAppel.jsp</jsp-file>
     </servlet>
 
 
