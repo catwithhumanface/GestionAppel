@@ -1,3 +1,8 @@
+
+
+<%@ page language="java" contentType="text/html; charset=utf-8"  import="dao.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +37,7 @@
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100 p-t-85 p-b-20">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" action="member.do?m=login" method="post">
 					<span class="login100-form-title p-b-70">
 						Bienvenue !
 					</span>
@@ -55,7 +60,7 @@
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
+					<button class="login100-form-btn" onclick="login()">
 						Login
 					</button>
 				</div>
@@ -87,6 +92,28 @@
 <script src="resources/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="resources/js/main.js"></script>
+<script>
+	function login(){
+		var $username = $("input[name='username']");
+		var $password = $("input[name='pass']");
+		if (!$username.val().trim()) {
+			alert('Mettez votre identifiant.');
+			$username.focus();
+			return false;
+		}
+		if (!$password.val().trim()) {
+			alert('Mettez votre mot de passe.');
+			$password.focus();
+			return false;
+		}
+	}
+</script>
+<script type="text/javascript">
+	alert('sss');
+	if(${rCode} == <%=dao.MemberSet.NO_ID%>){
+		alert('Cet identifiant nexiste pas');
+	}
 
+</script>
 </body>
 </html>
