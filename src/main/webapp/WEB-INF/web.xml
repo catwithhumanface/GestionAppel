@@ -35,18 +35,32 @@
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
-<!--    <servlet-mapping>
-        <servlet-name>CtrlConfirmation</servlet-name>
-        <url-pattern>/ctrlConfirmation</url-pattern>
-    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>MonProfil</servlet-name>
         <url-pattern>/monProfil</url-pattern>
+    <servlet-mapping>
+        <servlet-name>ListeEtudiant</servlet-name>
+        <url-pattern>/listeEtudiant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Index_msg</servlet-name>
+        <url-pattern>/index_msg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlConfirmation</servlet-name>
+        <url-pattern>/ctrlConfirmation</url-pattern>
+        <servlet-name>FicheAppel</servlet-name>
+        <url-pattern>/ficheAppel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlLogin</servlet-name>
+        <url-pattern>/ctrlLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
+
 
 
 <!--  servlets jsp  -->
@@ -83,19 +97,30 @@
         <jsp-file>/jsp/Index.jsp</jsp-file>
     </servlet>
     <servlet>
+
         <servlet-name>MonProfil</servlet-name>
         <jsp-file>/jsp/MonProfil.jsp</jsp-file>
+
+        <servlet-name>ListeEtudiant</servlet-name>
+        <jsp-file>/jsp/ListeEtudiant.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Index_msg</servlet-name>
+        <jsp-file>/jsp/Index_msg.jsp</jsp-file>
+        <servlet-name>FicheAppel</servlet-name>
+        <jsp-file>/jsp/FicheAppel.jsp</jsp-file>
     </servlet>
 
 
 <!--  servlets java  -->
-<!--    <servlet>
-        <servlet-name>CtrlConfirmation</servlet-name>
-        <servlet-class>ctrl.CtrlLogin</servlet-class>
-    </servlet>-->
+    <servlet>
+        <servlet-name>CtrlLogin</servlet-name>
+        <servlet-class>ctrl.MemberController</servlet-class>
+    </servlet>
+
 
 <!-- default page -->
     <welcome-file-list>
-        <welcome-file>home</welcome-file>
+        <welcome-file>ficheAppel</welcome-file>
     </welcome-file-list>
 </web-app>
