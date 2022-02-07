@@ -49,6 +49,6 @@
 
 <!-- default page -->
     <welcome-file-list>
-        <welcome-file>index</welcome-file>
+        <welcome-file>ficheAppel</welcome-file>
     </welcome-file-list>
 </web-app>
