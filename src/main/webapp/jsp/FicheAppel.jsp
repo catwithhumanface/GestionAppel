@@ -99,7 +99,7 @@
                     <th>${row[0]}</th>
                     <td>${row[1]}&nbsp${row[2]}</td>
                     <td>
-                        <select class='w3-select'
+                        <select id="${row[0]}" class='w3-select'
                                 <c:if test="${!activateFlag}">disabled</c:if> >
                             <option value="Present"
                                     <c:if test="${row[3]=='Present'}">selected</c:if> >Present
@@ -118,6 +118,12 @@
 
             </tbody>
         </table>
+    </div>
+    <div class="w3-container">
+        <div class="w3-col w3-container s4 m4 l4"></div>
+        <div class="w3-col w3-container s2 m4 l4">
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge">Button</button>
+        </div>
     </div>
 
 

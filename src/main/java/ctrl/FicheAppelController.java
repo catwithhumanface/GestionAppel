@@ -13,18 +13,6 @@ import java.util.List;
 @WebServlet(name = "FicheAppelController", value = "/FicheAppelController")
 public class FicheAppelController extends HttpServlet {
 
-    private static void affichage(List l) {
-        Iterator e = l.iterator();
-        while (e.hasNext()) {
-            Object[] tab_obj = ((Object[]) e.next());
-
-            for (Object obj : tab_obj)
-                System.out.print(obj + " ");
-
-            System.out.println("");
-        }
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
