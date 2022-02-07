@@ -22,7 +22,16 @@ public class HibernateUtil
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
             System.out.println("Hibernate Configuration loaded");
-            //configuration.addAnnotatedClass(ctrl.NomClass.class);
+
+            configuration.addAnnotatedClass(metier.Utilisateur.class);
+            configuration.addAnnotatedClass(metier.Cours.class);
+            configuration.addAnnotatedClass(metier.Etudiant.class);
+            configuration.addAnnotatedClass(metier.SeanceCours.class);
+            configuration.addAnnotatedClass(metier.Enseignant.class);
+            configuration.addAnnotatedClass(metier.Scolarite.class);
+            configuration.addAnnotatedClass(metier.Presence.class);
+            configuration.addAnnotatedClass(metier.Justificatif.class);
+           // configuration.addAnnotatedClass(metier.PresenceID.class);
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             System.out.println("Hibernate serviceRegistry created");
             SESSION_FACTORY = configuration.buildSessionFactory(serviceRegistry);
