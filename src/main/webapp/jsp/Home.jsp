@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"  import="dao.*" pageEncoding="utf-8"%>
+<%@ page import="metier.Utilisateur" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -29,11 +32,17 @@
         <div class="w3-col s4">
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
-        <div class="w3-col s8 w3-bar">
-            <span>Welcome, <strong>Mike</strong></span><br>
-            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>--%>
+        <div class="w3-col s8 w3-bar">>
+            <% Utilisateur user = (Utilisateur)request.getSession().getAttribute("Utilisateur");%>
+        <c:if test="${!empty Utilisateur}">
+            <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
             <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>--%>
+        </c:if>
+        <c:if test="${empty Utilisateur}">
+            <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
+        </c:if>
+
+
         </div>
     </div>
     <hr>
@@ -72,7 +81,6 @@
     <div class="w3-row-padding w3-margin-bottom">
         <div class="container">
             <div class="timetable-img text-center">
-                <img src="img/content/timetable.png" alt="">
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered text-center timetable">
@@ -342,10 +350,6 @@
         overlayBg.style.display = "none";
     }
 </script>
-<script type="text/javascript">
-    console.log('fff');
-    alert('sss');
 
-</script>
 </body>
 </html>
