@@ -1,5 +1,6 @@
 package ctrl;
 
+import dao.FicheAppelDao;
 import dao.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -17,27 +18,21 @@ public class FicheAppelController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idsc = request.getParameter("seance");
+        FicheAppelDao dao = new FicheAppelDao();
 
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 
             String activateFlag = "true";
             session.beginTransaction();
 
-            List dateValide = session.createQuery("select sc.dateValidation " +
-                    "from SeanceCours sc " +
-                    "where sc.idSC=2").list();
+            idsc = "2";
+            List dateValide = dao.checkDateValide(Integer.parseInt(idsc));
 
             if (dateValide.get(0) != null) {
                 activateFlag = "false";
             }
 
-            Query query = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
-                    "from Etudiant e,Presence p " +
-                    "where e.idE=p.etudiant.idE " +
-                    "and p.seanceCours.idSC=:idsc");
-            query.setParameter("idsc", 2);
-//            query.setParameter("idsc",Integer.parseInt(idsc));
-            List listeAppel = query.list();
+            List listeAppel = dao.getListeAppel(Integer.parseInt(idsc));
 
             request.setAttribute("listeAppel", listeAppel);
             request.getRequestDispatcher("ficheAppel?activateFlag=" + activateFlag).forward(request, response);
