@@ -24,7 +24,6 @@ public class FicheAppelController extends HttpServlet {
 
             String activateFlag = "true";
 
-            idsc = "2";
             List dateValide = dao.checkDateValide(Integer.parseInt(idsc));
 
             if (dateValide.get(0) != null) {
