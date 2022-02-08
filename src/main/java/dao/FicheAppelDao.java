@@ -7,11 +7,13 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class FicheAppelDao {
-    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    Transaction t = session.beginTransaction();
+
+
 
     public List checkDateValide(int idsc) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
+        session.beginTransaction();
         String activateFlag = "true";
 
         Query query = session.createQuery("select sc.dateValidation " +
@@ -21,12 +23,13 @@ public class FicheAppelDao {
         query.setParameter("idsc", 2);
 
         List dateValide = query.list();
-
+        session.close();
         return dateValide;
     }
 
     public List getListeAppel(int idsc) {
-
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
         Query query = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
                 "from Etudiant e,Presence p " +
                 "where e.idE=p.etudiant.idE " +
@@ -35,7 +38,7 @@ public class FicheAppelDao {
         query.setParameter("idsc", idsc);
 
         List listeAppel = query.list();
-
+        session.close();
         return listeAppel;
     }
 }

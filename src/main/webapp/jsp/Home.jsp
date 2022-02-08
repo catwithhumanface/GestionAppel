@@ -109,7 +109,7 @@
                         <tr>
                             <td class="align-middle">09:00am</td>
                             <td rowspan="3">
-                                <span class="w3-button w3-aqua" id="5">Management</span>
+                                <span class="w3-button w3-aqua cours" id="7">Management</span>
                                 <div class="margin-10px-top font-size14">9:00-10:00</div>
                                 <div class="font-size13 text-light-gray">Ivana Wong</div>
                             </td>
@@ -215,7 +215,7 @@
                         <tr>
                             <td class="align-middle">01:00pm</td>
                             <td rowspan="2">
-                                <span class="w3-button w3-pink" id="6">Developpement Web</span>
+                                <span class="w3-button w3-pink cours" id="8">Developpement Web</span>
                                 <div class="margin-10px-top font-size14">1:00-2:00</div>
                                 <div class="font-size13 text-light-gray">James Smith</div>
                             </td>
