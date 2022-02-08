@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page import="dao.FicheAppelUtile" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
@@ -72,7 +71,6 @@
         <table class="table middle">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Nom Pr&eacute;nom</th>
                 <th scope="col">Seance de cours</th>
                 <th scope="col">Date</th>
                 <th scope="col">Enseignant</th>
@@ -81,24 +79,14 @@
             </thead>
             <tbody>
             <%
-                String msg_e = (String) request.getAttribute("msg_e");
-                if (msg_e != null) {
-                    out.println("<div>" + msg_e + "</div>");
-                }
-                /**
-                 * Affichage de la liste d'appel
-                 */
-                FicheAppelUtile utile = new FicheAppelUtile();
-                List<Object[]> l = (List<Object[]>) request.getAttribute("listeJustificatif");
-                pageContext.setAttribute("activateFlag", Boolean.parseBoolean((String) request.getParameter("activateFlag")));
+                List<Object[]> l = (List<Object[]>) request.getAttribute("listJustifi");
                 pageContext.setAttribute("liste", l);
             %>
             <c:forEach items="${liste}" var="row">
                 <tr>
-                    <th>${row[0]}&nbsp${row[1]}</th>
-                    <td>${row[2]}&nbsp${row[3]}&nbsp${row[4]}</td>
-                    <td>${row[5]}</td>
-                    <td>${row[6]}&nbsp${row[7]}</td>
+                    <td>${row[0]}&nbsp${row[1]}&nbsp${row[2]}</td>
+                    <td>${row[3]}</td>
+                    <td>${row[4]}&nbsp${row[5]}</td>
                     <td>
                     <form method="post"  enctype="multipart/form-data">
                         <input type="file" name="uploadFile" />

@@ -37,6 +37,14 @@
         <url-pattern>/ctrlLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CtrlJustificatif</servlet-name>
+        <url-pattern>/ctrlJustificatif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DepotJustif</servlet-name>
+        <url-pattern>/depotJustif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
@@ -63,6 +71,10 @@
         <servlet-name>FicheAppel</servlet-name>
         <jsp-file>/jsp/FicheAppel.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>DepotJustif</servlet-name>
+        <jsp-file>/jsp/depotJustif.jsp</jsp-file>
+    </servlet>
 
 
     <!--  servlets java  -->
@@ -78,9 +90,13 @@
         <servlet-name>FicheAppelController</servlet-name>
         <servlet-class>ctrl.FicheAppelController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CtrlJustificatif</servlet-name>
+        <servlet-class>ctrl.CtrlJustificatif</servlet-class>
+    </servlet>
 
     <!-- default page -->
     <welcome-file-list>
-        <welcome-file>ficheAppelController</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 </web-app>

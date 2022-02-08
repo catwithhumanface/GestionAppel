@@ -17,14 +17,14 @@ import java.util.List;
 public class JustificatifDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction t = session.beginTransaction();
-
+        public JustificatifDao(){};
 
         public List<String> listDepot(int idE) {
 
             try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 
                 session.beginTransaction();
-                List list1 = session.createQuery("SELECT p.etudiant.nom,p.etudiant.prenom,p.seanceCours.cours.libelles,p.seanceCours.heureDeb,p.seanceCours.heureFin,p.seanceCours.dateSeance,p.seanceCours.enseignant.nom,p.seanceCours.enseignant.prenom " +
+                List list1 = session.createQuery("SELECT p.seanceCours.cours.libelles,p.seanceCours.heureDeb,p.seanceCours.heureFin,p.seanceCours.dateSeance,p.seanceCours.enseignant.nom,p.seanceCours.enseignant.prenom " +
                         "from Etudiant as e,Enseignant as en,SeanceCours as sc,Presence as p" +
                         " where p.etatP='absent' and p.etudiant.idE = idE").list();
 
