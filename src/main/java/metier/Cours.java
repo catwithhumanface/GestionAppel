@@ -67,5 +67,4 @@ public class Cours implements java.io.Serializable {
         // verify the password and id
     }
 
-
 }

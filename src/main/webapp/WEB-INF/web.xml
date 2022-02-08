@@ -21,8 +21,8 @@
         <url-pattern>/listeCours</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListeEtudiants</servlet-name>
-        <url-pattern>/listeEtudiants</url-pattern>
+        <servlet-name>ListeSeanceCours</servlet-name>
+        <url-pattern>/listeSeanceCours</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RecapFichePres</servlet-name>
@@ -49,10 +49,6 @@
         <url-pattern>/index_msg</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CtrlConfirmation</servlet-name>
-        <url-pattern>/ctrlConfirmation</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>FicheAppel</servlet-name>
         <url-pattern>/ficheAppel</url-pattern>
     </servlet-mapping>
@@ -61,12 +57,12 @@
         <url-pattern>/ficheAppelController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>FicheAppel</servlet-name>
-        <url-pattern>/ficheAppel</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CtrlLogin</servlet-name>
         <url-pattern>/ctrlLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlCours</servlet-name>
+        <url-pattern>/ctrlCours</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -87,13 +83,14 @@
         <servlet-name>ListeAlert</servlet-name>
         <jsp-file>/jsp/ListeAlert.jsp</jsp-file>
     </servlet>
+
     <servlet>
         <servlet-name>ListeCours</servlet-name>
         <jsp-file>/jsp/ListeCours.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>ListeEtudiants</servlet-name>
-        <jsp-file>/jsp/ListeEtudiants.jsp</jsp-file>
+        <servlet-name>ListeSeanceCours</servlet-name>
+        <jsp-file>/jsp/ListeSeanceCours.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>RecapFichePres</servlet-name>
@@ -128,12 +125,17 @@
     <!--  servlets java  -->
     <servlet>
         <servlet-name>CtrlLogin</servlet-name>
-        <servlet-class>ctrl.MemberController</servlet-class>
+        <servlet-class>ctrl.UtilisateurController</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>FicheAppelController</servlet-name>
         <servlet-class>ctrl.FicheAppelController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CtrlCours</servlet-name>
+        <servlet-class>ctrl.CoursController</servlet-class>
     </servlet>
 
 

@@ -119,4 +119,5 @@ public class SeanceCours {
     public void setEnseignant(Enseignant enseignant) {
         this.enseignant = enseignant;
     }
+
 }
