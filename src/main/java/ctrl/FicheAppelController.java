@@ -20,10 +20,9 @@ public class FicheAppelController extends HttpServlet {
         String idsc = request.getParameter("seance");
         FicheAppelDao dao = new FicheAppelDao();
 
-        try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
+        try {
 
             String activateFlag = "true";
-            session.beginTransaction();
 
             idsc = "2";
             List dateValide = dao.checkDateValide(Integer.parseInt(idsc));

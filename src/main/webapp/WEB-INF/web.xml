@@ -49,20 +49,12 @@
         <url-pattern>/index_msg</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CtrlConfirmation</servlet-name>
-        <url-pattern>/ctrlConfirmation</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>FicheAppel</servlet-name>
         <url-pattern>/ficheAppel</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FicheAppelController</servlet-name>
         <url-pattern>/ficheAppelController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>FicheAppel</servlet-name>
-        <url-pattern>/ficheAppel</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CtrlLogin</servlet-name>
@@ -128,7 +120,7 @@
     <!--  servlets java  -->
     <servlet>
         <servlet-name>CtrlLogin</servlet-name>
-        <servlet-class>ctrl.MemberController</servlet-class>
+        <servlet-class>ctrl.UtilisateurController</servlet-class>
     </servlet>
 
     <servlet>

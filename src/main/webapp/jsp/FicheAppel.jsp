@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page import="dao.FicheAppelUtile" %>
+<%@page import="dao.FicheAppelService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
@@ -87,7 +87,7 @@
                 /**
                  * Affichage de la liste d'appel
                  */
-                FicheAppelUtile utile = new FicheAppelUtile();
+                FicheAppelService utile = new FicheAppelService();
                 List<Object[]> l = (List<Object[]>) request.getAttribute("listeAppel");
 //                String l1[] = {"21912808", "ZHOU", "Zijing", "present", "File"};
 //                l.add(l1);

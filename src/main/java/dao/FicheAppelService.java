@@ -1,8 +1,8 @@
 package dao;
 
-public class FicheAppelUtile {
+public class FicheAppelService {
 
-    public FicheAppelUtile() {
+    public FicheAppelService() {
     }
 
     /**

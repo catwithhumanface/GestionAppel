@@ -1,21 +1,18 @@
 package dao;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
 
 public class FicheAppelDao {
-    Session session;
-
-    public FicheAppelDao() {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    }
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    Transaction t = session.beginTransaction();
 
     public List checkDateValide(int idsc) {
 
         String activateFlag = "true";
-        session.beginTransaction();
 
         Query query = session.createQuery("select sc.dateValidation " +
                 "from SeanceCours sc " +
