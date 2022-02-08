@@ -1,5 +1,7 @@
 package metier;
 
+import org.hibernate.annotations.Formula;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -40,6 +42,11 @@ public class Utilisateur implements java.io.Serializable {
 
     @Column(name = "Nom")
     private String nom;
+
+    @Column(name="TypeU", insertable = false, updatable = false)
+    protected String typeU;
+
+    public String getTypeU() {return typeU;}
 
     public String getMail() {return mail;}
 

@@ -30,10 +30,12 @@ public class GenererBd {
             session.save(s1);
 
             Cours c = new Cours("Management");
-            Cours c2 = new Cours("Développment web");
+            Cours c2 = new Cours("Developpment web");
+            Cours c3 = new Cours("Accompagnement client");
 
             session.save(c);
             session.save(c2);
+            session.save(c3);
 
             e1.ajouteCours(c);
             e1.ajouteCours(c2);
@@ -43,6 +45,7 @@ public class GenererBd {
             e3.ajouteCours(c);
             e4.ajouteCours(c2);
             e4.ajouteCours(c);
+            e4.ajouteCours(c3);
 
             Enseignant en1 = new Enseignant("nathalie.valles.ut-captitole.fr", "sdd", "nathalie", "valles");
             Enseignant en2 = new Enseignant("ravat.franck.ut-captitole.fr", "123", "franck", "ravat");
@@ -50,16 +53,18 @@ public class GenererBd {
             session.save(en1);
             session.save(en2);
 
-            SeanceCours sc1 = new SeanceCours(c, en1, DF.parse("01-01-2021"), "9h30", "12h");
-            SeanceCours sc3 = new SeanceCours(c, en1, DF.parse("06-01-2021"), "9h30", "12h");
+            SeanceCours sc1 = new SeanceCours(c, en1, DF.parse("01-01-2021"), "9h00", "12h");
+            SeanceCours sc3 = new SeanceCours(c, en1, DF.parse("06-01-2021"), "9h00", "12h");
 
-            SeanceCours sc2 = new SeanceCours(c2, en2, DF.parse("04-01-2021"), "8h30", "12h");
-            SeanceCours sc4 = new SeanceCours(c2, en2, DF.parse("08-01-2021"), "9h30", "12h");
+            SeanceCours sc2 = new SeanceCours(c2, en2, DF.parse("04-01-2021"), "8h00", "12h");
+            SeanceCours sc4 = new SeanceCours(c2, en2, DF.parse("08-01-2021"), "9h00", "12h");
+            SeanceCours sc5 = new SeanceCours(c3, en2, DF.parse("02-02-2021"), "14h00", "16h");
 
             session.save(sc1);
             session.save(sc2);
             session.save(sc3);
             session.save(sc4);
+            session.save(sc5);
             t.commit();
         } catch (ParseException e) {
             e.printStackTrace();
