@@ -446,3 +446,11 @@ iframe {
   transform: translateY(-50%);
   left: 0;
 }
+
+.margin-l35 {
+  margin-left: 35%; !important;
+}
+
+.margin-l30 {
+  margin-left: 30%; !important;
+}

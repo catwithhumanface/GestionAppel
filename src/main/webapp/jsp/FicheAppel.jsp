@@ -91,7 +91,8 @@
                 List<Object[]> l = (List<Object[]>) request.getAttribute("listeAppel");
 //                String l1[] = {"21912808", "ZHOU", "Zijing", "present", "File"};
 //                l.add(l1);
-                pageContext.setAttribute("activateFlag", Boolean.parseBoolean((String) request.getParameter("activateFlag")));
+                pageContext.setAttribute("activateFlag",
+                        Boolean.parseBoolean((String) request.getParameter("activateFlag")));
                 pageContext.setAttribute("liste", l);
             %>
             <c:forEach items="${liste}" var="row">
@@ -120,9 +121,15 @@
         </table>
     </div>
     <div class="w3-container">
-        <div class="w3-col w3-container s4 m4 l4"></div>
-        <div class="w3-col w3-container s2 m4 l4">
-            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge">Button</button>
+        <div class="w3-col w3-container s6 m6 l6">
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" style="margin-left: 35%"
+                    <c:if test="${!activateFlag}">disabled</c:if>>Enregistrer
+            </button>
+        </div>
+        <div class="w3-col w3-container s6 m6 l6">
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" style="margin-left: 40%"
+                    <c:if test="${!activateFlag}">disabled</c:if>>&nbsp&nbspValider&nbsp&nbsp
+            </button>
         </div>
     </div>
 

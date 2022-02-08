@@ -42,26 +42,32 @@
 						Bienvenue !
 					</span>
 				<span class="login100-form-avatar">
-						<img src="resources/images/avatar-01.jpg" alt="AVATAR">
+						<img src="resources/images/logoUt1.png" alt="AVATAR">
 					</span>
-
-				<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+				<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Entrez le type de connexion">
+					<label class="margin-l30">Type de connexion</label>
+					<select class="w3-select margin-l35" name="typeUser">
+						<option value="Etudiant">Etudiant</option>
+						<option value="Enseignant">Enseignant</option>
+						<option value="Scolarite">Scolarité</option>
+					</select>
+				</div>
+				<div class="wrap-input100 validate-input m-b-35" data-validate = "Entrez votre identifiant">
 					<label></label>
 					<input class="input100" type="text" name="username">
-
-					<span class="focus-input100" data-placeholder="Username"></span>
+					<span class="focus-input100" data-placeholder="Identifiant"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+				<div class="wrap-input100 validate-input m-b-50" data-validate="Entrez votre mot de passe">
 					<label></label>
 					<input class="input100" type="password" name="pass">
 
-					<span class="focus-input100" data-placeholder="Password"></span>
+					<span class="focus-input100" data-placeholder="Mot de passe"></span>
 				</div>
 
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn" onclick="login()">
-						Login
+						Se connecter
 					</button>
 				</div>
 
@@ -109,11 +115,11 @@
 	}
 </script>
 <script type="text/javascript">
-	alert('sss');
-	if(${rCode} == <%=dao.MemberSet.NO_ID%>){
+	if(${rCode} == <%=UtilisateurSet.NO_ID%>){
 		alert('Cet identifiant nexiste pas');
+	}else if(${rCode} == <%=UtilisateurSet.NO_PWD%>){
+		alert('Le mot de passe ou le type de connexion est incorrect');
 	}
-
 </script>
 </body>
 </html>
