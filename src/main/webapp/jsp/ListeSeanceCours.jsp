@@ -48,13 +48,15 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>Mes cours</h5>
+        <h5>Mes S&eacute;ances de cours</h5>
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
+        </c:if>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un justificatif</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap des pr&eacute;sence</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes alertes</a>
@@ -71,21 +73,42 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-dashboard"></i> Mes cours</b></h5>
+        <h5><b><i class="fa fa-dashboard"></i>Mes S&eacute;ances de cours</b></h5>
     </header>
 
 
-    <div class="w3-third margin-l5">
-        <c:if test="${!empty CoursList}">
-            <c:forEach items="${CoursList}" var="cours">
-                <a href="cours.do?m=sList&id=${cours.idC}"><h5>${cours.libelles}</h5></a>
+    <div class="w3-container">
+        <c:if test="${!empty SeanceCoursList}">
+            <table class="table middle">
+                <thead class="thead-dark">
+                <tr class="bg-light-gray">
+                    <th scope="col">Nom du cours</th>
+                    <th scope="col">Date Seance</th>
+                    <th scope="col">Heure Debut</th>
+                    <th scope="col">Heure Fin</th>
+                    <th scope="col">Date Validation</th>
+                    <th scope="col">Consultation</th>
+                </tr>
+                </thead>
+                <tbody>
+            <c:forEach items="${SeanceCoursList}" var="seanceCours">
+                    <tr>
+                        <td>${seanceCours.cours.libelles}</td>
+                        <td>${seanceCours.dateSeance}</td>
+                        <td>${seanceCours.heureDeb}</td>
+                        <td>${seanceCours.heureFin}</td>
+                        <td>${seanceCours.dateValidation}</td>
+                        <td><a href="ficheAppelController?m=show&seance=${seanceCours.idSC}">Consulter la fiche d'appel</a></td>
+                    </tr>
             </c:forEach>
+                </tbody>
+            </table>
         </c:if>
     </div>
     <div class="w3-row-padding w3-margin-bottom">
 
     </div>
-    </div>
+</div>
 
 
 

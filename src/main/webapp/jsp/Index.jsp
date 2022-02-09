@@ -119,6 +119,8 @@
 		alert('Cet identifiant nexiste pas');
 	}else if(${rCode} == <%=UtilisateurSet.NO_PWD%>){
 		alert('Le mot de passe ou le type de connexion est incorrect');
+	}else if(${rCode} == <%=UtilisateurSet.NO_CONNEXION%>){
+		alert('Votre session est échouée.');
 	}
 </script>
 </body>

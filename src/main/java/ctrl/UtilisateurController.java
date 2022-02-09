@@ -56,10 +56,13 @@ public class UtilisateurController extends HttpServlet {
             Utilisateur utilisateur = service.getUtilisateur(username, pass, type);
             HttpSession session = request.getSession();
             session.setAttribute("Utilisateur", utilisateur);
-            view = "home";
-        }
+            view = "homeController";
+            response.sendRedirect("homeController");
+            System.out.println("HERRRRRRRRRRRRRRRRRRR");
+        }else {
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
+        System.out.println("HERRRRRRRRRRRRRRRRRRR----------------------------------");}
     }
 
 }

@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page import="dao.FicheAppelUtile" %>
+<%@page import="dao.FicheAppelService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
@@ -87,7 +87,7 @@
                 /**
                  * Affichage de la liste d'appel
                  */
-                FicheAppelUtile utile = new FicheAppelUtile();
+                //FicheAppelService utile = FicheAppelService.getInstance()   ;
                 List<Object[]> l = (List<Object[]>) request.getAttribute("listeAppel");
 //                String l1[] = {"21912808", "ZHOU", "Zijing", "present", "File"};
 //                l.add(l1);
@@ -95,12 +95,12 @@
                         Boolean.parseBoolean((String) request.getParameter("activateFlag")));
                 pageContext.setAttribute("liste", l);
             %>
-            <c:forEach items="${liste}" var="row">
+            <c:forEach items="${listeAppel}" var="row">
                 <tr>
                     <th>${row[0]}</th>
                     <td>${row[1]}&nbsp${row[2]}</td>
                     <td>
-                        <select id="${row[0]}" class='w3-select'
+                        <select id="${row[0]}" class='w3-select' name="etatP[]"
                                 <c:if test="${!activateFlag}">disabled</c:if> >
                             <option value="Present"
                                     <c:if test="${row[3]=='Present'}">selected</c:if> >Present
@@ -122,12 +122,12 @@
     </div>
     <div class="w3-container">
         <div class="w3-col w3-container s6 m6 l6">
-            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" style="margin-left: 35%"
-                    <c:if test="${!activateFlag}">disabled</c:if>>Enregistrer
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" onclick="saveFiche()"
+                    style="margin-left: 35%"<c:if test="${!activateFlag}">disabled</c:if>> Enregistrer
             </button>
         </div>
         <div class="w3-col w3-container s6 m6 l6">
-            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" style="margin-left: 40%"
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" onclick="validateFiche()" style="margin-left: 40%"
                     <c:if test="${!activateFlag}">disabled</c:if>>&nbsp&nbspValider&nbsp&nbsp
             </button>
         </div>
@@ -192,16 +192,42 @@
         overlayBg.style.display = "none";
     }
 </script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script>
+    function saveFiche() {
+        console.log("save execute");
+        var result = "";
+        var idSc = ${idSc};
 
+        $('select[name="etatP[]"]').each(function(){
+            let id = this.id;
+            let value = this.value;
+            result = result +  "/" + id + "!" + value;
+            console.log(result);
+        });
+        window.location.href = "ficheAppelController?m=save&idSc="+idSc+"&result="+result;
+    }
+
+    function validateFiche(){
+        console.log("validate execute");
+        var result = "";
+        var idSc = ${idSc};
+
+        $('select[name="etatP[]"]').each(function(){
+            let id = this.id;
+            let value = this.value;
+            result = result +  "/" + id + "!" + value;
+            console.log(result);
+        });
+        window.location.href = "ficheAppelController?m=validate&idSc="+idSc+"&result="+result;
+    }
+</script>
 </body>
 </html>
 
