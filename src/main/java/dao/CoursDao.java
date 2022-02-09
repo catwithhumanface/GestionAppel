@@ -47,7 +47,7 @@ public class CoursDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction t = session.beginTransaction();
         SQLQuery sqlQuery;
-        sqlQuery = session.createSQLQuery("Select * from seancecours where Ide =:ide").addEntity(SeanceCours.class);
+        sqlQuery = session.createSQLQuery("Select * from SeanceCours where Ide =:ide").addEntity(SeanceCours.class);
 
         sqlQuery.setParameter("ide", ide);
         ArrayList<SeanceCours> seanceCoursList = (ArrayList<SeanceCours>) sqlQuery.getResultList();
