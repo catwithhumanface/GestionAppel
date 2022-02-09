@@ -1,10 +1,20 @@
 package dao;
 
-public class FicheAppelService {
+import metier.Presence;
+import metier.Utilisateur;
 
-    public FicheAppelService() {
+import java.util.List;
+
+public class FicheAppelService {
+    private FicheAppelDao dao;
+    private static final FicheAppelService instance = new FicheAppelService();
+    private FicheAppelService(){
+        dao = new FicheAppelDao();
     }
 
+    public static FicheAppelService getInstance(){
+        return instance;
+    }
     /**
      * Génération de la liste déroulante à partir de l'état de présence
      *
@@ -56,5 +66,18 @@ public class FicheAppelService {
         }
 
         return tdSelect;
+    }
+
+    public List<Presence> getAppel(int idSc){
+         List<Presence> list = dao.getAppel(idSc);
+         return list;
+    }
+
+    public void updateAppel(Presence p, int id, String value){
+        dao.updateAppel(p, id, value);
+    }
+
+    public void validateAppel(Presence p, int id, String value){
+        dao.validateAppel(p, id, value);
     }
 }
