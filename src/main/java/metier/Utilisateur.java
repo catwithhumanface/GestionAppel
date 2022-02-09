@@ -13,6 +13,19 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "TypeU", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("utilisateur")
 public class Utilisateur implements java.io.Serializable {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Utilisateur that = (Utilisateur) o;
+        return idE == that.idE;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idE);
+    }
+
     /**
      * Propriétés.
      */

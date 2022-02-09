@@ -18,14 +18,14 @@ import java.util.List;
 
 @WebServlet(name = "CtrlJustificatif", value = "/ctrlJustificatif")
 public class CtrlJustificatif extends HttpServlet {
-    protected void service(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         Utilisateur U1= (Utilisateur)session.getAttribute("Utilisateur");
         int idE = U1.getIdE();
-        JustificatifService jS = new JustificatifService();
-        List<String> listJ = jS.afficher(idE);
-
+        JustificatifService jS = JustificatifService.getInstance();
+        List listJ = jS.afficher(idE);
         request.setAttribute("listJustifi", listJ);
         request.getRequestDispatcher("depotJustif").forward(request, response);
     }

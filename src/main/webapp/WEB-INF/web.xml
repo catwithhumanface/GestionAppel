@@ -45,9 +45,19 @@
         <url-pattern>/depotJustif</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Result</servlet-name>
+        <url-pattern>/result</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlUpload</servlet-name>
+        <url-pattern>/ctrlupload</url-pattern>
+    </servlet-mapping>
+
+
 
 
     <!--  servlets jsp  -->
@@ -73,18 +83,28 @@
     </servlet>
     <servlet>
         <servlet-name>DepotJustif</servlet-name>
-        <jsp-file>/jsp/depotJustif.jsp</jsp-file>
+        <jsp-file>/jsp/DepotJustif.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Result</servlet-name>
+        <jsp-file>/jsp/Result.jsp</jsp-file>
     </servlet>
 
 
+
     <!--  servlets java  -->
+
+    <servlet>
+        <servlet-name>CtrlUpload</servlet-name>
+        <servlet-class>ctrl.CtrlUpload</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>CtrlConfirmation</servlet-name>
         <servlet-class>ctrl.CtrlLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CtrlLogin</servlet-name>
-        <servlet-class>ctrl.MemberController</servlet-class>
+        <servlet-class>ctrl.UtilisateurController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FicheAppelController</servlet-name>

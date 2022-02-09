@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
@@ -75,6 +74,7 @@
                 <th scope="col">Date</th>
                 <th scope="col">Enseignant</th>
                 <th scope="col">Justificatif</th>
+                <th scope="col">Upload</th>
             </tr>
             </thead>
             <tbody>
@@ -83,29 +83,29 @@
                 pageContext.setAttribute("liste", l);
             %>
             <c:forEach items="${liste}" var="row">
+            <form method="post" action = "ctrlUpload"  enctype="multipart/form-data">
                 <tr>
-                    <td>${row[0]}&nbsp${row[1]}&nbsp${row[2]}</td>
+                    <td>${row[0]}&nbsp:&nbsp${row[1]}&nbsp-&nbsp${row[2]}</td>
                     <td>${row[3]}</td>
                     <td>${row[4]}&nbsp${row[5]}</td>
-                    <td>
-                    <form method="post"  enctype="multipart/form-data">
-                        <input type="file" name="uploadFile" />
-                    </form>
-                    </td>
-                </tr>
-            </c:forEach>
 
+                    <td>
+                        <input type="file" id=${row[7]} name="ctrlTest">
+                        <input type = "hidden" name = "idE" value=${row[7]}>
+                        <input type = "hidden" name ="idSC" value=${row[8]}>
+                    </td>
+                    <td> <button type = "submit">Upload</button></td>
+                </tr>
+                <form/>
+            </c:forEach>
             </tbody>
         </table>
     </div>
     <div class="w3-container">
         <div class="w3-col w3-container s4 m4 l4"></div>
         <div class="w3-col w3-container s2 m4 l4">
-            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge">Button</button>
         </div>
     </div>
-
-
     <br>
     <div class="w3-container w3-dark-grey w3-padding-32">
         <div class="w3-row">
@@ -141,6 +141,10 @@
 </div>
 
 <script>
+
+</script>
+
+<script>
     // Get the Sidebar
     var mySidebar = document.getElementById("mySidebar");
 
@@ -173,7 +177,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
 </body>
 </html>
 
