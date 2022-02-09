@@ -66,7 +66,7 @@ public class FicheAppelController extends HttpServlet {
         int indexI;
         int indexV;
         HashMap<Integer, String> map = new HashMap<>();
-
+  
         for(int i=0; i<totalCharacters; i++) {
             indexI = result.indexOf("/");
             indexV = result.indexOf("!");

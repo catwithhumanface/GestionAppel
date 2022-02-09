@@ -110,13 +110,13 @@
                             <td class="align-middle">09:00am</td>
                             <td rowspan="3">
                                 <span class="w3-button w3-aqua cours" id="7">Management</span>
-                                <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
+                                <div class="margin-10px-top font-size14">9:00-12:00</div>
+                                <div class="font-size13 text-light-gray"><%=user.getPrenom()%></div>
                             </td>
                             <td>
                                 <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
                                 <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                <div class="font-size13 text-light-gray">Marta Healy</div>
+                                <div class="font-size13 text-light-gray"><%=user.getPrenom()%></div>
                             </td>
 
                             <td>
