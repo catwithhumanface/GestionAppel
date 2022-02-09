@@ -98,7 +98,7 @@
                         <td>${seanceCours.heureDeb}</td>
                         <td>${seanceCours.heureFin}</td>
                         <td>${seanceCours.dateValidation}</td>
-                        <td><a href="ficheAppelController?seance=${seanceCours.idSC}">Consulter la fiche d'appel</a></td>
+                        <td><a href="ficheAppelController?m=show&seance=${seanceCours.idSC}">Consulter la fiche d'appel</a></td>
                     </tr>
             </c:forEach>
                 </tbody>
