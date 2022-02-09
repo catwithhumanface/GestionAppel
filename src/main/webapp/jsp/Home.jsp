@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" import="dao.*" pageEncoding="utf-8" %>
 <%@ page import="metier.Utilisateur" %>
+<%@ page import="java.util.List" %>
+<%@ page import="metier.SeanceCours" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -11,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script type="text/javascript" src="resources/js/fctHome.js"></script>
+
 
 <style>
     html, body, h1, h2, h3, h4, h5 {
@@ -52,13 +54,16 @@
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-    <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
-        <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter
+                mes cours</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
 
-    </c:if>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un justificatif</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap des pr&eacute;sence</a>
+        </c:if>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un
+            justificatif</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+            des pr&eacute;sence</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes alertes</a>
     </div>
 </nav>
@@ -77,13 +82,11 @@
     </header>
     <div style="margin-left: 38%">
         <a id="arrLeft" class="w3-button w3-circle w3-ripple w3-black fa fa-arrow-left"></a>
-        <span id="semaine">
-            <script>
-                const chargeDate = getLastMonday();
-                document.write("semaine" + " " + chargeDate.getDate()
-                    + "-" + (chargeDate.getMonth() + 1)
-                    + "-" + chargeDate.getFullYear());
-            </script></span>
+        <%
+            String date = (String)request.getAttribute("lundi");
+            pageContext.setAttribute("date", date);
+        %>
+        <span id="semaine" >${date}</span>
         <a id="arrRight" class="w3-button w3-circle w3-ripple w3-black fa fa-arrow-right"></a>
     </div>
 
@@ -106,61 +109,68 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <%
+                            List<SeanceCours> edt = (List<SeanceCours>) request.getAttribute("edt");
+                            pageContext.setAttribute("edt", edt);
+                            if (edt == null) {
+                                boolean ifCours = false;
+                            }
+                        %>
                         <tr>
                             <td class="align-middle">09:00am</td>
-                            <td rowspan="3">
-                                <span class="w3-button w3-aqua cours" id="7">Management</span>
-                                <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
+                            <td id="lundi9" rowspan="3">
+                                <c:if test="${edt.get(0)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(0).idSC}">${edt.get(0).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
                             </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                                <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                <div class="font-size13 text-light-gray">Marta Healy</div>
+                            <td id="mardi9" rowspan="3">
+                                <c:if test="${edt.get(2)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(2).idSC}">${edt.get(2).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
                             </td>
 
-                            <td>
-                                <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
+                            <td id="mercredi9" rowspan="3">
+                                <c:if test="${edt.get(4)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(4).idSC}">${edt.get(4).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
                             </td>
-                            <td>
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                                <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
+                            <td id="jeudi9" rowspan="3">
+                                <c:if test="${edt.get(6)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(6).idSC}">${edt.get(6).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
+
                             </td>
-                            <td>
-                                <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                                <div class="margin-10px-top font-size14">9:00-10:00</div>
-                                <div class="font-size13 text-light-gray">Kate Alley</div>
+                            <td id="vendredi9" rowspan="3">
+                                <c:if test="${edt.get(8)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(8).idSC}">${edt.get(8).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
+
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="align-middle">10:00am</td>
-                            <%--                            <td>--%>
-                            <%--                                <span class="w3-button w3-aqua">Management</span>--%>
-                            <%--                                <div class="margin-10px-top font-size14">10:00-11:00</div>--%>
-                            <%--                                <div class="font-size13 text-light-gray">Ivana Wong</div>--%>
-                            <%--                            </td>--%>
-                            <td class="bg-light-gray">
+                            <td class="align-middle">10:00am
 
-                            </td>
-                            <td>
-                                <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                                <div class="margin-10px-top font-size14">10:00-11:00</div>
-                                <div class="font-size13 text-light-gray">Kate Alley</div>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                                <div class="margin-10px-top font-size14">10:00-11:00</div>
-                                <div class="font-size13 text-light-gray">Marta Healy</div>
-                            </td>
-                            <td>
-                                <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                                <div class="margin-10px-top font-size14">10:00-11:00</div>
-                                <div class="font-size13 text-light-gray">James Smith</div>
-                            </td>
                         </tr>
 
                         <tr>
@@ -169,22 +179,7 @@
                             <%--                                <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Management</span>--%>
                             <%--                                <div class="margin-10px-top font-size14">11:00-12:00</div>--%>
                             <%--                            </td>--%>
-                            <td>
-                                <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                <div class="margin-10px-top font-size14">11:00-12:00</div>
-                            </td>
-                            <td>
-                                <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                <div class="margin-10px-top font-size14">11:00-12:00</div>
-                            </td>
-                            <td>
-                                <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                <div class="margin-10px-top font-size14">11:00-12:00</div>
-                            </td>
-                            <td>
-                                <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                                <div class="margin-10px-top font-size14">11:00-12:00</div>
-                            </td>
+
                         </tr>
 
                         <tr>
@@ -193,19 +188,13 @@
 
                             </td>
                             <td>
-                                <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                                <div class="margin-10px-top font-size14">12:00-1:00</div>
-                                <div class="font-size13 text-light-gray">Kate Alley</div>
+
                             </td>
                             <td>
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                                <div class="margin-10px-top font-size14">12:00-1:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
+
                             </td>
                             <td>
-                                <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                <div class="margin-10px-top font-size14">12:00-1:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
+
                             </td>
                             <td class="bg-light-gray">
 
@@ -214,42 +203,60 @@
 
                         <tr>
                             <td class="align-middle">01:00pm</td>
-                            <td rowspan="2">
-                                <span class="w3-button w3-pink cours" id="8">Developpement Web</span>
-                                <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                <div class="font-size13 text-light-gray">James Smith</div>
-                            </td>
-                            <td>
-                                <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
-                            </td>
-                            <td class="bg-light-gray">
+                            <td id="lundi13" rowspan="2">
+                                <c:if test="${edt.get(1)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(1).idSC}">${edt.get(1).getCours().getLibelles()}</span>
 
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
                             </td>
-                            <td>
-                                <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                                <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                <div class="font-size13 text-light-gray">James Smith</div>
+                            <td id="mardi13" rowspan="2">
+                                <c:if test="${edt.get(3)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(3).idSC}">${edt.get(3).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
                             </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                                <div class="margin-10px-top font-size14">1:00-2:00</div>
-                                <div class="font-size13 text-light-gray">Marta Healy</div>
+                            <td id="mercredi13" class="bg-light-gray" rowspan="2">
+                                <c:if test="${edt.get(5)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(5).idSC}">${edt.get(5).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
+                            </td>
+                            <td id="jeudi13" rowspan="2">
+                                <c:if test="${edt.get(7)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(7).idSC}">${edt.get(7).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
+                            </td>
+                            <td id="vendredi13" rowspan="2">
+                                <c:if test="${edt.get(9)!=null}">
+                                    <span class="w3-button w3-aqua cours"
+                                          id="${edt.get(9).idSC}">${edt.get(9).getCours().getLibelles()}</span>
+
+                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    </div>
+                                </c:if>
                             </td>
                         </tr>
 
                         <tr>
                             <td class="align-middle">02:00pm</td>
                             <td>
-                                <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                                <div class="margin-10px-top font-size14">2:00-3:00</div>
-                                <div class="font-size13 text-light-gray">James Smith</div>
+
                             </td>
                             <td>
-                                <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                                <div class="margin-10px-top font-size14">2:00-3:00</div>
-                                <div class="font-size13 text-light-gray">Ivana Wong</div>
+
                             </td>
 
                         </tr>
@@ -292,6 +299,7 @@
         overlayBg.style.display = "none";
     }
 </script>
+<script type="text/javascript" src="resources/js/fctHome.js"></script>
 
 
 </body>

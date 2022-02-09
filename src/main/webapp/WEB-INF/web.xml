@@ -9,6 +9,10 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CtrlHome</servlet-name>
+        <url-pattern>/homeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DepotJustif</servlet-name>
         <url-pattern>/depotJustif</url-pattern>
     </servlet-mapping>
@@ -123,6 +127,10 @@
 
 
     <!--  servlets java  -->
+    <servlet>
+        <servlet-name>CtrlHome</servlet-name>
+        <servlet-class>ctrl.HomeController</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>CtrlLogin</servlet-name>
         <servlet-class>ctrl.UtilisateurController</servlet-class>

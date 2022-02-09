@@ -26,7 +26,7 @@ public class CoursDao {
     }
 
     public ArrayList<SeanceCours> getSeanceCoursList(int idCours) {
-        sqlQuery = session.createSQLQuery("Select * from seancecours where IdC =:idc").addEntity(SeanceCours.class);
+        sqlQuery = session.createSQLQuery("Select * from SeanceCours where IdC =:idc").addEntity(SeanceCours.class);
 
         sqlQuery.setParameter("idc", idCours);
         ArrayList<SeanceCours> seanceCoursList = (ArrayList<SeanceCours>) sqlQuery.getResultList();
@@ -38,7 +38,7 @@ public class CoursDao {
         }
     }
     public Set<Cours> getCoursList(int ide) {
-        sqlQuery = session.createSQLQuery("Select * from seancecours where Ide =:ide").addEntity(SeanceCours.class);
+        sqlQuery = session.createSQLQuery("Select * from SeanceCours where Ide =:ide").addEntity(SeanceCours.class);
         sqlQuery.setParameter("ide", ide);
         ArrayList<SeanceCours> seanceCoursList = (ArrayList<SeanceCours>) sqlQuery.getResultList();
         HashSet<Cours> coursList = new HashSet<>();
