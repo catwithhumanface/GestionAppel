@@ -36,13 +36,8 @@
         <servlet-name>StatEtudiants</servlet-name>
         <url-pattern>/statEtudiants</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MonProfil</servlet-name>
-        <url-pattern>/monProfil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListeEtudiant</servlet-name>
@@ -65,6 +60,16 @@
         <url-pattern>/ctrlLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CtrlJustificatif</servlet-name>
+        <url-pattern>/ctrlJustificatif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DepotJustif</servlet-name>
+        <url-pattern>/depotJustif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Result</servlet-name>
+        <url-pattern>/result</url-pattern>
         <servlet-name>CtrlCours</servlet-name>
         <url-pattern>/ctrlCours</url-pattern>
     </servlet-mapping>
@@ -72,6 +77,12 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlUpload</servlet-name>
+        <url-pattern>/ctrlupload</url-pattern>
+    </servlet-mapping>
+
+
 
 
     <!--  servlets jsp  -->
@@ -109,10 +120,6 @@
         <jsp-file>/jsp/Index.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>MonProfil</servlet-name>
-        <jsp-file>/jsp/MonProfil.jsp</jsp-file>
-    </servlet>
-    <servlet>
         <servlet-name>ListeEtudiant</servlet-name>
         <jsp-file>/jsp/ListeEtudiant.jsp</jsp-file>
     </servlet>
@@ -124,9 +131,27 @@
         <servlet-name>FicheAppel</servlet-name>
         <jsp-file>/jsp/FicheAppel.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>DepotJustif</servlet-name>
+        <jsp-file>/jsp/DepotJustif.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Result</servlet-name>
+        <jsp-file>/jsp/Result.jsp</jsp-file>
+    </servlet>
+
 
 
     <!--  servlets java  -->
+
+    <servlet>
+        <servlet-name>CtrlUpload</servlet-name>
+        <servlet-class>ctrl.CtrlUpload</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CtrlConfirmation</servlet-name>
+        <servlet-class>ctrl.CtrlLogin</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>CtrlHome</servlet-name>
         <servlet-class>ctrl.HomeController</servlet-class>
@@ -135,16 +160,21 @@
         <servlet-name>CtrlLogin</servlet-name>
         <servlet-class>ctrl.UtilisateurController</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>FicheAppelController</servlet-name>
         <servlet-class>ctrl.FicheAppelController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CtrlJustificatif</servlet-name>
+        <servlet-class>ctrl.CtrlJustificatif</servlet-class>
+    </servlet>
+
 
     <servlet>
         <servlet-name>CtrlCours</servlet-name>
         <servlet-class>ctrl.CoursController</servlet-class>
     </servlet>
+
 
 
     <!-- default page -->

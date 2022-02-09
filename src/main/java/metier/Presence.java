@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * Entité Presence.
  */
-@Entity
+@Entity(name="Presence")
 public class Presence implements java.io.Serializable{
     /**
      * Propriétés.
