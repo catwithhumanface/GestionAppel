@@ -8,7 +8,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_21912808</property>
     <property name="hibernate.connection.username">21912808</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password">U01W44</property>
 
     <!-- Parseur HQL -->
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
