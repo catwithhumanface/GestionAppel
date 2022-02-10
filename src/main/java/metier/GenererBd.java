@@ -52,20 +52,20 @@ public class GenererBd {
             session.save(en1);
             session.save(en2);
 
-            SeanceCours sc1 = new SeanceCours(c, en1, DF.parse("01-01-2021"), "9h00", "12h");
-            SeanceCours sc2 = new SeanceCours(c2, en2, DF.parse("04-01-2021"), "8h00", "12h");
-            SeanceCours sc3 = new SeanceCours(c, en1, DF.parse("06-01-2021"), "9h00", "12h");
-            SeanceCours sc4 = new SeanceCours(c2, en2, DF.parse("08-01-2021"), "9h00", "12h");
-            SeanceCours sc5 = new SeanceCours(c3, en2, DF.parse("02-02-2021"), "14h00", "16h");
-            SeanceCours sc6 = new SeanceCours(c,en2, DF.parse("07-02-2022"),"9h00","12H");
-            SeanceCours sc8 = new SeanceCours(c2,en2, DF.parse("07-02-2022"),"14h00","17H00");
-            SeanceCours sc9 = new SeanceCours(c3,en2, DF.parse("08-02-2022"),"9h00","12H00");
-            SeanceCours sc10 = new SeanceCours(c,en2, DF.parse("08-02-2022"),"14h00","17H00");
-            SeanceCours sc11 = new SeanceCours(c2,en2, DF.parse("09-02-2022"),"9h00","12H00");
-            SeanceCours sc12 = new SeanceCours(c,en2, DF.parse("09-02-2022"),"14h00","17H00");
-            SeanceCours sc13 = new SeanceCours(c3,en1, DF.parse("10-02-2022"),"09h00","12H00");
-            SeanceCours sc14 = new SeanceCours(c2,en1, DF.parse("10-02-2022"),"14h00","17H00");
-            SeanceCours sc15 = new SeanceCours(c2,en1, DF.parse("11-02-2022"),"09h00","12H00");
+            SeanceCours sc1 = new SeanceCours(c, en1, DF.parse("01-01-2021"), "9", "12");
+            SeanceCours sc2 = new SeanceCours(c2, en2, DF.parse("04-01-2021"), "9", "12");
+            SeanceCours sc3 = new SeanceCours(c, en1, DF.parse("06-01-2021"), "9", "12");
+            SeanceCours sc4 = new SeanceCours(c2, en2, DF.parse("08-01-2021"), "9", "12");
+            SeanceCours sc5 = new SeanceCours(c3, en2, DF.parse("02-02-2021"), "13", "15");
+            SeanceCours sc6 = new SeanceCours(c,en2, DF.parse("07-02-2022"),"9","12");
+            SeanceCours sc8 = new SeanceCours(c2,en2, DF.parse("07-02-2022"),"13","15");
+            SeanceCours sc9 = new SeanceCours(c3,en2, DF.parse("08-02-2022"),"9","12");
+            SeanceCours sc10 = new SeanceCours(c,en2, DF.parse("08-02-2022"),"13","15");
+            SeanceCours sc11 = new SeanceCours(c2,en2, DF.parse("09-02-2022"),"9","12");
+            SeanceCours sc12 = new SeanceCours(c,en2, DF.parse("09-02-2022"),"13","15");
+            SeanceCours sc13 = new SeanceCours(c3,en1, DF.parse("10-02-2022"),"09","12");
+            SeanceCours sc14 = new SeanceCours(c2,en1, DF.parse("10-02-2022"),"13","15");
+            SeanceCours sc15 = new SeanceCours(c2,en1, DF.parse("11-02-2022"),"09","12");
 
             session.save(sc1);
             session.save(sc2);
@@ -83,10 +83,12 @@ public class GenererBd {
             session.save(sc15);
 
             t.commit();
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
+
     public static void createLesPresence(){
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
@@ -185,11 +187,9 @@ public class GenererBd {
             t.commit();
         }
     }
+
     public static void main(String[] args){
-      createLesCours();
-      createLesPresence();
+        createLesCours();
+        createLesPresence();
     }
 }
-
-
-
