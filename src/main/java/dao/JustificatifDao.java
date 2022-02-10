@@ -5,6 +5,8 @@ import metier.Presence;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -35,6 +37,13 @@ public class JustificatifDao {
             presence.setUrl(path);
             presence.setEtatValider("false");
             session.update(presence);
+            // envoyer l'alerte par mail
+            SimpleDateFormat DF = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = new Date();
+            String dateStr = DF.format(date);
+            Mail.sendMailDepotJustifi(presence.getEtudiant().getPrenom(), presence.getEtudiant().getNom(),
+                    presence.getEtudiant().getMail(), presence.getSeanceCours().getCours().getLibelles(), DF.format(presence.getSeanceCours().getDateSeance()));
+
             t.commit();
         }
         public Set<Presence> toValider(){
