@@ -96,6 +96,10 @@
         <servlet-name>ValiderJustifica</servlet-name>
         <url-pattern>/validerJustifica</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListeAbsences</servlet-name>
+        <url-pattern>/listeAbsences</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -154,7 +158,10 @@
         <servlet-name>ValiderJustifica</servlet-name>
         <jsp-file>/jsp/ValiderJustifica.jsp</jsp-file>
     </servlet>
-
+    <servlet>
+        <servlet-name>ListeAbsences</servlet-name>
+        <jsp-file>/jsp/ListeAbsences.jsp</jsp-file>
+    </servlet>
 
 
 

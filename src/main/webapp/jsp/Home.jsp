@@ -71,7 +71,9 @@
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
                 des pr&eacute;sence</a>
         </c:if>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>&nbsp Consulter mes alertes</a>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+        <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes absences</a>
+        </c:if>
     </div>
 </nav>
 
