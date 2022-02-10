@@ -132,7 +132,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(0).idSC}">${edt.get(0).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(0).enseignant.nom} ${edt.get(0).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>
@@ -141,7 +141,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(2).idSC}">${edt.get(2).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(2).enseignant.nom} ${edt.get(2).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>
@@ -151,7 +151,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(4).idSC}">${edt.get(4).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(4).enseignant.nom} ${edt.get(4).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>
@@ -160,7 +160,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(6).idSC}">${edt.get(6).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(6).enseignant.nom} ${edt.get(6).enseignant.prenom}
                                     </div>
                                 </c:if>
 
@@ -170,7 +170,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(8).idSC}">${edt.get(8).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(8).enseignant.nom} ${edt.get(8).enseignant.prenom}
                                     </div>
                                 </c:if>
 
@@ -217,7 +217,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(1).idSC}">${edt.get(1).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(1).enseignant.nom} ${edt.get(1).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>
@@ -226,7 +226,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(3).idSC}">${edt.get(3).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(3).enseignant.nom} ${edt.get(3).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>
@@ -235,7 +235,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(5).idSC}">${edt.get(5).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(5).enseignant.nom} ${edt.get(5).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>
@@ -244,7 +244,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(7).idSC}">${edt.get(7).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(7).enseignant.nom} ${edt.get(7).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>
@@ -253,7 +253,7 @@
                                     <span class="w3-button w3-aqua cours"
                                           id="${edt.get(9).idSC}">${edt.get(9).getCours().getLibelles()}</span>
 
-                                    <div class="font-size13"><%=user.getPrenom()%>
+                                    <div class="font-size13">${edt.get(9).enseignant.nom} ${edt.get(9).enseignant.prenom}
                                     </div>
                                 </c:if>
                             </td>

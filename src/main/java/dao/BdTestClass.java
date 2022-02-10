@@ -7,10 +7,7 @@ import org.hibernate.Transaction;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class BdTestClass {
     /*----- Format de date -----*/
@@ -113,8 +110,28 @@ public class BdTestClass {
 //        createLesCours();
 //        createSeance();
 //        createpresence();
-        try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
-
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Utilisateur utilisateur = session.get(Etudiant.class, 3);
+        session.close();
+        List<SeanceCours> seanceFlag = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            seanceFlag.add(null);
+        }
+        String jourSemaine = "2022-02-07";
+        HomeService homeService = new HomeService();
+        List<List<SeanceCours>> edt = homeService.getEdt(jourSemaine, utilisateur, utilisateur.getTypeU());
+        for (int i = 0; i < edt.size(); i++) {
+            for (int j = 0; j < edt.get(i).size(); j++) {
+                SeanceCours sc = edt.get(i).get(j);
+                System.out.println(sc.getCours().getLibelles());
+                if (sc.getHeureDeb().equals("9")) {
+                    seanceFlag.set(i * 2, sc);
+                } else if (sc.getHeureDeb().equals("13")) {
+                    seanceFlag.set(i * 2 + 1, sc);
+                }
+            }
+        }
 //            session.beginTransaction();
 //
 //            List listeAppel = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
@@ -130,6 +147,6 @@ public class BdTestClass {
 //            System.out.println(listeAppel3);
 //            System.out.println(listeAppel3.get(0));
 
-        }
+
     }
 }

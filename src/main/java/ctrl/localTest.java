@@ -27,20 +27,8 @@ public class localTest {
     private String urlJ;
 
 
-
-
-
-
     public static void main(String[] args) throws IOException {
-        FicheAppelDao fad = new FicheAppelDao();
-//        List presences = fad.getListeAppel(2);
-        FicheAppelService service = FicheAppelService.getInstance();
-        List<Presence> presences = service.getAppel(2);
 
-
-        PdfService pdf = new PdfService(presences);
-
-        pdf.composePDF();
 
     }
 }

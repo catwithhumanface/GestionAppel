@@ -46,8 +46,8 @@ public class GenererBd {
             e4.ajouteCours(c);
             e4.ajouteCours(c3);
 
-            Enseignant en1 = new Enseignant("nathalie.valles.ut-captitole.fr", "sdd", "nathalie", "valles");
-            Enseignant en2 = new Enseignant("ravat.franck.ut-captitole.fr", "123", "franck", "ravat");
+            Enseignant en1 = new Enseignant("nathalie.valles@ut-captitole.fr", "sdd", "nathalie", "valles");
+            Enseignant en2 = new Enseignant("ravat.franck@ut-captitole.fr", "123", "franck", "ravat");
 
             session.save(en1);
             session.save(en2);
