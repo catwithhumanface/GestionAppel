@@ -84,6 +84,14 @@
         <servlet-name>CtrlConfirmation</servlet-name>
         <url-pattern>/ctrlConfirmation</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlValiderJ</servlet-name>
+        <url-pattern>/ctrlValiderJ</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValiderJustifica</servlet-name>
+        <url-pattern>/validerJustifica</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -138,6 +146,10 @@
         <servlet-name>Result</servlet-name>
         <jsp-file>/jsp/Result.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>ValiderJustifica</servlet-name>
+        <jsp-file>/jsp/ValiderJustifica.jsp</jsp-file>
+    </servlet>
 
 
 
@@ -172,6 +184,10 @@
     <servlet>
         <servlet-name>CtrlCours</servlet-name>
         <servlet-class>ctrl.CoursController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CtrlValiderJ</servlet-name>
+        <servlet-class>ctrl.CtrlValiderJ</servlet-class>
     </servlet>
 
 
