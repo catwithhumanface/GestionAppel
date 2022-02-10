@@ -7,12 +7,15 @@ import org.hibernate.Transaction;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class BdTestClass {
     /*----- Format de date -----*/
-    private static final SimpleDateFormat DF = new SimpleDateFormat("dd-MM-yyyy");
+//    private static final SimpleDateFormat DF = new SimpleDateFormat("dd-MM-yyyy");
+    private static final SimpleDateFormat DF = new SimpleDateFormat("yyyy-MM-dd");
 
     public static void createEtudiant() {
         try (Session s1 = HibernateUtil.getSessionFactory().getCurrentSession()) {
@@ -100,7 +103,7 @@ public class BdTestClass {
             for (Object obj : tab_obj)
                 System.out.print(obj + " ");
 
-            System.out.println("");
+            System.out.println();
         }
     }
 
@@ -112,21 +115,21 @@ public class BdTestClass {
 //        createpresence();
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 
-            session.beginTransaction();
+//            session.beginTransaction();
+//
+//            List listeAppel = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
+//                                                    "from Etudiant e,Presence p " +
+//                                                    "where e.idE=p.etudiant.idE").list();
+//            BdTestClass.affichage(listeAppel);
+//
+//            List listeAppel2 = session.createSQLQuery("select * from Presence").list();
+//
+//            BdTestClass.affichage(listeAppel2);
+//
+//            List listeAppel3 = session.createQuery("select sc.dateValidation from SeanceCours sc where sc.idSC=2").list();
+//            System.out.println(listeAppel3);
+//            System.out.println(listeAppel3.get(0));
 
-            List listeAppel = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
-                                                    "from Etudiant e,Presence p " +
-                                                    "where e.idE=p.etudiant.idE").list();
-            BdTestClass.affichage(listeAppel);
-
-            List listeAppel2 = session.createSQLQuery("select * from Presence").list();
-
-            BdTestClass.affichage(listeAppel2);
-
-            List listeAppel3 = session.createQuery("select sc.dateValidation from SeanceCours sc where sc.idSC=2").list();
-            System.out.println(listeAppel3);
-            System.out.println(listeAppel3.get(0));
         }
-
     }
 }

@@ -3,7 +3,7 @@ package dao;
 import metier.Utilisateur;
 
 public class UtilisateurService {
-    private UtilisateurDao dao;
+    private final UtilisateurDao dao;
     private static final UtilisateurService instance = new UtilisateurService();
     private UtilisateurService(){
         dao = new UtilisateurDao();

@@ -1,39 +1,33 @@
 package ctrl;
 
-import dao.HomeDao;
 import dao.HomeService;
+import dao.UtilisateurService;
 import metier.SeanceCours;
 import metier.Utilisateur;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.text.ParseException;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
-@WebServlet(name = "HomeController", value = "/HomeController")
-public class HomeController extends HttpServlet {
+public class localTest {
     private static final SimpleDateFormat DF = new SimpleDateFormat("yyyy-MM-dd");
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 
-        HttpSession session = request.getSession();
-        String jourSemaine = request.getParameter("semaine");
+
+        String jourSemaine = "2020-02-07";
         if (jourSemaine==null){
             jourSemaine = DF.format(calendar.getTime());
         }
         System.out.println(jourSemaine);
 
-        Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");
+        UtilisateurService service = UtilisateurService.getInstance();
+        Utilisateur utilisateur = service.getUtilisateur("nathalie.valles@ut-captitole.fr", "sdd", "Enseignant");
+
 
         HomeService homeService = new HomeService();
 
@@ -41,27 +35,21 @@ public class HomeController extends HttpServlet {
         for (int i = 0; i < 10; i++) {
             seanceFlag.add(null);
         }
+        System.out.println(utilisateur.getNom()+utilisateur.getPrenom());
 
         List<List<SeanceCours>> edt = homeService.getEdt(jourSemaine, utilisateur);
         for (int i = 0; i < edt.size(); i++) {
             for (int j = 0; j < edt.get(i).size(); j++) {
                 SeanceCours sc = edt.get(i).get(j);
                 if (sc.getHeureDeb().equals("9")){
+                    System.out.println(sc+"123");
                     seanceFlag.set(i*2,sc);
                 } else if (sc.getHeureDeb().equals("13")){
                     seanceFlag.set(i*2+1,sc);
+                    System.out.println(sc);
                 }
             }
         }
-        request.setAttribute("lundi",jourSemaine);
-        request.setAttribute("edt",seanceFlag);
-        request.getRequestDispatcher("home").forward(request, response);
-
+        System.out.println(seanceFlag);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
 }

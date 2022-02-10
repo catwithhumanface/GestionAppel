@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class CoursService {
-    private CoursDao dao;
+    private final CoursDao dao;
     private static final CoursService instance = new CoursService();
     private CoursService(){
         dao = new CoursDao();

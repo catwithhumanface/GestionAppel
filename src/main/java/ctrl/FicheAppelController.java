@@ -25,9 +25,6 @@ public class FicheAppelController extends HttpServlet {
             }else if(m.equals("validate")){
                 validate(request, response);
             }
-
-        }else {
-
         }
     }
 

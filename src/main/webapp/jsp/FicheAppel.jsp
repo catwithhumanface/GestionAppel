@@ -92,7 +92,7 @@
 //                String l1[] = {"21912808", "ZHOU", "Zijing", "present", "File"};
 //                l.add(l1);
                 pageContext.setAttribute("activateFlag",
-                        Boolean.parseBoolean((String) request.getParameter("activateFlag")));
+                        Boolean.parseBoolean(request.getParameter("activateFlag")));
                 pageContext.setAttribute("liste", l);
             %>
             <c:forEach items="${listeAppel}" var="row">
