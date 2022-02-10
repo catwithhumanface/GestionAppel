@@ -15,10 +15,10 @@ public class PresenceID implements java.io.Serializable{
      * Propriétés.
      */
     @Column(name = "IdE")
-    private int idE;
+    public int idE;
 
     @Column(name = "IdSC")
-    private int idSC;
+    public int idSC;
 
   /*  @Column(name = "IdJ",nullable = true)
     private int idJ;*/
@@ -31,6 +31,22 @@ public class PresenceID implements java.io.Serializable{
         if (o == null || getClass() != o.getClass()) return false;
         PresenceID that = (PresenceID) o;
         return idE == that.idE && idSC == that.idSC;
+    }
+
+    public int getIdE() {
+        return idE;
+    }
+
+    public void setIdE(int idE) {
+        this.idE = idE;
+    }
+
+    public int getIdSC() {
+        return idSC;
+    }
+
+    public void setIdSC(int idSC) {
+        this.idSC = idSC;
     }
 
     @Override

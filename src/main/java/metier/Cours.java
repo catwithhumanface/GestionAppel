@@ -24,7 +24,7 @@ public class Cours implements java.io.Serializable {
      * Relations.
      */
     /*---Cours Etudiant---*/
-    @ManyToMany(mappedBy = "lesCours")
+    @ManyToMany(mappedBy = "lesCours",fetch = FetchType.EAGER)
     private Set<Etudiant> etudiants = new HashSet(0);
 
     /*---Cours Séance de cours---*/

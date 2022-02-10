@@ -73,7 +73,7 @@ public class CtrlUpload extends HttpServlet {
         } catch (FileUploadException e) {
             e.printStackTrace();
         }
-        getServletContext().getRequestDispatcher("/index").forward(req,resp);
+        resp.sendRedirect("ctrlJustificatif");
     }
 }
 
