@@ -37,6 +37,8 @@ function jumpFoward() {
 }
 
 
+
+
 /**
  * Lancement après le chargement du DOM.
  */
@@ -46,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.cours').forEach(item => {
         item.addEventListener('click', event => {
             const idsc = item.id;
+            console.log("123123123")
             jumpToFiche(idsc);
         })
     })

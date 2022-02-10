@@ -3,3 +3,5 @@
 *.iml
 /.idea/
 /src/main/java/ctrl/localTest.java
+/src/main/resources/hibernate.cfg.xml
+*.pdf
