@@ -1,6 +1,7 @@
 package dao;
 
 import metier.Cours;
+import metier.Etudiant;
 import metier.SeanceCours;
 import metier.Utilisateur;
 import org.hibernate.SQLQuery;
@@ -58,16 +59,13 @@ public class CoursDao {
     public Set<Cours> getCoursListEtu(int ide) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction t = session.beginTransaction();
-        SQLQuery sqlQuery;
-        Query query = session.createQuery("Select e.lesCours from Etudiant as e where e.idE =:ide");
-        query.setParameter("ide", ide);
-        ArrayList<Cours> coursListEtu = (ArrayList<Cours>) query.getResultList();
-        HashSet<Cours> coursListEtuSet = new HashSet<>();
-        for(Cours c : coursListEtu){
-            coursListEtuSet.add(c);
-        }
+        Set<Cours> coursList;
+        Etudiant etudiant = session.get(Etudiant.class,ide);
+
+        coursList = etudiant.getLesCours();
+
         session.close();
-        return coursListEtuSet;
+        return coursList;
     }
 
 }

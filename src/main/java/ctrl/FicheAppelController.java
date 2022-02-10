@@ -36,9 +36,11 @@ public class FicheAppelController extends HttpServlet {
         if (dateValide!= null) {
             activateFlag = "false";
         }
+        List<Presence> appels = dao.getAppel(Integer.parseInt(idsc));
         List listeAppel = dao.getListeAppel(Integer.parseInt(idsc));
         request.setAttribute("listeAppel", listeAppel);
         request.setAttribute("idSc", idsc);
+        request.setAttribute("sc",appels.get(0).getSeanceCours());
         request.getRequestDispatcher("ficheAppel?activateFlag=" + activateFlag).forward(request, response);
 
     }

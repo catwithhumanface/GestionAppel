@@ -85,6 +85,10 @@
         <url-pattern>/ctrlConfirmation</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CtrlPdf</servlet-name>
+        <url-pattern>/pdfController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CtrlValiderJ</servlet-name>
         <url-pattern>/ctrlValiderJ</url-pattern>
     </servlet-mapping>
@@ -160,6 +164,7 @@
     </servlet>
 
 
+
     <!--  servlets java  -->
 
     <servlet>
@@ -186,11 +191,13 @@
         <servlet-name>CtrlJustificatif</servlet-name>
         <servlet-class>ctrl.CtrlJustificatif</servlet-class>
     </servlet>
-
-
     <servlet>
         <servlet-name>CtrlCours</servlet-name>
         <servlet-class>ctrl.CoursController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CtrlPdf</servlet-name>
+        <servlet-class>ctrl.PdfController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CtrlValiderJ</servlet-name>

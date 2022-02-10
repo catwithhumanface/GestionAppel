@@ -38,7 +38,7 @@ public class FicheAppelDao {
     public List getListeAppel(int idsc) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tc = session.beginTransaction();
-        Query query = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
+        Query query = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP,p.url " +
                 "from Etudiant e,Presence p " +
                 "where e.idE=p.etudiant.idE " +
                 "and p.seanceCours.idSC=:idsc");

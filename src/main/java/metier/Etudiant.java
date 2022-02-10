@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 
 public class Etudiant extends Utilisateur{
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "CoursEtudiant",
             joinColumns = @JoinColumn(name = "IdE"),
             inverseJoinColumns = @JoinColumn(name = "IdC"))

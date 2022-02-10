@@ -42,7 +42,9 @@ public class HomeController extends HttpServlet {
             seanceFlag.add(null);
         }
 
-        List<List<SeanceCours>> edt = homeService.getEdt(jourSemaine, utilisateur);
+
+
+        List<List<SeanceCours>> edt = homeService.getEdt(jourSemaine, utilisateur, utilisateur.getTypeU());
         for (int i = 0; i < edt.size(); i++) {
             for (int j = 0; j < edt.get(i).size(); j++) {
                 SeanceCours sc = edt.get(i).get(j);
