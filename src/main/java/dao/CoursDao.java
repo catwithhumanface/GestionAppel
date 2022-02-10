@@ -1,14 +1,12 @@
 package dao;
 
-import metier.Cours;
-import metier.Etudiant;
-import metier.SeanceCours;
-import metier.Utilisateur;
+import metier.*;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
-import javax.persistence.Query;
+//import javax.persistence.Query;
 import java.util.*;
 
 
@@ -54,6 +52,32 @@ public class CoursDao {
         }
         session.close();
         return coursList;
+    }
+    public List getListeAppel(int idsc) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tc = session.beginTransaction();
+        Query query = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP,p.url " +
+                "from Etudiant e,Presence p " +
+                "where e.idE=p.etudiant.idE " +
+                "and p.seanceCours.idSC=:idsc");
+
+        query.setParameter("idsc", idsc);
+
+        List listeAppel = query.list();
+        session.close();
+
+        return listeAppel;
+    }
+    public List<SeanceCours> getSeanceEnsList(int ide) {
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction t = session.beginTransaction();
+        List<SeanceCours> seanceCoursSet;
+        Query query = session.createQuery("select sc from Enseignant e,SeanceCours sc where e.idE=:ide and e.idE=sc.enseignant.idE");
+        query.setParameter("ide", ide);
+        seanceCoursSet = query.list();
+        session.close();
+        return seanceCoursSet;
     }
 
     public Set<Cours> getCoursListEtu(int ide) {

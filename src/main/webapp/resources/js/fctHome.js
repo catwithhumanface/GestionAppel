@@ -13,7 +13,13 @@ function getLastMonday() {
 }
 
 function jumpToFiche(idsc) {
-    window.location.href = "ficheAppelController?m=show&seance=" + idsc;
+    var typeU = document.getElementById("typeU").innerHTML;
+    if (typeU ==="Enseignant"){
+        window.location.href = "ficheAppelController?m=show&seance=" + idsc;
+    }else if (typeU === "Etudiant"){
+
+    }
+
 }
 
 function jumpBack() {
@@ -48,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.cours').forEach(item => {
         item.addEventListener('click', event => {
             const idsc = item.id;
-            console.log("123123123")
             jumpToFiche(idsc);
         })
     })

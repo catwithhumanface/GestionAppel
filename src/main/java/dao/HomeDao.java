@@ -26,20 +26,14 @@ public class HomeDao {
 
         CoursDao coursDao = new CoursDao();
 
-        Set<Cours> listeCours = coursDao.getCoursList(ide);
-        System.out.println(listeCours);
-        for (Cours cours : listeCours) {
-            Set<SeanceCours> scs = cours.getLesSeance();
-            System.out.println(cours.getLibelles());
-            for (SeanceCours sc : scs) {
-                Date dateC = sc.getDateSeance();
-//                System.out.println(DF.format(sc.getDateSeance().getTime()));
-                if (dateC.equals(thisMonday) || (dateC.after(thisMonday) && dateC.before(nextMonday))) {
-//                    System.out.println("Oh YES!!");
-                    seanceSemaine.add(sc);
-                }
+        List<SeanceCours> listeSeance = coursDao.getSeanceEnsList(ide);
+        for (SeanceCours sc : listeSeance) {
+            Date dateC = sc.getDateSeance();
+            if (dateC.equals(thisMonday) || (dateC.after(thisMonday) && dateC.before(nextMonday))) {
+                seanceSemaine.add(sc);
             }
         }
+
         return seanceSemaine;
     }
 

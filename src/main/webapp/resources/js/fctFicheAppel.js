@@ -4,14 +4,14 @@
  */
 
 function getPdf() {
-    var idsc = document.getElementById("idsc");
+    var idsc = document.getElementById("idsc").innerHTML;
     var btn = document.getElementById("down");
 
     if (btn.innerHTML === "Generate") {
         var xhr = new XMLHttpRequest();
 
         // Requête au serveur avec les paramètres éventuels.
-        xhr.open("GET", "pdfController?idsc="+idsc.innerHTML);
+        xhr.open("GET", "pdfController?idsc="+idsc);
 
         // On précise ce que l'on va faire quand on aura reçu la réponse du serveur.
         xhr.onload = function () {
@@ -19,7 +19,7 @@ function getPdf() {
             if (xhr.status === 200) {
                 // Elément html que l'on va mettre à jour.
                 btn.innerHTML="download";
-                btn.href="resources/outPutFiles/temp"+idsc+".pdf"
+                btn.href="resources/outPutFiles/temp"+idsc+".pdf";
             }
         };
 
