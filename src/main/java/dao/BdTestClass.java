@@ -103,7 +103,7 @@ public class BdTestClass {
             for (Object obj : tab_obj)
                 System.out.print(obj + " ");
 
-            System.out.println("");
+            System.out.println();
         }
     }
 

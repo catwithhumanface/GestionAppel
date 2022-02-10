@@ -6,7 +6,7 @@ import metier.Utilisateur;
 import java.util.List;
 
 public class FicheAppelService {
-    private FicheAppelDao dao;
+    private final FicheAppelDao dao;
     private static final FicheAppelService instance = new FicheAppelService();
     private FicheAppelService(){
         dao = new FicheAppelDao();

@@ -18,19 +18,14 @@ public class UtilisateurController extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String m = request.getParameter("m");
-        if(m != null) {
+        if (m != null) {
             System.out.println(m);
             m = m.trim();
-            if(m.equals("form")) {
+            if (m.equals("form")) {
                 form(request, response);
-            }else if(m.equals("login")){
+            } else if (m.equals("login")) {
                 login(request, response);
-            }else{
-
             }
-
-        }else {
-
         }
     }
 
@@ -43,26 +38,23 @@ public class UtilisateurController extends HttpServlet {
         String username = request.getParameter("username");
         String pass = request.getParameter("pass");
         String type = request.getParameter("typeUser");
-        System.out.println(username + " "+ pass + " " + type);
-        if(username != null) username = username.trim();
-        if(pass != null) pass = pass.trim();
+        System.out.println(username + " " + pass + " " + type);
+        if (username != null) username = username.trim();
+        if (pass != null) pass = pass.trim();
 
         UtilisateurService service = UtilisateurService.getInstance();
         int rCode = service.checkLogin(username, pass, type);
         request.setAttribute("rCode", rCode);
         String view = "index";
 
-        if(rCode== UtilisateurSet.PASS){
+        if (rCode == UtilisateurSet.PASS) {
             Utilisateur utilisateur = service.getUtilisateur(username, pass, type);
             HttpSession session = request.getSession();
             session.setAttribute("Utilisateur", utilisateur);
-            view = "homeController";
             response.sendRedirect("homeController");
-            System.out.println("HERRRRRRRRRRRRRRRRRRR");
-        }else {
-        RequestDispatcher rd = request.getRequestDispatcher(view);
-        rd.forward(request, response);
-        System.out.println("HERRRRRRRRRRRRRRRRRRR----------------------------------");}
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher(view);
+            rd.forward(request, response);
+        }
     }
-
 }

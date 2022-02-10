@@ -32,16 +32,12 @@ public class CoursDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction t = session.beginTransaction();
         SQLQuery sqlQuery;
-        sqlQuery = session.createSQLQuery("Select * from seancecours where IdC =:idc").addEntity(SeanceCours.class);
+        sqlQuery = session.createSQLQuery("Select * from SeanceCours where IdC =:idc").addEntity(SeanceCours.class);
 
         sqlQuery.setParameter("idc", idCours);
         ArrayList<SeanceCours> seanceCoursList = (ArrayList<SeanceCours>) sqlQuery.getResultList();
         session.close();
-        if(seanceCoursList != null){
-            return seanceCoursList;
-        }else{
-            return null;
-        }
+        return seanceCoursList;
     }
     public Set<Cours> getCoursList(int ide) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();

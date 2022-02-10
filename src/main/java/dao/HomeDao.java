@@ -26,37 +26,20 @@ public class HomeDao {
 
         CoursDao coursDao = new CoursDao();
 
-        Set listeCours = coursDao.getCoursList(ide);
-
-        for (Object o : listeCours) {
-            Cours cours = (Cours) o;
-            Set scs = cours.getLesSeance();
-//            System.out.println(cours.getLibelles());
-            for (Object osc : scs) {
-                SeanceCours sc = (SeanceCours) osc;
+        Set<Cours> listeCours = coursDao.getCoursList(ide);
+        System.out.println(listeCours);
+        for (Cours cours : listeCours) {
+            Set<SeanceCours> scs = cours.getLesSeance();
+            System.out.println(cours.getLibelles());
+            for (SeanceCours sc : scs) {
                 Date dateC = sc.getDateSeance();
 //                System.out.println(DF.format(sc.getDateSeance().getTime()));
-                if (dateC.equals(thisMonday)|| (dateC.after(thisMonday) && dateC.before(nextMonday))) {
+                if (dateC.equals(thisMonday) || (dateC.after(thisMonday) && dateC.before(nextMonday))) {
 //                    System.out.println("Oh YES!!");
                     seanceSemaine.add(sc);
                 }
             }
         }
         return seanceSemaine;
-    }
-
-    public List getListeAppel(int idsc) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Query query = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
-                "from Etudiant e,Presence p " +
-                "where e.idE=p.etudiant.idE " +
-                "and p.seanceCours.idSC=:idsc");
-
-        query.setParameter("idsc", idsc);
-
-        List listeAppel = query.list();
-        session.close();
-        return listeAppel;
     }
 }

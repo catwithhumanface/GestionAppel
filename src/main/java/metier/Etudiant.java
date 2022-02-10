@@ -45,7 +45,7 @@ public class Etudiant extends Utilisateur{
 
     public void present (SeanceCours sc1, String etatPre)
     {
-        Presence pre1 = (Presence) this.presences.get(sc1);
+        Presence pre1 = this.presences.get(sc1);
         if (pre1 == null)
         {
             /*----- La décision est créée et ajoutée -----*/

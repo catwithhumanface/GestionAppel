@@ -2,7 +2,7 @@ package dao;
 import java.util.List;
 
 public class JustificatifService {
-    private JustificatifDao dao;
+    private final JustificatifDao dao;
     private static final JustificatifService instance = new JustificatifService();
     private JustificatifService(){
         dao = new JustificatifDao();

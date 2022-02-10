@@ -41,7 +41,7 @@ public class CtrlUpload extends HttpServlet {
             ServletFileUpload upload = new ServletFileUpload(factory);
             upload.setHeaderEncoding("utf-8");
 
-            boolean multipartContent = upload.isMultipartContent(req);
+            boolean multipartContent = ServletFileUpload.isMultipartContent(req);
 
             if (multipartContent) {
 
