@@ -36,9 +36,13 @@
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
         <div class="w3-col s8 w3-bar">>
-            <% Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");%>
+            <%
+                Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
+                pageContext.setAttribute("typeU", user.getTypeU());
+            %>
             <c:if test="${!empty Utilisateur}">
                 <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
+                <a id="typeU" style="display: none">${typeU}</a>
                 <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             </c:if>
             <c:if test="${empty Utilisateur}">
