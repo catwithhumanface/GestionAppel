@@ -91,7 +91,7 @@
             String date = (String)request.getAttribute("lundi");
             pageContext.setAttribute("date", date);
         %>
-        <span id="semaine" >${date}</span>
+        <span id="semaine" >Semaine${" "+date}</span>
         <a id="arrRight" class="w3-button w3-circle w3-ripple w3-black fa fa-arrow-right"></a>
     </div>
 

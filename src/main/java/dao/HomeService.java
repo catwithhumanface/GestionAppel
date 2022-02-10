@@ -62,7 +62,6 @@ public class HomeService {
             edt.add(jeudi);
             edt.add(vendredi);
 
-
         } catch (ParseException e) {
             e.printStackTrace();
         }
