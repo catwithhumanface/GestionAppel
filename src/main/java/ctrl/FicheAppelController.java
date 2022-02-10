@@ -1,21 +1,13 @@
 package ctrl;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import dao.FicheAppelDao;
-import dao.FicheAppelService;
-import dao.HibernateUtil;
-import dao.UtilisateurSet;
+import dao.*;
 import metier.Presence;
-import metier.SeanceCours;
-import metier.Utilisateur;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @WebServlet(name = "FicheAppelController", value = "/FicheAppelController")
@@ -114,10 +106,19 @@ public class FicheAppelController extends HttpServlet {
         List<Presence> list = service.getAppel(Integer.parseInt(idSc));
         HashMap<Integer, String> map = getResult(result, idSc);
 
+        Mail mail = new Mail();
+
+        SimpleDateFormat DF = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date();
+        String dateStr = DF.format(date);
+
         for(Presence p : list){
             for(Map.Entry<Integer, String> elem : map.entrySet()){
                 if(elem.getKey()==p.getEtudiant().getIdE()){
                     service.validateAppel(p, elem.getKey(), elem.getValue());
+                    if(elem.getValue().equals("Absent")){
+                        mail.sendEmailAbsence(p.getEtudiant().getMail(), p.getSeanceCours().getCours().getLibelles(), DF.format(p.getSeanceCours().getDateSeance()));
+                    }
                 }
             }
         }
