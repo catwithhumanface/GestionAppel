@@ -26,3 +26,5 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Test
       run: mvn test
+    - name: Deploy the web page 
+      run: mvn clean heroku:deploy-war
