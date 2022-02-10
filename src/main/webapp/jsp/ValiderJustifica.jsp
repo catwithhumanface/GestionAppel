@@ -1,8 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" import="dao.*" pageEncoding="utf-8" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" import="static dao.JustificatifConstant.DownloadPath"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="dao.*" pageEncoding="utf-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="static dao.JustificatifConstant.DownloadPath"%>
+
 <!DOCTYPE html>
 <html>
 <title>Déposer un jusitificatif</title>
@@ -45,16 +47,12 @@
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
-        </c:if>>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un
             justificatif</a>
-        <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
             des pr&eacute;sence</a>
-        </c:if>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes alertes</a>
     </div>
 </nav>
@@ -76,33 +74,24 @@
         <table class="table middle">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Seance de cours</th>
-                <th scope="col">Date</th>
-                <th scope="col">Enseignant</th>
                 <th scope="col">Justificatif</th>
-                <th scope="col">Upload</th>
+                <th scope="col">Valider</th>
             </tr>
             </thead>
             <tbody>
-            <%
-                List<Object[]> l = (List<Object[]>) request.getAttribute("listJustifi");
-                pageContext.setAttribute("liste", l);
-            %>
-            <c:forEach items="${liste}" var="row">
-            <form method="post" action = "ctrlUpload"  enctype="multipart/form-data">
+            <c:forEach items="${setJustifi}" var="row">
+            <c:set var="pathparts" value="${fn:split(row.url, '\\\\')}" />                <!-- String[] with values "dir1", "dir2", "dir3" and "filename.xml" -->
+            <c:set var="filename" value="${pathparts[fn:length(pathparts) - 1]}" /> <!-- Last item of String[]: "filename.xml" -->
+            <c:set var="basename" value="${fn:split(filename, '.')[0]}" />          <!-- Result: "filename" -->
+                 <form method="post" action = "ctrlValiderJ" >
                 <tr>
-                    <td>${row[0]}&nbsp:&nbsp${row[1]}&nbsp-&nbsp${row[2]}</td>
-                    <td>${row[3]}</td>
-                    <td>${row[4]}&nbsp${row[5]}</td>
-
-                    <td>
-                        <input type="file" id=${row[7]} name="ctrlTest">
-                        <input type = "hidden" name = "idE" value=${row[7]}>
-                        <input type = "hidden" name ="idSC" value=${row[8]}>
-                    </td>
-                    <td> <button type = "submit">Upload</button></td>
+                    <td><a href =<%=DownloadPath%>${filename}>${filename}</a></td>
+                    <td> <button type = "submit">Valider</button></td>
+                    <td><input type="hidden" name="idE" value =${row.idP.getIdE()} ></td>
+                    <td><input type="hidden" name="idSC" value =${row.idP.getIdSC()} ></td>
                 </tr>
                 <form/>
+
             </c:forEach>
             </tbody>
         </table>

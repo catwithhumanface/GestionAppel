@@ -24,11 +24,11 @@ public class Cours implements java.io.Serializable {
      * Relations.
      */
     /*---Cours Etudiant---*/
-    @ManyToMany(mappedBy = "lesCours")
+    @ManyToMany(mappedBy = "lesCours",fetch = FetchType.EAGER)
     private Set<Etudiant> etudiants = new HashSet(0);
 
     /*---Cours Séance de cours---*/
-    @OneToMany(mappedBy = "cours", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cours", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<SeanceCours> lesSeance = new HashSet(0);
 
     public int getIdC() {
