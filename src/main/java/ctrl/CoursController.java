@@ -1,8 +1,6 @@
 package ctrl;
 
-import dao.CoursService;
-import dao.UtilisateurService;
-import dao.UtilisateurSet;
+import dao.*;
 import metier.Cours;
 import metier.SeanceCours;
 import metier.Utilisateur;
@@ -17,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @WebServlet("/cours.do")
@@ -33,6 +32,10 @@ public class CoursController extends HttpServlet {
                 seanceList(request, response);
             }else if(m.equals("list")){
                 coursList(request, response);
+            }
+            else if(m.equals("sStatic")){
+                System.out.println(m);
+                stats(request,response);
             }
 
         }else {
@@ -63,6 +66,7 @@ public class CoursController extends HttpServlet {
         HttpSession session = request.getSession();
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");
         String view = "listeCours";
+        String source = request.getParameter("source");
         if(utilisateur != null) {
             if(utilisateur.getTypeU().equals("Enseignant")){
                 Set<Cours> coursList = service.getCoursList(utilisateur.getIdE());
@@ -74,6 +78,9 @@ public class CoursController extends HttpServlet {
                 request.setAttribute("CoursListEtu", coursListEtu);
             }
             */
+            if(source != null){
+                request.setAttribute("source",source);
+            }
         }else{
             request.setAttribute("rCode", UtilisateurSet.NO_CONNEXION);
             view = "index";
@@ -81,4 +88,34 @@ public class CoursController extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
     }
+    private void stats(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        int idCours = Integer.parseInt(request.getParameter("id"));
+        System.out.println(idCours);
+        String source = request.getParameter("source");
+        Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");
+        String view = "statiEnseignant";
+        if (utilisateur != null) {
+            if(utilisateur.getTypeU().equals("Enseignant")){
+                System.out.println("ss");
+                StatDao dao = new StatDao();
+                List<StatUtil> EtudiantList = dao.etudiantAbs(idCours);
+                request.setAttribute("EtudiantList", EtudiantList);
+                float avgabs = dao.nombreAvg(idCours);
+                float tauxabs= dao.tauxAbs(idCours);
+                request.setAttribute("absAvg", avgabs);
+                request.setAttribute("tauxAvg", tauxabs);
+                if(source != null){
+                    request.setAttribute("source",source);
+                }
+            }
+        }else{
+            request.setAttribute("rCode", UtilisateurSet.NO_CONNEXION);
+            view = "index";
+        }
+        RequestDispatcher rd = request.getRequestDispatcher(view);
+        rd.forward(request, response);
+    }
+
+
 }

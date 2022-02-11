@@ -92,6 +92,10 @@
         <servlet-name>ValiderJustifica</servlet-name>
         <url-pattern>/validerJustifica</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StatiEnseignant</servlet-name>
+        <url-pattern>/statiEnseignant</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -149,6 +153,10 @@
     <servlet>
         <servlet-name>ValiderJustifica</servlet-name>
         <jsp-file>/jsp/ValiderJustifica.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>StatiEnseignant</servlet-name>
+        <jsp-file>/jsp/StatiEnseignant.jsp</jsp-file>
     </servlet>
 
 

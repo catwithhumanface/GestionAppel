@@ -2,7 +2,7 @@ package dao;
 
 public class JustificatifConstant {
 
-        public static final String UPLOAD_DIRECTORY = "C:\\Users\\Tong\\IdeaProjects\\GestionAppel\\src\\main\\webapp\\resources\\fileJustificatif";
+        public static final String UPLOAD_DIRECTORY = "C:\\Users\\Tong\\IdeaProjects\\GestionAppel\\src\\main\\webapp\\resources\\fileJustificatif\\";
         public static final String DEFAULT_FILENAME = "default.file";
         public static final String DownloadPath ="resources/fileJustificatif/";
         public static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;
