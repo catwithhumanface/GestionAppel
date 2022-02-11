@@ -17,7 +17,7 @@ public class Etudiant extends Utilisateur{
     private Set<Cours> lesCours = new HashSet(0);
 
     /*----- Presence -----*/
-    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @MapKeyJoinColumn(name = "IdSC", updatable = false, insertable = false)
     private Map<SeanceCours,Presence> presences= new HashMap(0);
 
