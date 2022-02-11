@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 
 public class Enseignant extends Utilisateur{
     public Enseignant(){}
-    public Enseignant(String mail, String mdp, String prenom, String nom){
-        super(mail,mdp,prenom,nom);
+    public Enseignant(String mail, String mdp, String prenom, String nom, String photoUrl){
+        super(mail,mdp,prenom,nom, photoUrl);
     }
 
 

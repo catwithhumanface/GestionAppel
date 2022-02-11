@@ -460,5 +460,18 @@ iframe {
 }
 
 .margin-l23 {
-  margin-left: 21%; !important;
+  margin-left: 34%; !important;
+}
+
+.w30profil {
+  width : 50%; !important;
+}
+
+.margin-l2 {
+  margin-left: 2%; !important;
+}
+
+.margin-input{
+  margin-left: 20%; !important;
+  margin-top: 2%; !important;
 }
