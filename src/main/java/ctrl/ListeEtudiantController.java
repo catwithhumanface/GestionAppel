@@ -16,17 +16,21 @@ import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "ListeEtudiantController", value = "/ListeEtudiantController")
+
+/**
+ * Obtenir les requettes HTTP afin de renvoyer la page avec la récapitulatif de tous les étudiants
+ * @author Zijing Zhou
+ * @param request
+ * @param response page à rediriger vers JSP listeEtudiant avec Map rapport avec instance de Etudiant comme clé et liste de calcul
+ */
 public class ListeEtudiantController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String ide = request.getParameter("ide");
         RecapHebdoService rhs = new RecapHebdoService();
 
         ListeEtudiantDao led = new ListeEtudiantDao();
         Map<Etudiant, List<Integer>> rapport = new HashMap<>();
         List<Etudiant> etuList = led.getEtuList();
-        System.out.println(etuList);
         for (int i = 0; i < etuList.size(); i++) {
             Etudiant e = etuList.get(i);
             try {
@@ -41,8 +45,6 @@ public class ListeEtudiantController extends HttpServlet {
                     somme.set(1, somme.get(1) + rapportEtu.get(date).get(1));
                     somme.set(0, somme.get(0) + rapportEtu.get(date).get(0));
                 }
-
-                System.out.println(somme);
                 rapport.put(e, somme);
 
 

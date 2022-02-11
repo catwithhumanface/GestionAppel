@@ -21,6 +21,12 @@ public class HomeController extends HttpServlet {
     private static final SimpleDateFormat DF = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
+    /**
+     * Obtenir les requettes HTTP afin de renvoyer la page avec l'emploi du temps de la semaine donnée
+     * @author Zijing Zhou
+     * @param request avec la semaine de l'emploi du temps demandé en paramètre
+     * @param response page à rediriger vers JSP home avec Liste de seance de cours pour cette semaine
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Calendar calendar = Calendar.getInstance();
@@ -43,8 +49,6 @@ public class HomeController extends HttpServlet {
         for (int i = 0; i < 10; i++) {
             seanceFlag.add(null);
         }
-
-
 
         List<List<SeanceCours>> edt = homeService.getEdt(jourSemaine, utilisateur, utilisateur.getTypeU());
         for (int i = 0; i < edt.size(); i++) {

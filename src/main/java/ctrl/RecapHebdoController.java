@@ -14,6 +14,13 @@ import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "RecapHebdoController", value = "/RecapHebdoController")
+
+/**
+ * Obtenir les requettes HTTP contient l'id de étudiant afin de renvoyer son page de récapilative hebdomadaire
+ * @author Zijing Zhou
+ * @param request paramètres entrants avec la demande qui contient l'identifiant de l'étutiant pour la récap
+ * @param response page à rediriger vers JSP recapHebdo avec Map rappportEtu et instance de l'étudiant dans l'attribute
+ */
 public class RecapHebdoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
