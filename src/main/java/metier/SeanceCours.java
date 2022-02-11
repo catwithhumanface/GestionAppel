@@ -50,16 +50,18 @@ public class SeanceCours {
     private Enseignant enseignant;
 
     /*----- Presence -----*/
-    @OneToMany(mappedBy = "seanceCours", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "seanceCours", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @MapKeyJoinColumn(name = "IdE", updatable = false, insertable = false)
-    private Map<Etudiant,Presence> presences= new HashMap(0);
+    private Map<Etudiant, Presence> presences = new HashMap(0);
 
 
-    public SeanceCours(){}
-    public SeanceCours(Cours cours,Enseignant enseignant,Date dateSeance,String heureDeb,String heureFin){
-        this.dateSeance=dateSeance;
-        this.heureDeb=heureDeb;
-        this.heureFin=heureFin;
+    public SeanceCours() {
+    }
+
+    public SeanceCours(Cours cours, Enseignant enseignant, Date dateSeance, String heureDeb, String heureFin) {
+        this.dateSeance = dateSeance;
+        this.heureDeb = heureDeb;
+        this.heureFin = heureFin;
         this.cours = cours;
         this.enseignant = enseignant;
     }

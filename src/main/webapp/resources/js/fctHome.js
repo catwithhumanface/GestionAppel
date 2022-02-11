@@ -13,7 +13,13 @@ function getLastMonday() {
 }
 
 function jumpToFiche(idsc) {
-    window.location.href = "ficheAppelController?m=show&seance=" + idsc;
+    var typeU = document.getElementById("typeU").innerHTML;
+    if (typeU ==="Enseignant"){
+        window.location.href = "ficheAppelController?m=show&seance=" + idsc;
+    }else if (typeU === "Etudiant"){
+
+    }
+
 }
 
 function jumpBack() {
@@ -35,6 +41,8 @@ function jumpFoward() {
     console.log(semaine.getFullYear() + "-" + semaine.getMonth() + 1 + "-" + semaine.getDate());
     window.location.replace("homeController?semaine=" + nextMonday.getFullYear() + "-" + (nextMonday.getMonth() + 1) + "-" + nextMonday.getDate());
 }
+
+
 
 
 /**

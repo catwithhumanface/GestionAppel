@@ -22,4 +22,8 @@ public class UtilisateurService {
         Utilisateur utilisateur = dao.getUtilisateur(username, pass, type);
         return utilisateur;
     }
+
+    public void update(String mailChange, Utilisateur utilisateur, String  path){
+        dao.update(mailChange, utilisateur, path);
+    }
 }

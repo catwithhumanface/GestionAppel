@@ -3,6 +3,8 @@
 <%@page import="dao.FicheAppelService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="metier.Utilisateur" %>
+<%@ page import="metier.SeanceCours" %>
 <!DOCTYPE html>
 <html>
 <title>Fiche d'Appels</title>
@@ -22,7 +24,7 @@
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
             class="fa fa-bars"></i> Menu
     </button>
-    <span class="w3-bar-item w3-right">Logo</span>
+    <span class="w3-bar-item w3-right">Gestion d'appel</span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -32,26 +34,57 @@
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
         <div class="w3-col s8 w3-bar">
-            <span>Welcome, <strong>Mike</strong></span><br>
-            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>--%>
-            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>--%>
+            <%
+                Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
+                pageContext.setAttribute("typeU", user.getTypeU());
+            %>
+            <c:if test="${!empty Utilisateur}">
+                <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
+                <a id="typeU" style="display: none">${typeU}</a>
+                <a href="member.do?m=profil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+            </c:if>
+            <c:if test="${empty Utilisateur}">
+                <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
+            </c:if>
         </div>
     </div>
     <hr>
     <div class="w3-container">
-        <h5>Dashboard</h5>
+        <h5>Menu</h5>
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un
-            justificatif</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-            des pr&eacute;sence</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes alertes</a>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+                temps</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+                temps</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser
+                un justificatif</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp
+                Consulter mes cours</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp Consulter les
+                &eacute;tudiants</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+                des pr&eacute;sence</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
+            <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
+                les justificatif</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes absences</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+                des pr&eacute;sence</a>
+        </c:if>
+    </div>
     </div>
 </nav>
 
@@ -65,7 +98,14 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-table"></i> Fiche d'Appel</b></h5>
+        <%
+            SeanceCours sc = (SeanceCours) request.getSession().getAttribute("sc");
+            pageContext.setAttribute("sc",sc);
+        %>
+        <h5><b><i class="fa fa-table"></i> Fiche d'Appel ${sc.cours.libelles} de ${sc.dateSeance} &#224 ${sc.heureDeb}h</b> <b><a id="down"
+                                                                       class="w3-button w3-ripple w3-blue fa fa-file-pdf-o">Generate</a></b>
+        </h5>
+        <a id="idsc" style="display: none">${sc.idSC}</a>
     </header>
 
     <div class="w3-container">
@@ -73,6 +113,7 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">&#8470 Etudiant</th>
+                <th scope="col">Photo</th>
                 <th scope="col">Nom Pr&eacute;nom</th>
                 <th scope="col">Etat Pr&eacute;sence</th>
                 <th scope="col">Justificatif</th>
@@ -98,6 +139,7 @@
             <c:forEach items="${listeAppel}" var="row">
                 <tr>
                     <th>${row[0]}</th>
+                    <td> <img src=${row[5]} class="w3-circle" style="width:150px; margin-left:15%;"></td>
                     <td>${row[1]}&nbsp${row[2]}</td>
                     <td>
                         <select id="${row[0]}" class='w3-select' name="etatP[]"
@@ -123,11 +165,12 @@
     <div class="w3-container">
         <div class="w3-col w3-container s6 m6 l6">
             <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" onclick="saveFiche()"
-                    style="margin-left: 35%"<c:if test="${!activateFlag}">disabled</c:if>> Enregistrer
+                    style="margin-left: 35%" <c:if test="${!activateFlag}">disabled</c:if>> Enregistrer
             </button>
         </div>
         <div class="w3-col w3-container s6 m6 l6">
-            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" onclick="validateFiche()" style="margin-left: 40%"
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" onclick="validateFiche()"
+                    style="margin-left: 40%"
                     <c:if test="${!activateFlag}">disabled</c:if>>&nbsp&nbspValider&nbsp&nbsp
             </button>
         </div>
@@ -199,35 +242,36 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script>
+<script>
     function saveFiche() {
         console.log("save execute");
         var result = "";
         var idSc = ${idSc};
 
-        $('select[name="etatP[]"]').each(function(){
+        $('select[name="etatP[]"]').each(function () {
             let id = this.id;
             let value = this.value;
-            result = result +  "/" + id + "!" + value;
+            result = result + "/" + id + "!" + value;
             console.log(result);
         });
-        window.location.href = "ficheAppelController?m=save&idSc="+idSc+"&result="+result;
+        window.location.href = "ficheAppelController?m=save&idSc=" + idSc + "&result=" + result;
     }
 
-    function validateFiche(){
+    function validateFiche() {
         console.log("validate execute");
         var result = "";
         var idSc = ${idSc};
 
-        $('select[name="etatP[]"]').each(function(){
+        $('select[name="etatP[]"]').each(function () {
             let id = this.id;
             let value = this.value;
-            result = result +  "/" + id + "!" + value;
+            result = result + "/" + id + "!" + value;
             console.log(result);
         });
-        window.location.href = "ficheAppelController?m=validate&idSc="+idSc+"&result="+result;
+        window.location.href = "ficheAppelController?m=validate&idSc=" + idSc + "&result=" + result;
     }
 </script>
+<script type="text/javascript" src="resources/js/fctFicheAppel.js"></script>
 </body>
 </html>
 

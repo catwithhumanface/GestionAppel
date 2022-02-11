@@ -14,11 +14,15 @@ public class HomeService {
     private static final SimpleDateFormat DF = new SimpleDateFormat("yyyy-MM-dd");
     List<List<SeanceCours>> edt = new ArrayList<>();
 
-    public List getEdt(String jourSemaine, Utilisateur utilisateur) {
+    public List getEdt(String jourSemaine, Utilisateur utilisateur, String role) {
         HomeDao homeDao = new HomeDao();
+        List<SeanceCours> seanceCoursList;
         try {
-            List<SeanceCours> seanceCoursList = homeDao.getSeances(jourSemaine, utilisateur.getIdE());
-
+            if (role.equals("Etudiant")) {
+                seanceCoursList = homeDao.getSeancesEtu(jourSemaine, utilisateur.getIdE());
+            } else {
+                seanceCoursList = homeDao.getSeancesEns(jourSemaine, utilisateur.getIdE());
+            }
             Calendar cal = Calendar.getInstance();
             cal.setTime(DF.parse(jourSemaine));
             Date dateLundi = DF.parse(jourSemaine);

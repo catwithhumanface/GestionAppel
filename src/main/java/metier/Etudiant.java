@@ -10,14 +10,14 @@ import javax.persistence.*;
  */
 
 public class Etudiant extends Utilisateur{
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "CoursEtudiant",
             joinColumns = @JoinColumn(name = "IdE"),
             inverseJoinColumns = @JoinColumn(name = "IdC"))
     private Set<Cours> lesCours = new HashSet(0);
 
     /*----- Presence -----*/
-    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @MapKeyJoinColumn(name = "IdSC", updatable = false, insertable = false)
     private Map<SeanceCours,Presence> presences= new HashMap(0);
 
@@ -30,8 +30,8 @@ public class Etudiant extends Utilisateur{
     }
 
     public Etudiant(){}
-    public Etudiant(String mail,String mdp,String prenom,String nom){
-        super(mail,mdp,prenom,nom);
+    public Etudiant(String mail,String mdp,String prenom,String nom, String photoUrl){
+        super(mail,mdp,prenom,nom, photoUrl);
     }
 
     public Set<Cours> getLesCours() {return lesCours;}

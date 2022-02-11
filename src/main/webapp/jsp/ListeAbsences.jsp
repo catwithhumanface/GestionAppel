@@ -52,7 +52,7 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>Mes cours</h5>
+        <h5>Menu</h5>
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
@@ -99,41 +99,60 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-dashboard"></i> Mes cours</b></h5>
+        <h5><b><i class="fa fa-dashboard"></i>Mes absences de cours</b></h5>
     </header>
 
+    <div class="w3-container margin-l23">
+        <form method="post" action = "etudiant.do?m=search">
+            A partir de
+            <input type="date" value="2022-02-01" id="from" name="from" />
+            <b style="color: #fff"></b>
+            <button type="submit">
+                <span class="fa fa-search"></span>
+            </button>
 
-    <div class="w3-third margin-l5">
+        </form>
+    </div>
 
-        <c:if test="${!empty source}">
-            <c:if test ="${source.equals('cours')}">
-                <c:forEach items="${CoursList}" var="cours">
-                    <a href="cours.do?m=sList&id=${cours.idC}"><h5>${cours.libelles}</h5></a>
+    <div class="w3-container">
+        <c:if test="${!empty AbsenceList}">
+            <table class="table middle">
+                <thead class="thead-dark">
+                <tr class="bg-light-gray">
+                    <th scope="col">Nom du cours</th>
+                    <th scope="col">Date Seance</th>
+                    <th scope="col">Heure Debut</th>
+                    <th scope="col">Heure Fin</th>
+                    <th scope="col">Date de la validation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${AbsenceList}" var="presence">
+                    <tr>
+                        <td>${presence.seanceCours.cours.libelles}</td>
+                        <td>${presence.seanceCours.dateSeance}</td>
+                        <td>${presence.seanceCours.heureDeb}H</td>
+                        <td>${presence.seanceCours.heureFin}H</td>
+                        <td>${presence.seanceCours.dateValidation}</td>
+                    </tr>
                 </c:forEach>
-            </c:if>
-            <c:if test ="${source.equals('static')}">
-
-                <c:forEach items="${CoursList}" var="cours">
-                    <a href="cours.do?m=sStatic&id=${cours.idC}"><h5>${cours.libelles}</h5></a>
-                </c:forEach>
-            </c:if>
+                </tbody>
+            </table>
         </c:if>
-        </div>
-
     </div>
     <div class="w3-row-padding w3-margin-bottom">
 
     </div>
-    </div>
+</div>
 
 
 
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-16 w3-light-grey">
+<!-- Footer -->
+<footer class="w3-container w3-padding-16 w3-light-grey">
 
-    </footer>
+</footer>
 
-    <!-- End page content -->
+<!-- End page content -->
 </div>
 
 
