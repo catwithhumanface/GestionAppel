@@ -30,7 +30,12 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s4">
-            <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
+            <c:if test="${!empty Utilisateur}">
+                <img src=${Utilisateur.urlPhoto} class="w3-circle w3-margin-right" style="width:46px">
+            </c:if>
+            <c:if test="${empty Utilisateur}">
+                <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
+            </c:if>
         </div>
         <div class="w3-col s8 w3-bar">
             <%
@@ -61,27 +66,26 @@
         <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
             <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
                 temps</a>
+            <a href="cours.do?m=list&source=static" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le statisitque des cours </a>
+            <a href="cours.do?m=list&source=cours" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter
+                mes cours</a>
         </c:if>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
             <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser
                 un justificatif</a>
         </c:if>
-        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
-            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp
-                Consulter mes cours</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp Consulter les
-                &eacute;tudiants</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-                des pr&eacute;sence</a>
-        </c:if>
         <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
             <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
                 les justificatif</a>
         </c:if>
+        <a
+                <c:if test="${Utilisateur.typeU.equals('Etudiant')}">href="<%out.println("recapHebdoController?ide="+user.getIdE());%>"
+        </c:if> <c:if test="${Utilisateur.typeU.equals('Enseignant')}">href="listeEtudiantController"
+                </c:if>class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+            hebdomadaire</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
-            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes absences</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-                des pr&eacute;sence</a>
+            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter
+                mes absences</a>
         </c:if>
     </div>
 </nav>
@@ -140,36 +144,6 @@
         </div>
     </div>
     <br>
-    <div class="w3-container w3-dark-grey w3-padding-32">
-        <div class="w3-row">
-            <div class="w3-container w3-third">
-                <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-                <p>Language</p>
-                <p>Country</p>
-                <p>City</p>
-            </div>
-            <div class="w3-container w3-third">
-                <h5 class="w3-bottombar w3-border-red">System</h5>
-                <p>Browser</p>
-                <p>OS</p>
-                <p>More</p>
-            </div>
-            <div class="w3-container w3-third">
-                <h5 class="w3-bottombar w3-border-orange">Target</h5>
-                <p>Users</p>
-                <p>Active</p>
-                <p>Geo</p>
-                <p>Interests</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-16 w3-light-grey">
-        <h4>FOOTER</h4>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </footer>
-
     <!-- End page content -->
 </div>
 

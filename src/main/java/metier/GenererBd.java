@@ -21,7 +21,7 @@ public class GenererBd {
             Etudiant e3 = new Etudiant("zijing.zhou@ut-capitole.fr", "123", "zijing", "zhou", "resources/images/avatar-01.jpg");
             Etudiant e4 = new Etudiant("fares.megari@ut-capitole.fr", "123", "fares", "megari", "resources/images/avatar-01.jpg");
 
-            Scolarite s1 = new Scolarite("elaine.fontaine@ut-capitole.fr", "123", "elaine", "fontaine", "resources/images/avatar-01.jpg");
+            Scolarite s1 = new Scolarite("elodie.fontana@ut-capitole.fr", "123", "elodie", "fontana", "resources/images/avatar-01.jpg");
             session.save(e1);
             session.save(e2);
             session.save(e3);
@@ -46,7 +46,7 @@ public class GenererBd {
             e4.ajouteCours(c);
             e4.ajouteCours(c3);
 
-            Enseignant en1 = new Enseignant("nathalie.valles@ut-capitole.fr", "sdd", "nathalie", "valles", "resources/images/avatar-01.jpg");
+            Enseignant en1 = new Enseignant("nathalie.valles@ut-capitole.fr", "sdd", "nathalie", "valles", "resources/images/nathalie.png");
             Enseignant en2 = new Enseignant("ravat.franck@ut-capitole.fr", "123", "franck", "ravat", "resources/images/avatar-01.jpg");
 
             session.save(en1);

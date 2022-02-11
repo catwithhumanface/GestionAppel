@@ -84,7 +84,7 @@ public class PdfService {
 
         cont.endText();
         cont.close();
-        document.save("C:\\Users\\steve\\OneDrive\\Documents\\M2\\Développement Application Web\\Projet\\GestionAppel\\src\\main\\webapp\\resources\\outPutFiles\\temp"+presences.get(0).getSeanceCours().getIdSC()+".pdf");
+        document.save("C:\\Users\\Joohyun Ann\\Desktop\\GestionAppel\\src\\main\\webapp\\resources\\outPutFiles\\temp"+presences.get(0).getSeanceCours().getIdSC()+".pdf");
         document.close();
 
     }

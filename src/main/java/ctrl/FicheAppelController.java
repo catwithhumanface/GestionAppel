@@ -90,7 +90,7 @@ public class FicheAppelController extends HttpServlet {
                 if(elem.getKey()==p.getEtudiant().getIdE()){
                     FicheAppelService service1 = FicheAppelService.getInstance();
                     service1.updateAppel(p, elem.getKey(), elem.getValue());
-                    RequestDispatcher rd = request.getRequestDispatcher("cours.do?m=list");
+                    RequestDispatcher rd = request.getRequestDispatcher("cours.do?m=list&source=cours");
                     rd.forward(request, response);
                 }
             }
@@ -121,7 +121,7 @@ public class FicheAppelController extends HttpServlet {
                 }
             }
         }
-        RequestDispatcher rd = request.getRequestDispatcher("cours.do?m=list");
+        RequestDispatcher rd = request.getRequestDispatcher("cours.do?m=list&source=cours");
         rd.forward(request, response);
     }
 }

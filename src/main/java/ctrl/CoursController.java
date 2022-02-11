@@ -72,12 +72,6 @@ public class CoursController extends HttpServlet {
                 Set<Cours> coursList = service.getCoursList(utilisateur.getIdE());
                 request.setAttribute("CoursList", coursList);
             }
-            /*
-            if(utilisateur.getTypeU().equals("Etudiant")){
-                Set<Cours> coursListEtu = service.getCoursListEtu(utilisateur.getIdE());
-                request.setAttribute("CoursListEtu", coursListEtu);
-            }
-            */
             if(source != null){
                 request.setAttribute("source",source);
             }

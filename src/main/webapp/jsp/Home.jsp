@@ -33,7 +33,12 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s4">
-            <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
+            <c:if test="${!empty Utilisateur}">
+                <img src=${Utilisateur.urlPhoto} class="w3-circle w3-margin-right" style="width:46px">
+            </c:if>
+            <c:if test="${empty Utilisateur}">
+                <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
+            </c:if>
         </div>
         <div class="w3-col s8 w3-bar">
             <%
@@ -80,13 +85,11 @@
         <a
                 <c:if test="${Utilisateur.typeU.equals('Etudiant')}">href="<%out.println("recapHebdoController?ide="+user.getIdE());%>"
         </c:if> <c:if test="${Utilisateur.typeU.equals('Enseignant')}">href="listeEtudiantController"
-                </c:if>class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp Consulter le r&eacute;cap
+                </c:if>class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
             hebdomadaire</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
-
             <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter
                 mes absences</a>
-
         </c:if>
     </div>
 </nav>

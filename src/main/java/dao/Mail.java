@@ -28,7 +28,7 @@ public class Mail {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(user));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("annjh11@gmail.com"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(emailTo));
             message.setSubject("Notification - Absence");
             message.setText("Bonjour,"
                     + "\n\n Vous avez été abesent(e) au cours : " + nomCours + " au " + dateCours + "."
@@ -62,7 +62,7 @@ public class Mail {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(user));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("annjh11@gmail.com"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress("nathalie.valles@ut-capitole.fr"));
             message.setSubject("Notification - Reçu de justificatif");
             message.setText("Bonjour,"
                     + "\n\n Etudiant  : " + prenom + " " + nom +

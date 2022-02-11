@@ -32,7 +32,12 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s4">
-            <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
+            <c:if test="${!empty Utilisateur}">
+                <img src=${Utilisateur.urlPhoto} class="w3-circle w3-margin-right" style="width:46px">
+            </c:if>
+            <c:if test="${empty Utilisateur}">
+                <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
+            </c:if>
         </div>
         <div class="w3-col s8 w3-bar">
             <%
@@ -63,27 +68,26 @@
         <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
             <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
                 temps</a>
+            <a href="cours.do?m=list&source=static" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le statisitque des cours </a>
+            <a href="cours.do?m=list&source=cours" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter
+                mes cours</a>
         </c:if>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
             <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser
                 un justificatif</a>
         </c:if>
-        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
-            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp
-                Consulter mes cours</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp Consulter les
-                &eacute;tudiants</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-                des pr&eacute;sence</a>
-        </c:if>
         <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
             <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
                 les justificatif</a>
         </c:if>
+        <a
+                <c:if test="${Utilisateur.typeU.equals('Etudiant')}">href="<%out.println("recapHebdoController?ide="+user.getIdE());%>"
+        </c:if> <c:if test="${Utilisateur.typeU.equals('Enseignant')}">href="listeEtudiantController"
+                </c:if>class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+            hebdomadaire</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
-            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes absences</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-                des pr&eacute;sence</a>
+            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter
+                mes absences</a>
         </c:if>
     </div>
 </nav>
@@ -106,6 +110,9 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Justificatif</th>
+                <th scope="col">Etudiant</th>
+                <th scope="col">Cours</th>
+                <th scope="col">Date de la s&eacute;ance</th>
                 <th scope="col">Valider</th>
             </tr>
             </thead>
@@ -117,6 +124,9 @@
                  <form method="post" action = "ctrlValiderJ" >
                 <tr>
                     <td><a href =<%=DownloadPath%>${filename}>${filename}</a></td>
+                    <td>${row.getEtudiant().getNom()} ${row.getEtudiant().getPrenom()}</td>
+                    <td>${row.getSeanceCours().getDateSeance()}</td>
+                    <td>${row.getSeanceCours().getCours().getLibelles()}</td>
                     <td> <button type = "submit">Valider</button></td>
                     <td><input type="hidden" name="idE" value =${row.idP.getIdE()} ></td>
                     <td><input type="hidden" name="idSC" value =${row.idP.getIdSC()} ></td>

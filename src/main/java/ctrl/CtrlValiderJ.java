@@ -24,6 +24,7 @@ public class CtrlValiderJ extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         Set<Presence> setJ = jS.afficherJustifi();
+        Presence p = new Presence();
         request.setAttribute("setJustifi", setJ);
         request.getRequestDispatcher("validerJustifica").forward(request, response);
     }
