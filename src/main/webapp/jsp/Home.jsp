@@ -26,7 +26,7 @@
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
             class="fa fa-bars"></i> Menu
     </button>
-    <span class="w3-bar-item w3-right">Logo</span>
+    <span class="w3-bar-item w3-right">Gestion d'appel</span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -35,7 +35,7 @@
         <div class="w3-col s4">
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
-        <div class="w3-col s8 w3-bar">>
+        <div class="w3-col s8 w3-bar">
             <%
                 Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
                 pageContext.setAttribute("user", user);
@@ -44,7 +44,7 @@
             <c:if test="${!empty Utilisateur}">
                 <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
                 <a id="typeU" style="display: none">${typeU}</a>
-                <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+                <a href="member.do?m=profil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             </c:if>
             <c:if test="${empty Utilisateur}">
                 <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
@@ -53,13 +53,19 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>Mon emploi du temps</h5>
+        <h5>Menu</h5>
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
-            temps</a>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+                temps</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+                temps</a>
+        </c:if>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
             <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser
                 un justificatif</a>
@@ -69,6 +75,8 @@
                 Consulter mes cours</a>
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp Consulter les
                 &eacute;tudiants</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+                des pr&eacute;sence</a>
         </c:if>
         <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
             <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
@@ -80,8 +88,12 @@
                 </c:if>class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp Consulter le r&eacute;cap
             hebdomadaire</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+
             <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter
                 mes absences</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+                des pr&eacute;sence</a>
+
         </c:if>
     </div>
 </nav>
@@ -96,7 +108,7 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-dashboard"></i> Mon emploi du temps</b></h5>
+        <h5><b><i class="fa fa-dashboard"></i>Mon emploi du temps</b></h5>
     </header>
     <div style="margin-left: 38%">
         <a id="arrLeft" class="w3-button w3-circle w3-ripple w3-black fa fa-arrow-left"></a>

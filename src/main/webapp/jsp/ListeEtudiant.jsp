@@ -1,9 +1,12 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="metier.Utilisateur" %>
 <%@ page import="metier.SeanceCours" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="metier.Etudiant" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"  import="dao.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -28,7 +31,7 @@
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
             class="fa fa-bars"></i> Menu
     </button>
-    <span class="w3-bar-item w3-right">Logo</span>
+    <span class="w3-bar-item w3-right">Gestion d'appel</span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -37,16 +40,20 @@
         <div class="w3-col s4">
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
+
         <div class="w3-col s8 w3-bar">>
             <%
                 Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
                 pageContext.setAttribute("user", user);
+                pageContext.setAttribute("typeU", user.getTypeU());
             %>
             <c:if test="${!empty user}">
                 <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
-                <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+                <a id="typeU" style="display: none">${typeU}</a>
+                <a href="member.do?m=profil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             </c:if>
             <c:if test="${empty user}">
+
                 <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
             </c:if>
         </div>
@@ -58,12 +65,12 @@
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
+
         <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
             temps</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
             <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp
-                D&eacute;poser
-                un justificatif</a>
+                D&eacute;poserun justificatif</a>
         </c:if>
         <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
             <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp
@@ -76,7 +83,10 @@
                 Consulter
                 les justificatif</a>
         </c:if>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp Consulter le r&eacute;cap
+        <a
+                <c:if test="${Utilisateur.typeU.equals('Etudiant')}">href="<%out.println("recapHebdoController?ide="+user.getIdE());%>"
+        </c:if> <c:if test="${Utilisateur.typeU.equals('Enseignant')}">href="listeEtudiantController"
+                </c:if>class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp Consulter le r&eacute;cap
             hebdomadaire</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
             <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>&nbsp

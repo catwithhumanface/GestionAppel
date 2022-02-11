@@ -4,10 +4,11 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" import="static dao.JustificatifConstant.DownloadPath"%>
+<%@ page import="metier.Utilisateur" %>
 
 <!DOCTYPE html>
 <html>
-<title>Déposer un jusitificatif</title>
+<title>Valider les justificatifs</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,7 +25,7 @@
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
             class="fa fa-bars"></i> Menu
     </button>
-    <span class="w3-bar-item w3-right">Logo</span>
+    <span class="w3-bar-item w3-right">Gestion d'appel</span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -34,26 +35,56 @@
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
         <div class="w3-col s8 w3-bar">
-            <span>Welcome, <strong>Mike</strong></span><br>
-            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>--%>
-            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-            <%--            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>--%>
+            <%
+                Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
+                pageContext.setAttribute("typeU", user.getTypeU());
+            %>
+            <c:if test="${!empty Utilisateur}">
+                <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
+                <a id="typeU" style="display: none">${typeU}</a>
+                <a href="member.do?m=profil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+            </c:if>
+            <c:if test="${empty Utilisateur}">
+                <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
+            </c:if>
         </div>
     </div>
     <hr>
     <div class="w3-container">
-        <h5>Dashboard</h5>
+        <h5>Menu</h5>
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un
-            justificatif</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-            des pr&eacute;sence</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes alertes</a>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+                temps</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+                temps</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser
+                un justificatif</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp
+                Consulter mes cours</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp Consulter les
+                &eacute;tudiants</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+                des pr&eacute;sence</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
+            <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
+                les justificatif</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes absences</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+                des pr&eacute;sence</a>
+        </c:if>
     </div>
 </nav>
 
@@ -67,7 +98,7 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-table"></i> Déposer un justificatif</b></h5>
+        <h5><b><i class="fa fa-table"></i>Valider les justificatifs</b></h5>
     </header>
 
     <div class="w3-container">
@@ -102,35 +133,6 @@
         </div>
     </div>
     <br>
-    <div class="w3-container w3-dark-grey w3-padding-32">
-        <div class="w3-row">
-            <div class="w3-container w3-third">
-                <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-                <p>Language</p>
-                <p>Country</p>
-                <p>City</p>
-            </div>
-            <div class="w3-container w3-third">
-                <h5 class="w3-bottombar w3-border-red">System</h5>
-                <p>Browser</p>
-                <p>OS</p>
-                <p>More</p>
-            </div>
-            <div class="w3-container w3-third">
-                <h5 class="w3-bottombar w3-border-orange">Target</h5>
-                <p>Users</p>
-                <p>Active</p>
-                <p>Geo</p>
-                <p>Interests</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-16 w3-light-grey">
-        <h4>FOOTER</h4>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </footer>
 
     <!-- End page content -->
 </div>

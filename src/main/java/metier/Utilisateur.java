@@ -59,6 +59,9 @@ public class Utilisateur implements java.io.Serializable {
     @Column(name="TypeU", insertable = false, updatable = false)
     protected String typeU;
 
+    @Column(name = "UrlPhoto")
+    private String urlPhoto;
+
     public String getTypeU() {return typeU;}
 
     public String getMail() {return mail;}
@@ -77,6 +80,14 @@ public class Utilisateur implements java.io.Serializable {
 
     public void setNom(String nom) {this.nom = nom;}
 
+    public String getUrlPhoto() {
+        return urlPhoto;
+    }
+
+    public void setUrlPhoto(String urlPhoto) {
+        this.urlPhoto = urlPhoto;
+    }
+
     @Override
     public String toString() {
         return "Utilisateur{" + "idE=" + idE + ", mail='" + mail + '\'' + ", mdp='" + mdp + '\'' + ", prenom='" + prenom + '\'' + ", nom='" + nom + '\'' + '}';
@@ -85,10 +96,11 @@ public class Utilisateur implements java.io.Serializable {
     /*---Initialisation---*/
     public Utilisateur(){}
 
-    public Utilisateur(String mail, String mdp, String prenom, String nom){
+    public Utilisateur(String mail, String mdp, String prenom, String nom, String urlPhoto){
         this.mail = mail;
         this.nom = nom;
         this.prenom = prenom;
         this.mdp = mdp;
+        this.urlPhoto = urlPhoto;
     }
 }

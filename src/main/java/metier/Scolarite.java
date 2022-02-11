@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 
 public class Scolarite extends Utilisateur{
     public Scolarite(){}
-    public Scolarite(String mail, String mdp, String prenom, String nom){
-        super(mail,mdp,prenom,nom);
+    public Scolarite(String mail, String mdp, String prenom, String nom, String photoUrl){
+        super(mail,mdp,prenom,nom, photoUrl);
     }
 
 

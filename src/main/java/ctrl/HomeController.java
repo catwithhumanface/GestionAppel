@@ -32,8 +32,11 @@ public class HomeController extends HttpServlet {
             jourSemaine = DF.format(calendar.getTime());
         }
 
+        String view = "home";
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");
-
+        if(utilisateur.getTypeU().equals("Scolarite")){
+            view = "ctrlValiderJ";
+        }
         HomeService homeService = new HomeService();
 
         List<SeanceCours> seanceFlag = new ArrayList<>();
@@ -56,7 +59,8 @@ public class HomeController extends HttpServlet {
         }
         request.setAttribute("lundi",jourSemaine);
         request.setAttribute("edt",seanceFlag);
-        request.getRequestDispatcher("home").forward(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher(view);
+        rd.forward(request, response);
 
     }
 

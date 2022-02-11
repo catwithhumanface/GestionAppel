@@ -112,6 +112,11 @@
         <servlet-name>ListeEtudiantController</servlet-name>
         <url-pattern>/listeEtudiantController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MonProfil</servlet-name>
+        <url-pattern>/monProfil</url-pattern>
+    </servlet-mapping>
+
 
 
 
@@ -175,8 +180,14 @@
         <jsp-file>/jsp/ListeAbsences.jsp</jsp-file>
     </servlet>
     <servlet>
+
         <servlet-name>RecapHebdo</servlet-name>
         <jsp-file>/jsp/RecapHebdo.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>MonProfil</servlet-name>
+        <jsp-file>/jsp/MonProfil.jsp</jsp-file>
+
     </servlet>
 
 
