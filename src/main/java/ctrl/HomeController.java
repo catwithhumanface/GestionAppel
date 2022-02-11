@@ -31,7 +31,6 @@ public class HomeController extends HttpServlet {
         if (jourSemaine==null){
             jourSemaine = DF.format(calendar.getTime());
         }
-        System.out.println(jourSemaine);
 
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");
 

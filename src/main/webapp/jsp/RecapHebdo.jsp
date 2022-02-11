@@ -1,26 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@page import="dao.FicheAppelService" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="metier.Utilisateur" %>
 <%@ page import="metier.SeanceCours" %>
-<%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="metier.Etudiant" %>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Fiche d'Appels</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="resources/css/timetable.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="resources/css/ficheAppel.css">
 
-<style>
-    html, body, h1, h2, h3, h4, h5 {
-        font-family: "Raleway", sans-serif
-    }
-</style>
 <body class="w3-light-grey">
 
 <!-- Top container -->
@@ -42,11 +40,11 @@
                 Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
                 pageContext.setAttribute("user", user);
             %>
-            <c:if test="${!empty user}">
+            <c:if test="${!empty Utilisateur}">
                 <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
                 <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             </c:if>
-            <c:if test="${empty user}">
+            <c:if test="${empty Utilisateur}">
                 <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
             </c:if>
         </div>
@@ -96,10 +94,18 @@
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
         <%
+            String msg_e = (String) request.getAttribute("msg_e");
+            if (msg_e != null) {
+                out.println("<div>" + msg_e + "</div>");
+            }
+            Map<String, List<Integer>> map = (Map<String, List<Integer>>) request.getAttribute("rapportEtu");
+            pageContext.setAttribute("map", map);
             SeanceCours sc = (SeanceCours) request.getSession().getAttribute("sc");
             pageContext.setAttribute("sc", sc);
+            Etudiant etudiant = (Etudiant) request.getSession().getAttribute("etudiant");
+            pageContext.setAttribute("etudiant", etudiant);
         %>
-        <h5><b><i class="fa fa-table"></i> Recpulatif Trismestre</b>
+        <h5><b><i class="fa fa-table"></i> Recpulatif Hebdomataire de ${etudiant.nom} ${etudiant.prenom}</b>
         </h5>
         <a id="idsc" style="display: none">${sc.idSC}</a>
     </header>
@@ -108,8 +114,7 @@
         <table class="table middle">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">&#8470 Etudiant</th>
-                <th scope="col">Nom Pr&eacute;nom</th>
+                <th scope="col">Semaine de</th>
                 <th scope="col">Present</th>
                 <th scope="col">Retard</th>
                 <th scope="col">Absent</th>
@@ -117,33 +122,27 @@
             </thead>
             <tbody>
             <%
-                String msg_e = (String) request.getAttribute("msg_e");
-                if (msg_e != null) {
-                    out.println("<div>" + msg_e + "</div>");
-                }
-                Map<Etudiant, List<Integer>> map = (Map<Etudiant, List<Integer>>) request.getAttribute("rapport");
-                pageContext.setAttribute("map", map);
 
-                if (user.getTypeU().equals("Enseignant")) {
-                    for (Etudiant etudiant : map.keySet()) {
+                for (String monday : map.keySet()) {
             %>
             <tr>
-                <th><% out.println(etudiant.getIdE()); %></th>
-                <td><a href="<%out.println("recapHebdoController?ide="+etudiant.getIdE());%>"><% out.println(etudiant.getNom()+" "+etudiant.getPrenom()); %></a></td>
-                <td class="w3-text-green"><% out.println(map.get(etudiant).get(0)); %></td>
-                <td class="w3-text-yellow"><% out.println(map.get(etudiant).get(1)); %></td>
-                <td class="w3-text-red"><% out.println(map.get(etudiant).get(2)); %></td>
+                <th><% out.println(monday); %></th>
+                <td class="w3-text-green"><% out.println(map.get(monday).get(0)); %></td>
+                <td class="w3-text-yellow"><% out.println(map.get(monday).get(1)); %></td>
+                <td class="w3-text-red"><% out.println(map.get(monday).get(2)); %></td>
             </tr>
             <%
-                    }
                 }
+
             %>
             </tbody>
         </table>
     </div>
 
 
+
     <br>
+
 
     <!-- End page content -->
 </div>
@@ -172,6 +171,43 @@
         overlayBg.style.display = "none";
     }
 </script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    function saveFiche() {
+        console.log("save execute");
+        var result = "";
+        var idSc = ${idSc};
 
+        $('select[name="etatP[]"]').each(function () {
+            let id = this.id;
+            let value = this.value;
+            result = result + "/" + id + "!" + value;
+            console.log(result);
+        });
+        window.location.href = "ficheAppelController?m=save&idSc=" + idSc + "&result=" + result;
+    }
+
+    function validateFiche() {
+        console.log("validate execute");
+        var result = "";
+        var idSc = ${idSc};
+
+        $('select[name="etatP[]"]').each(function () {
+            let id = this.id;
+            let value = this.value;
+            result = result + "/" + id + "!" + value;
+            console.log(result);
+        });
+        window.location.href = "ficheAppelController?m=validate&idSc=" + idSc + "&result=" + result;
+    }
+</script>
+<script type="text/javascript" src="resources/js/fctFicheAppel.js"></script>
 </body>
 </html>
+

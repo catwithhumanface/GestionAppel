@@ -100,6 +100,18 @@
         <servlet-name>ListeAbsences</servlet-name>
         <url-pattern>/listeAbsences</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecapHebdo</servlet-name>
+        <url-pattern>/recapHebdo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecapHebdoController</servlet-name>
+        <url-pattern>/recapHebdoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListeEtudiantController</servlet-name>
+        <url-pattern>/listeEtudiantController</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -162,6 +174,10 @@
         <servlet-name>ListeAbsences</servlet-name>
         <jsp-file>/jsp/ListeAbsences.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>RecapHebdo</servlet-name>
+        <jsp-file>/jsp/RecapHebdo.jsp</jsp-file>
+    </servlet>
 
 
 
@@ -202,6 +218,14 @@
     <servlet>
         <servlet-name>CtrlValiderJ</servlet-name>
         <servlet-class>ctrl.CtrlValiderJ</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RecapHebdoController</servlet-name>
+        <servlet-class>ctrl.RecapHebdoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListeEtudiantController</servlet-name>
+        <servlet-class>ctrl.ListeEtudiantController</servlet-class>
     </servlet>
 
 

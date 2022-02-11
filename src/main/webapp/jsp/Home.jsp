@@ -38,6 +38,7 @@
         <div class="w3-col s8 w3-bar">>
             <%
                 Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
+                pageContext.setAttribute("user", user);
                 pageContext.setAttribute("typeU", user.getTypeU());
             %>
             <c:if test="${!empty Utilisateur}">
@@ -72,11 +73,15 @@
         <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
             <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
                 les justificatif</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-                des pr&eacute;sence</a>
         </c:if>
+        <a
+                <c:if test="${Utilisateur.typeU.equals('Etudiant')}">href="<%out.println("recapHebdoController?ide="+user.getIdE());%>"
+        </c:if> <c:if test="${Utilisateur.typeU.equals('Enseignant')}">href="listeEtudiantController"
+                </c:if>class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp Consulter le r&eacute;cap
+            hebdomadaire</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
-        <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes absences</a>
+            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter
+                mes absences</a>
         </c:if>
     </div>
 </nav>
