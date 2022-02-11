@@ -19,7 +19,7 @@ public class GenererBd {
             Etudiant e1 = new Etudiant("tong.liu@ut-capitole.fr", "123", "tong", "liu", "resources/images/avatar-01.jpg");
             Etudiant e2 = new Etudiant("joohyun.ann@ut-capitole.fr", "123", "joohyun", "ann", "resources/images/avatar-01.jpg");
             Etudiant e3 = new Etudiant("zijing.zhou@ut-capitole.fr", "123", "zijing", "zhou", "resources/images/avatar-01.jpg");
-            Etudiant e4 = new Etudiant("fares.megali@ut-capitole.fr", "123", "fares", "megali","resources/images/avatar-01.jpg");
+            Etudiant e4 = new Etudiant("fares.megari@ut-capitole.fr", "123", "fares", "megari", "resources/images/avatar-01.jpg");
 
             Scolarite s1 = new Scolarite("elaine.fontaine@ut-capitole.fr", "123", "elaine", "fontaine", "resources/images/avatar-01.jpg");
             session.save(e1);
@@ -46,17 +46,17 @@ public class GenererBd {
             e4.ajouteCours(c);
             e4.ajouteCours(c3);
 
-            Enseignant en1 = new Enseignant("nathalie.valles@ut-captitole.fr", "sdd", "nathalie", "valles", "resources/images/avatar-01.jpg");
-            Enseignant en2 = new Enseignant("ravat.franck@ut-captitole.fr", "123", "franck", "ravat", "resources/images/avatar-01.jpg");
+            Enseignant en1 = new Enseignant("nathalie.valles@ut-capitole.fr", "sdd", "nathalie", "valles", "resources/images/avatar-01.jpg");
+            Enseignant en2 = new Enseignant("ravat.franck@ut-capitole.fr", "123", "franck", "ravat", "resources/images/avatar-01.jpg");
 
             session.save(en1);
             session.save(en2);
 
-            SeanceCours sc1 = new SeanceCours(c, en1, DF.parse("01-01-2021"), "9", "12");
-            SeanceCours sc2 = new SeanceCours(c2, en2, DF.parse("04-01-2021"), "9", "12");
-            SeanceCours sc3 = new SeanceCours(c, en1, DF.parse("06-01-2021"), "9", "12");
-            SeanceCours sc4 = new SeanceCours(c2, en2, DF.parse("08-01-2021"), "9", "12");
-            SeanceCours sc5 = new SeanceCours(c3, en2, DF.parse("02-02-2021"), "13", "15");
+            SeanceCours sc1 = new SeanceCours(c, en1, DF.parse("22-01-2022"), "9", "12");
+            SeanceCours sc2 = new SeanceCours(c2, en2, DF.parse("23-01-2022"), "9", "12");
+            SeanceCours sc3 = new SeanceCours(c, en1, DF.parse("24-01-2022"), "9", "12");
+            SeanceCours sc4 = new SeanceCours(c2, en2, DF.parse("25-01-2022"), "9", "12");
+            SeanceCours sc5 = new SeanceCours(c3, en2, DF.parse("31-01-2022"), "13", "15");
             SeanceCours sc6 = new SeanceCours(c,en2, DF.parse("07-02-2022"),"9","12");
             SeanceCours sc8 = new SeanceCours(c2,en2, DF.parse("07-02-2022"),"13","15");
             SeanceCours sc9 = new SeanceCours(c3,en2, DF.parse("08-02-2022"),"9","12");
@@ -66,6 +66,17 @@ public class GenererBd {
             SeanceCours sc13 = new SeanceCours(c3,en1, DF.parse("10-02-2022"),"09","12");
             SeanceCours sc14 = new SeanceCours(c2,en1, DF.parse("10-02-2022"),"13","15");
             SeanceCours sc15 = new SeanceCours(c2,en1, DF.parse("11-02-2022"),"09","12");
+            SeanceCours sc16= new SeanceCours(c,en1, DF.parse("14-02-2022"),"13","15");
+            SeanceCours sc17= new SeanceCours(c3,en2, DF.parse("15-02-2022"),"9","12");
+            SeanceCours sc18= new SeanceCours(c2,en2, DF.parse("16-02-2022"),"13","15");
+            SeanceCours sc19= new SeanceCours(c,en1, DF.parse("17-02-2022"),"9","12");
+            SeanceCours sc20= new SeanceCours(c2,en1, DF.parse("18-02-2022"),"13","15");
+            SeanceCours sc21= new SeanceCours(c,en1, DF.parse("21-02-2022"),"9","12");
+            SeanceCours sc22= new SeanceCours(c3,en2, DF.parse("22-02-2022"),"13","15");
+            SeanceCours sc23= new SeanceCours(c2,en1, DF.parse("23-02-2022"),"9","12");
+            SeanceCours sc24= new SeanceCours(c3,en1, DF.parse("24-02-2022"),"13","15");
+            SeanceCours sc25= new SeanceCours(c,en1, DF.parse("25-02-2022"),"9","12");
+            SeanceCours sc26= new SeanceCours(c2,en1, DF.parse("26-02-2022"),"13","15");
 
             session.save(sc1);
             session.save(sc2);
@@ -81,6 +92,17 @@ public class GenererBd {
             session.save(sc13);
             session.save(sc14);
             session.save(sc15);
+            session.save(sc16);
+            session.save(sc17);
+            session.save(sc18);
+            session.save(sc19);
+            session.save(sc20);
+            session.save(sc21);
+            session.save(sc22);
+            session.save(sc23);
+            session.save(sc24);
+            session.save(sc25);
+            session.save(sc26);
 
             t.commit();
 
