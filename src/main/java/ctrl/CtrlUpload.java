@@ -25,6 +25,13 @@ import static dao.JustificatifConstant.UPLOAD_DIRECTORY;
 public class CtrlUpload extends HttpServlet {
 
     @Override
+    /**
+     * Conserver le dossier déposé par un étudiant pour un cours
+     * @author Tong LIU
+     * @param request id d'une scéance et id d'un étudiant
+     * @param response Un justificatif conservé dans le BD
+     * @return page dépot de justificatif pour les séances qui restent
+     */
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        // String m = req.getParameter("m");
         //System.out.println("m :::: "+ m);
