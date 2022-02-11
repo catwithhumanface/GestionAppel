@@ -97,6 +97,10 @@
         <url-pattern>/validerJustifica</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>StatiEnseignant</servlet-name>
+        <url-pattern>/statiEnseignant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ListeAbsences</servlet-name>
         <url-pattern>/listeAbsences</url-pattern>
     </servlet-mapping>
@@ -176,18 +180,20 @@
         <jsp-file>/jsp/ValiderJustifica.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>StatiEnseignant</servlet-name>
+        <jsp-file>/jsp/StatiEnseignant.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>ListeAbsences</servlet-name>
         <jsp-file>/jsp/ListeAbsences.jsp</jsp-file>
     </servlet>
     <servlet>
-
         <servlet-name>RecapHebdo</servlet-name>
         <jsp-file>/jsp/RecapHebdo.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>MonProfil</servlet-name>
         <jsp-file>/jsp/MonProfil.jsp</jsp-file>
-
     </servlet>
 
 
@@ -238,9 +244,6 @@
         <servlet-name>ListeEtudiantController</servlet-name>
         <servlet-class>ctrl.ListeEtudiantController</servlet-class>
     </servlet>
-
-
-
     <!-- default page -->
     <welcome-file-list>
         <welcome-file>index</welcome-file>

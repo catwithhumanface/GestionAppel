@@ -63,20 +63,15 @@
                 temps</a>
         </c:if>
         <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
-            <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+             <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
                 temps</a>
+             <a href="cours.do?m=list&source=static" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le statisitque des cours </a>
+            <a href="cours.do?m=list&source=cours" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter
+                mes cours</a>       
         </c:if>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
             <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser
                 un justificatif</a>
-        </c:if>
-        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
-            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp
-                Consulter mes cours</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp Consulter les
-                &eacute;tudiants</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-                des pr&eacute;sence</a>
         </c:if>
         <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
             <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
@@ -91,8 +86,6 @@
 
             <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter
                 mes absences</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
-                des pr&eacute;sence</a>
 
         </c:if>
     </div>
