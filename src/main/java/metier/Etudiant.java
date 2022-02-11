@@ -30,8 +30,8 @@ public class Etudiant extends Utilisateur{
     }
 
     public Etudiant(){}
-    public Etudiant(String mail,String mdp,String prenom,String nom){
-        super(mail,mdp,prenom,nom);
+    public Etudiant(String mail,String mdp,String prenom,String nom, String photoUrl){
+        super(mail,mdp,prenom,nom, photoUrl);
     }
 
     public Set<Cours> getLesCours() {return lesCours;}

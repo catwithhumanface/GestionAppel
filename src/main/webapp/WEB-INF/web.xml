@@ -100,6 +100,11 @@
         <servlet-name>ListeAbsences</servlet-name>
         <url-pattern>/listeAbsences</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MonProfil</servlet-name>
+        <url-pattern>/monProfil</url-pattern>
+    </servlet-mapping>
+
 
 
 
@@ -161,6 +166,10 @@
     <servlet>
         <servlet-name>ListeAbsences</servlet-name>
         <jsp-file>/jsp/ListeAbsences.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>MonProfil</servlet-name>
+        <jsp-file>/jsp/MonProfil.jsp</jsp-file>
     </servlet>
 
 

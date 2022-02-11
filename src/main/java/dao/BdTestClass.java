@@ -17,8 +17,8 @@ public class BdTestClass {
     public static void createEtudiant() {
         try (Session s1 = HibernateUtil.getSessionFactory().getCurrentSession()) {
             Transaction tc = s1.beginTransaction();
-            Etudiant e1 = new Etudiant("joohyun.ann@ut-capitole.fr", "123", "joohyun", "ann");
-            Etudiant e2 = new Etudiant("tong.liu@ut-capitole.fr", "123", "tong", "liu");
+            Etudiant e1 = new Etudiant("joohyun.ann@ut-capitole.fr", "123", "joohyun", "ann", "resources/images/avatar-01.jpg");
+            Etudiant e2 = new Etudiant("tong.liu@ut-capitole.fr", "123", "tong", "liu", "resources/images/avatar-01.jpg");
 
             s1.save(e1);
             s1.save(e2);
@@ -41,8 +41,8 @@ public class BdTestClass {
     public static void createLesCours() {
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
-            Etudiant e1 = new Etudiant("tong.liu@ut-capitole.fr", "123", "tong", "liu");
-            Etudiant e2 = new Etudiant("joohyun.ann@ut-capitole.fr", "123", "joohyun", "ann");
+            Etudiant e1 = new Etudiant("tong.liu@ut-capitole.fr", "123", "tong", "liu", "resources/images/avatar-01.jpg");
+            Etudiant e2 = new Etudiant("joohyun.ann@ut-capitole.fr", "123", "joohyun", "ann", "resources/images/avatar-01.jpg");
 
             session.save(e1);
             session.save(e2);
@@ -60,7 +60,7 @@ public class BdTestClass {
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             Cours c1 = session.get(Cours.class, 1);
-            Enseignant e1 = new Enseignant("nathalie.valles.ut-captitole.fr", "sdd", "nathalie", "valles");
+            Enseignant e1 = new Enseignant("nathalie.valles.ut-captitole.fr", "sdd", "nathalie", "valles", "resources/images/avatar-01.jpg");
 
             session.save(e1);
 

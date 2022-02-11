@@ -39,7 +39,7 @@
             <% Utilisateur user = (Utilisateur)request.getSession().getAttribute("Utilisateur");%>
             <c:if test="${!empty Utilisateur}">
                 <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
-                <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+                <a href="member.do?m=profil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             </c:if>
             <c:if test="${empty Utilisateur}">
                 <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
@@ -48,7 +48,7 @@
     </div>
     <hr>
     <div class="w3-container">
-        <h5>Mes Absences</h5>
+        <h5>Menu</h5>
     </div>
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
@@ -81,7 +81,10 @@
             A partir de
             <input type="date" value="2022-02-01" id="from" name="from" />
             <b style="color: #fff"></b>
-            <input type="submit" value="Rechercher" />
+            <button type="submit">
+                <span class="fa fa-search"></span>
+            </button>
+
         </form>
     </div>
 

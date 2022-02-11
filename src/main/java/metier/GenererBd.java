@@ -16,12 +16,12 @@ public class GenererBd {
     public static void createLesCours() {
         try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
-            Etudiant e1 = new Etudiant("tong.liu@ut-capitole.fr", "123", "tong", "liu");
-            Etudiant e2 = new Etudiant("joohyun.ann@ut-capitole.fr", "123", "joohyun", "ann");
-            Etudiant e3 = new Etudiant("zijing.zhou@ut-capitole.fr", "123", "zijing", "zhou");
-            Etudiant e4 = new Etudiant("fares.megali@ut-capitole.fr", "123", "fares", "megali");
+            Etudiant e1 = new Etudiant("tong.liu@ut-capitole.fr", "123", "tong", "liu", "resources/images/avatar-01.jpg");
+            Etudiant e2 = new Etudiant("joohyun.ann@ut-capitole.fr", "123", "joohyun", "ann", "resources/images/avatar-01.jpg");
+            Etudiant e3 = new Etudiant("zijing.zhou@ut-capitole.fr", "123", "zijing", "zhou", "resources/images/avatar-01.jpg");
+            Etudiant e4 = new Etudiant("fares.megali@ut-capitole.fr", "123", "fares", "megali","resources/images/avatar-01.jpg");
 
-            Scolarite s1 = new Scolarite("elaine.fontaine@ut-capitole.fr", "123", "elaine", "fontaine");
+            Scolarite s1 = new Scolarite("elaine.fontaine@ut-capitole.fr", "123", "elaine", "fontaine", "resources/images/avatar-01.jpg");
             session.save(e1);
             session.save(e2);
             session.save(e3);
@@ -46,8 +46,8 @@ public class GenererBd {
             e4.ajouteCours(c);
             e4.ajouteCours(c3);
 
-            Enseignant en1 = new Enseignant("nathalie.valles@ut-captitole.fr", "sdd", "nathalie", "valles");
-            Enseignant en2 = new Enseignant("ravat.franck@ut-captitole.fr", "123", "franck", "ravat");
+            Enseignant en1 = new Enseignant("nathalie.valles@ut-captitole.fr", "sdd", "nathalie", "valles", "resources/images/avatar-01.jpg");
+            Enseignant en2 = new Enseignant("ravat.franck@ut-captitole.fr", "123", "franck", "ravat", "resources/images/avatar-01.jpg");
 
             session.save(en1);
             session.save(en2);
