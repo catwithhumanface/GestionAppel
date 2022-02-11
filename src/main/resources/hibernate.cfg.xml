@@ -6,9 +6,9 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_gestionappel</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.url">jdbc:mysql://gestionappel-db-db00005691.mdb0002418.db.skysql.net:5009/DB_projet?enabledTLSProtocols=TLSv1,TLSv1.1,TLSv1.2,TLSv1.3</property>
+    <property name="hibernate.connection.username">DB00005691</property>
+    <property name="hibernate.connection.password">Oy4qRl~ZYipR3G9pI8HmOpBh</property>
 
     <!-- Parseur HQL -->
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
