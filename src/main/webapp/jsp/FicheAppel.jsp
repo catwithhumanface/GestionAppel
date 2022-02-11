@@ -94,6 +94,7 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">&#8470 Etudiant</th>
+                <th scope="col">Photo</th>
                 <th scope="col">Nom Pr&eacute;nom</th>
                 <th scope="col">Etat Pr&eacute;sence</th>
                 <th scope="col">Justificatif</th>
@@ -119,6 +120,7 @@
             <c:forEach items="${listeAppel}" var="row">
                 <tr>
                     <th>${row[0]}</th>
+                    <td> <img src=${row[5]} class="w3-circle" style="width:150px; margin-left:15%;"></td>
                     <td>${row[1]}&nbsp${row[2]}</td>
                     <td>
                         <select id="${row[0]}" class='w3-select' name="etatP[]"
