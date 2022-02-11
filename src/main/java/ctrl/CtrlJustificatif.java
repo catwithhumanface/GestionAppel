@@ -15,6 +15,13 @@ import java.util.List;
 
 @WebServlet(name = "CtrlJustificatif", value = "/ctrlJustificatif")
 public class CtrlJustificatif extends HttpServlet {
+    /**
+     * Générer la liste des absences pour un étudiant puisse déposer un justificatif
+     * @author Tong LIU
+     * @param request id des étudiants qui ont une absence
+     * @param response Les séances qui n'ont pas de justificatif
+     * @return page dépot de justificatif
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
