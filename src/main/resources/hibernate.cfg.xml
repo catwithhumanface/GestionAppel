@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_21912808</property>
-    <property name="hibernate.connection.username">21912808</property>
-    <property name="hibernate.connection.password">U01W44</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_gestionappel</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
 
     <!-- Parseur HQL -->
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
@@ -16,6 +16,6 @@
 
     <!-- Gestion des sessions par Hibernate lui-même -->
     <property name="hibernate.current_session_context_class">thread</property> <!-- Pour getCurrentSession() -->
-    <property name="hibernate.hbm2ddl.auto">update</property> <!-- create, validate, update, none -->
+    <property name="hibernate.hbm2ddl.auto">validate</property> <!-- create, validate, update, none -->
   </session-factory>
 </hibernate-configuration>

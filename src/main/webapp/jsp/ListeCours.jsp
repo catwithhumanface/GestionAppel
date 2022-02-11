@@ -35,11 +35,15 @@
         <div class="w3-col s4">
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
         </div>
-        <div class="w3-col s8 w3-bar">>
-            <% Utilisateur user = (Utilisateur)request.getSession().getAttribute("Utilisateur");%>
+        <div class="w3-col s8 w3-bar">
+            <%
+                Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
+                pageContext.setAttribute("typeU", user.getTypeU());
+            %>
             <c:if test="${!empty Utilisateur}">
                 <span>Bienvenue, <strong><%=user.getPrenom()%></strong></span><br>
-                <a href="monProfil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+                <a id="typeU" style="display: none">${typeU}</a>
+                <a href="member.do?m=profil" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
             </c:if>
             <c:if test="${empty Utilisateur}">
                 <a href="member.do?m=form"><span><strong>Se connecter</strong></span></a><br>
@@ -53,11 +57,27 @@
     <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Consulter mes cours</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>Consulter les &eacute;tudiants</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser un justificatif</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap des pr&eacute;sence</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes alertes</a>
+        <a href="homeController" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar"></i>&nbsp Emploi du
+            temps</a>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="ctrlJustificatif" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>D&eacute;poser
+                un justificatif</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Enseignant')}">
+            <a href="cours.do?m=list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp
+                Consulter mes cours</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp Consulter les
+                &eacute;tudiants</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Scolarite')}">
+            <a href="ctrlValiderJ" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Consulter
+                les justificatif</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>Consulter le r&eacute;cap
+                des pr&eacute;sence</a>
+        </c:if>
+        <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
+            <a href="etudiant.do?m=showab" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>Consulter mes absences</a>
+        </c:if>
     </div>
 </nav>
 
