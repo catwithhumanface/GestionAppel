@@ -105,48 +105,49 @@ public class BdTestClass {
     }
 
     public static void main(String[] args) {
-//        createCours();
-//        createEtudiant();
-//        createLesCours();
-//        createSeance();
-//        createpresence();
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Utilisateur utilisateur = session.get(Etudiant.class, 3);
-        session.close();
-        List<SeanceCours> seanceFlag = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            seanceFlag.add(null);
-        }
-        String jourSemaine = "2022-02-07";
-        HomeService homeService = new HomeService();
-        List<List<SeanceCours>> edt = homeService.getEdt(jourSemaine, utilisateur, utilisateur.getTypeU());
-        for (int i = 0; i < edt.size(); i++) {
-            for (int j = 0; j < edt.get(i).size(); j++) {
-                SeanceCours sc = edt.get(i).get(j);
-                System.out.println(sc.getCours().getLibelles());
-                if (sc.getHeureDeb().equals("9")) {
-                    seanceFlag.set(i * 2, sc);
-                } else if (sc.getHeureDeb().equals("13")) {
-                    seanceFlag.set(i * 2 + 1, sc);
-                }
-            }
-        }
-//            session.beginTransaction();
+////        createCours();
+////        createEtudiant();
+////        createLesCours();
+////        createSeance();
+////        createpresence();
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//        Utilisateur utilisateur = session.get(Etudiant.class, 3);
+//        session.close();
+//        List<SeanceCours> seanceFlag = new ArrayList<>();
+//        for (int i = 0; i < 10; i++) {
+//            seanceFlag.add(null);
+//        }
+//        String jourSemaine = "2022-02-07";
+//        HomeService homeService = new HomeService();
+//        List<List<SeanceCours>> edt = homeService.getEdt(jourSemaine, utilisateur, utilisateur.getTypeU());
+//        for (int i = 0; i < edt.size(); i++) {
+//            for (int j = 0; j < edt.get(i).size(); j++) {
+//                SeanceCours sc = edt.get(i).get(j);
+//                System.out.println(sc.getCours().getLibelles());
+//                if (sc.getHeureDeb().equals("9")) {
+//                    seanceFlag.set(i * 2, sc);
+//                } else if (sc.getHeureDeb().equals("13")) {
+//                    seanceFlag.set(i * 2 + 1, sc);
+//                }
+//            }
+//        }
+////            session.beginTransaction();
+////
+////            List listeAppel = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
+////                                                    "from Etudiant e,Presence p " +
+////                                                    "where e.idE=p.etudiant.idE").list();
+////            BdTestClass.affichage(listeAppel);
+////
+////            List listeAppel2 = session.createSQLQuery("select * from Presence").list();
+////
+////            BdTestClass.affichage(listeAppel2);
+////
+////            List listeAppel3 = session.createQuery("select sc.dateValidation from SeanceCours sc where sc.idSC=2").list();
+////            System.out.println(listeAppel3);
+////            System.out.println(listeAppel3.get(0));
 //
-//            List listeAppel = session.createQuery("select e.idE, e.nom, e.prenom, p.etatP " +
-//                                                    "from Etudiant e,Presence p " +
-//                                                    "where e.idE=p.etudiant.idE").list();
-//            BdTestClass.affichage(listeAppel);
-//
-//            List listeAppel2 = session.createSQLQuery("select * from Presence").list();
-//
-//            BdTestClass.affichage(listeAppel2);
-//
-//            List listeAppel3 = session.createQuery("select sc.dateValidation from SeanceCours sc where sc.idSC=2").list();
-//            System.out.println(listeAppel3);
-//            System.out.println(listeAppel3.get(0));
-
-
+        ListeEtudiantDao led = new ListeEtudiantDao();
+        System.out.println(led.getEtuList());
     }
 }
