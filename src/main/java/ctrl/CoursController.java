@@ -22,6 +22,12 @@ import java.util.Set;
 public class CoursController extends HttpServlet {
     CoursService service = CoursService.getInstance();
 
+    /**
+     * Obtenir les paramètres afin d'exécuter les méthodes correspendantes
+     * @author Joohyun Ann
+     * @param request paramètres entrants avec la demande
+     * @param response page à rediriger
+     */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String m = request.getParameter("m");
@@ -43,6 +49,13 @@ public class CoursController extends HttpServlet {
         }
     }
 
+    /**
+     * Générer la liste des séances des cours en fonctionne de l'utilsateur
+     * @author Joohyun Ann
+     * @param request id de cours
+     * @param response seanceCoursList
+     * @return page index ou page seanceCoursList
+     */
     private void seanceList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         int idCours = Integer.parseInt(request.getParameter("id"));
@@ -62,6 +75,13 @@ public class CoursController extends HttpServlet {
         rd.forward(request, response);
     }
 
+    /**
+     * Générer la liste des cours en fonctionne de l'utilsateur
+     * @author Joohyun Ann
+     * @param request source pour diriger vers la liste des cours pour statistique ou pour la fiche d'appel
+     * @param response source, coursList, rCode
+     * @return page index ou page listeCours
+     */
     private void coursList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");
@@ -82,6 +102,14 @@ public class CoursController extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
     }
+
+    /**
+     * Générer la liste des statistiques de la presence des étudiants
+     * @author Joohyun Ann
+     * @param request id de cours, source
+     * @param response Etudiantlist, absences en moyenne, taux d'absence, rCode
+     * @return page index ou page statiEnseignant
+     */
     private void stats(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         int idCours = Integer.parseInt(request.getParameter("id"));
