@@ -1,4 +1,6 @@
 <%@ page import="metier.Utilisateur" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"  import="dao.*" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -31,7 +33,12 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s4">
+        <c:if test="${!empty Utilisateur}">
+            <img src=${Utilisateur.urlPhoto} class="w3-circle w3-margin-right" style="width:46px">
+        </c:if>
+        <c:if test="${empty Utilisateur}">
             <img src="resources/images/avatar-01.jpg" class="w3-circle w3-margin-right" style="width:46px">
+        </c:if>
         </div>
         <div class="w3-col s8 w3-bar">
             <c:if test="${!empty Utilisateur}">
