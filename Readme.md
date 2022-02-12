@@ -12,20 +12,22 @@
 |**Fares MEGARI**|[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/faresmegari) [![Gmail Badge](https://img.shields.io/badge/-Lielyannie@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Lielyannie@gmail.com)](mailto:fares.megari@ut.capitole.fr)|
 
 ## 2. Installation du projet
-1. Copier Code Github 
+1. Copier URL Github 
 2. Import Projet
 3. Connexion DB to MySQL
-   1. Exécution SQL (DB.sql)
-   2. Adapation de connexionBD.php
-      1. dbname
-      2. username
-      3. password
-4. Exécution de l'application
-   
+   1. Adapation de hibernate.cfg.xml
+      1. hibernate.connection.url
+      2. hibernate.connection.username
+      3. hibernate.connection.password
+      4. hibernate.hbm2ddl.auto (create)
+   2. Exécution HQL (GenererBD.java)
+   3. Changement de hibernate.cfg.xml - hibernate.hbmdd1.auto (validate)
+   4. Changement de chemin d'accès absolu (JustificatifConstant.java)
+   5. Configuration de Tomcat
 ## 3. Présentation du projet
 
 ## 4. Technologie
-Java<br>
+Java (jdk 16)<br>
 JSP<br>
 Ajax<br>
 MySQL<br>
