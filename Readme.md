@@ -41,7 +41,7 @@ Le recueil des besoins a permis d’élaborer une liste de User stories, point d
 ![MVC](img/mvc.png)
 
 ## 5. Technologie
-
+![TECH](img/tech.png)
 ### 5.1 APIs
 
 **Développement**
