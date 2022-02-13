@@ -35,6 +35,12 @@ import static dao.JustificatifConstant.UPLOAD_DIRECTORY_PHOTO;
 public class UtilisateurController extends HttpServlet {
     UtilisateurService service = UtilisateurService.getInstance();
 
+    /**
+     * Obtenir les paramètres afin d'exécuter les méthodes correspendantes
+     * @author Joohyun Ann
+     * @param request paramètres entrants avec la demande
+     * @param response page à rediriger
+     */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String m = request.getParameter("m");
@@ -53,11 +59,25 @@ public class UtilisateurController extends HttpServlet {
         }
     }
 
+    /**
+     * Générer la page de la connexion
+     * @author Joohyun Ann
+     * @param request
+     * @param response
+     * @return page index ou page seanceCoursList
+     */
     private void form(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String view = "index";
         response.sendRedirect(view);
     }
 
+    /**
+     * Générer la page d'accueil
+     * @author Joohyun Ann
+     * @param request username, pass, typeUser
+     * @param response rCode
+     * @return page index ou vers homeController
+     */
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String pass = request.getParameter("pass");
@@ -81,6 +101,13 @@ public class UtilisateurController extends HttpServlet {
         }
     }
 
+    /**
+     * Générer la page de mon profil
+     * @author Joohyun Ann
+     * @param request utilisateur
+     * @param response rCode
+     * @return page index ou monProfil
+     */
     private void profil(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");
@@ -93,6 +120,13 @@ public class UtilisateurController extends HttpServlet {
         rd.forward(request, response);
     }
 
+    /**
+     * Modifier la photo de profil
+     * @author Joohyun Ann
+     * @param req utilisateur
+     * @param resp générer mon profil
+     * @return page index ou monProfil
+     */
     protected void modifP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("Utilisateur");

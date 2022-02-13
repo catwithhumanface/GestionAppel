@@ -12,6 +12,13 @@ import java.util.*;
 
 @WebServlet(name = "FicheAppelController", value = "/FicheAppelController")
 public class FicheAppelController extends HttpServlet {
+    /**
+     * Générer la liste des séances des cours en fonctionne de l'utilsateur
+     * @author Zijing Zhou
+     * @param request id de séance de cours
+     * @param response un list de présence
+     * @return page fiche d'appel pour un séance de cours
+     */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String m = request.getParameter("m");
@@ -27,6 +34,7 @@ public class FicheAppelController extends HttpServlet {
             }
         }
     }
+
 
     protected void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idsc = request.getParameter("seance");
@@ -77,6 +85,13 @@ public class FicheAppelController extends HttpServlet {
         }
         return map;
     }
+    /**
+     * Sauvegarder les états des présences
+     * @author Zijing Zhou
+     * @param request fiche d'appel
+     * @param response etat changé en enregisré en BD
+     * @return page list de cours
+     */
     public void save(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String result = request.getParameter("result");
         String idSc = request.getParameter("idSc");
@@ -97,6 +112,13 @@ public class FicheAppelController extends HttpServlet {
         }
 
     }
+    /**
+     * Générer la liste des séances des cours en fonctionne de l'utilsateur
+     * @author Zijing Zhou
+     * @param request fiche d'appel
+     * @param response etat changé en validé en BD, les présences de cette fiche ne peut plus changé
+     * @return page list de cours
+     */
     public void validate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String result = request.getParameter("result");
         String idSc = request.getParameter("idSc");

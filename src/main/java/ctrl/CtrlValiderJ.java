@@ -18,6 +18,13 @@ import java.util.Set;
 @WebServlet(name = "CtrlValiderJ", value = "/ctrlValiderJ")
 public class CtrlValiderJ extends HttpServlet {
     JustificatifService jS = JustificatifService.getInstance();
+    /**
+     * Conserver le dossier déposé par un étudiant pour un cours
+     * @author Tong LIU
+     * @param request id d'une séance et id d'un étudiant
+     * @param response changement de l'état d'un justificatif et l'état d'un étudiant
+     * @return page de validation des justificatifs
+     */
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
