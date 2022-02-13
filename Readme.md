@@ -22,9 +22,46 @@
       3. password
 4. Exécution de l'application
    
+
 ## 3. Présentation du projet
 
+
+
+
+
+
+
 ## 4. Technologie
+ 
+
+
+
+### 4.1 APIs
+
+**Développement**
+
+- JSTL
+
+- javax.servlet
+
+- commons-fileupload
+
+- javax.mail
+
+- org.apache.pdfbox
+
+**Test**
+
+- com.masterxml.jaskson.dataformat
+
+- com.github.servanter
+
+- Junit
+
+
+
+
+
 Java<br>
 JSP<br>
 Ajax<br>
