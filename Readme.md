@@ -26,8 +26,8 @@
    5. Configuration de Tomcat
 ## 3. Présentation du projet
 
-## 4. Technologie
-Java (jdk 16)<br>
-JSP<br>
-Ajax<br>
-MySQL<br>
+## 4. Structure (MVC pattern)
+(md_imgs/mvc.png)
+
+## 5. Technologie
+(md_imgs/tech.png)
