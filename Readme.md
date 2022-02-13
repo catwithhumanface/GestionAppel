@@ -67,7 +67,7 @@ Un recueil des besoins a été mené durant le mois de décembre auprès des deu
 ## 6. Diagramme de classe (uml)
 ![UML](img/UML.png)
 
-## 7. Liste des points forts de votre développement
+## 7. Liste des points forts de notre développement
 1. Site consultable sur le web (https://gestionappel.herokuapp.com/)
 2. Structure des codes optimisée grâce à l'utilisation de MVC pattern
 3. Facilité de la reproduction de la Base de donnée (GenererBD.java) en cas d'utilisation de la BDD en local (en s'adaptant hibernate.cfg.xml)
