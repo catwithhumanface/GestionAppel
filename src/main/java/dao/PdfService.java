@@ -84,7 +84,10 @@ public class PdfService {
 
         cont.endText();
         cont.close();
-        document.save("C:\\Users\\Joohyun Ann\\Desktop\\GestionAppel\\src\\main\\webapp\\resources\\outPutFiles\\temp"+presences.get(0).getSeanceCours().getIdSC()+".pdf");
+        System.out.println(JustificatifConstant.PDF_DIRECTORY + "temp"+presences.get(0).getSeanceCours().getIdSC()+".pdf");
+        document.save(JustificatifConstant.PDF_DIRECTORY + "temp"+presences.get(0).getSeanceCours().getIdSC()+".pdf");
+        System.out.println("!!!!!!!");
+
         document.close();
 
     }
