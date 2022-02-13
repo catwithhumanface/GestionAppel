@@ -30,9 +30,9 @@
    6. Changement de chemin d'accès absolu (JustificatifConstant.java)
    7. Configuration de Tomcat
    8. Exécution de serveur Tomcat
-   9. Se connecter en tant qu'étudiant (joohyun.ann@ut-capitole.fr , mdp : 123)
-      Se connecter en tant qu'étudiant (nathalie.valles@ut-capitole.fr , mdp : sdd)
-      Se connecter en tant qu'étudiant (elodie.fontana@ut-capitole.fr , mdp : 123)
+   9. Se connecter en tant qu'étudiant (joohyun.ann@ut-capitole.fr , mdp : 123)<br>
+      Se connecter en tant qu'étudiant (nathalie.valles@ut-capitole.fr , mdp : sdd)<br>
+      Se connecter en tant qu'étudiant (elodie.fontana@ut-capitole.fr , mdp : 123)<br>
 
 ## 3. Présentation du projet
 <br>
