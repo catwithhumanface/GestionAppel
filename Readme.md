@@ -20,10 +20,16 @@
       2. hibernate.connection.username
       3. hibernate.connection.password
       4. hibernate.hbm2ddl.auto (create)
-   2. Exécution HQL (GenererBD.java)
-   3. Changement de hibernate.cfg.xml - hibernate.hbmdd1.auto (validate)
-   4. Changement de chemin d'accès absolu (JustificatifConstant.java)
-   5. Configuration de Tomcat
+   2. Adapdation de chemin d'accès 
+      1. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\fileJustificatif" (dans IntelliJ, cliquer droit de dossier "fileJustificatif" -> Copy path/reference -> absolute path)
+      3. Remplacer le constant "UPLOAD_DIRECTORY" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
+      4. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\photoProfil"
+      5. Remplacer le constant "UPLOAD_DIRECTORY_PHOTO" de dao/photoProfil.java en ajoutant "\\" à la fin
+   4. Exécution HQL (GenererBD.java)
+   5. Changement de hibernate.cfg.xml - hibernate.hbmdd1.auto (validate)
+   6. Changement de chemin d'accès absolu (JustificatifConstant.java)
+   7. Configuration de Tomcat
+   8. 
 
 ## 3. Présentation du projet
 <br>
