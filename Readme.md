@@ -27,7 +27,7 @@
 ## 3. Présentation du projet
 
 ## 4. Structure (MVC pattern)
-(img/mvc.png)
+![MVC](img/mvc.png)
 
 ## 5. Technologie
 
