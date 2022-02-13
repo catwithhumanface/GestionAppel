@@ -37,7 +37,7 @@ Les enseignants<br><br>
 Le recueil des besoins a permis d’élaborer une liste de User stories, point de départ du projet. Il s’agit du backlog de démarrage, il sera enrichi.<br><br>
 
 **User Stories**<br>
-![US](img/us.png)
+![US](img/US.png)
 
 ## 4. Structure (MVC pattern)
 ![MVC](img/mvc.png)
