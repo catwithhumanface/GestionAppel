@@ -64,4 +64,7 @@ Un recueil des besoins a été mené durant le mois de décembre auprès des deu
 
 - Junit
 
+## 6. Diagramme de classe (uml)
+![DCL](img/dcl.png)
+
 
