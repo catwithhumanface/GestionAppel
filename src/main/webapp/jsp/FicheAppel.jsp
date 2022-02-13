@@ -5,6 +5,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="metier.Utilisateur" %>
 <%@ page import="metier.SeanceCours" %>
+<%@ page import="metier.Presence" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="java.util.HashSet" %>
 <!DOCTYPE html>
 <html>
 <title>Fiche d'Appels</title>
@@ -40,6 +43,12 @@
         </div>
         <div class="w3-col s8 w3-bar">
             <%
+                HashSet<Presence> setJ = (HashSet<Presence>) request.getAttribute("setJustifi");
+                Iterator<Presence> iterator = setJ.iterator();
+                while(iterator.hasNext()){
+                    Presence p1 = iterator.next();
+                    p1.getUrl();
+                }
                 Utilisateur user = (Utilisateur) request.getSession().getAttribute("Utilisateur");
                 pageContext.setAttribute("typeU", user.getTypeU());
             %>

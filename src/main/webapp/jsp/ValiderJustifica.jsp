@@ -5,6 +5,11 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" import="static dao.JustificatifConstant.DownloadPath"%>
 <%@ page import="metier.Utilisateur" %>
+<%@ page import="java.net.URL" %>
+<%@ page import="java.io.File" %>
+<%@ page import="java.nio.file.Paths" %>
+<%@ page import="java.util.Collections" %>
+<%@ page import="metier.Presence" %>
 
 <!DOCTYPE html>
 <html>
@@ -59,6 +64,8 @@
         <h5>Menu</h5>
     </div>
     <div class="w3-bar-block">
+
+
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
         <c:if test="${Utilisateur.typeU.equals('Etudiant')}">
@@ -118,12 +125,21 @@
             </thead>
             <tbody>
             <c:forEach items="${setJustifi}" var="row">
-            <c:set var="pathparts" value="${fn:split(row.url, '\\\\')}" />                <!-- String[] with values "dir1", "dir2", "dir3" and "filename.xml" -->
-            <c:set var="filename" value="${pathparts[fn:length(pathparts) - 1]}" /> <!-- Last item of String[]: "filename.xml" -->
-            <c:set var="basename" value="${fn:split(filename, '.')[0]}" />          <!-- Result: "filename" -->
-                 <form method="post" action = "ctrlValiderJ" >
+           <%-- <%
+                ArrayList<Presence>  pr = (ArrayList<Presence>) request.getAttribute("setJustifi");
+                String absolutePath = "";
+                for(Presence p : pr ){
+                    System.out.println(p.getUrl());
+                    URL url = getClass().getClassLoader().getResource(p.getUrl());
+                    File file = Paths.get(url.toURI()).toFile();
+                    absolutePath = file.getAbsolutePath();
+                    System.out.println(absolutePath);
+                }
+            %>--%>
+
+                <form method="post" action = "ctrlValiderJ" >
                 <tr>
-                    <td><a href =<%=DownloadPath%>${filename}>${filename}</a></td>
+                    <td><a class="justi" href =#>${row.getUrl()}</a></td>
                     <td>${row.getEtudiant().getNom()} ${row.getEtudiant().getPrenom()}</td>
                     <td>${row.getSeanceCours().getDateSeance()}</td>
                     <td>${row.getSeanceCours().getCours().getLibelles()}</td>
@@ -185,5 +201,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript" src="resources/js/fctHome.js"></script>
+</script>
 </html>
 

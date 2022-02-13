@@ -42,6 +42,9 @@ function jumpFoward() {
     window.location.replace("homeController?semaine=" + nextMonday.getFullYear() + "-" + (nextMonday.getMonth() + 1) + "-" + nextMonday.getDate());
 }
 
+function jumpFowardJustifi(idJ) {
+    window.location.replace(idJ);
+}
 
 
 
@@ -57,5 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
             jumpToFiche(idsc);
         })
     })
+    /*document.querySelectorAll('.justi').forEach(item => {
+        item.addEventListener('click', event => {
+            const idJ = item.href;
+            jumpToFiche(idJ);
+        })
+    })*/
 
 });

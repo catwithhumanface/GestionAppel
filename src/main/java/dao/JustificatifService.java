@@ -22,8 +22,8 @@ public class JustificatifService {
     public void Insert(int idE, int idSC, String path){
         dao.enregistrerDepot(idE,idSC,path);
     }
-    public Set afficherJustifi(){
-        Set<Presence> setJ =  dao.toValider();
+    public List<Presence> afficherJustifi(){
+        List<Presence> setJ =  dao.toValider();
         return setJ;
     }
     public void validerDao(int idE, int idSC){
