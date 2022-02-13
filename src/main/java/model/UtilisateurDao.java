@@ -1,13 +1,9 @@
-package dao;
+package model;
 
 import metier.*;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.annotations.SQLDeleteAll;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 
 public class UtilisateurDao {

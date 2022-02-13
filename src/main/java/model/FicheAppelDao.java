@@ -1,18 +1,13 @@
-package dao;
+package model;
 
-import metier.Cours;
-import metier.Etudiant;
 import metier.Presence;
 import metier.SeanceCours;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

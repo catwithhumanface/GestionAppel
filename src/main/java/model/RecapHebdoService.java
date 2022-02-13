@@ -1,8 +1,7 @@
-package dao;
+package model;
 
 import metier.Etudiant;
 import metier.Presence;
-import metier.SeanceCours;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,9 +1,7 @@
-package dao;
+package model;
 
 import metier.Cours;
 import metier.SeanceCours;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

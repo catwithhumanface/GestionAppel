@@ -18,11 +18,11 @@
 (Notre projet utilise une base de données déploiée sur SKYSQL donc pas de configuration en plus) 
 4. Adapdation de chemin d'accès 
       1. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\fileJustificatif" (dans IntelliJ, cliquer droit de dossier "fileJustificatif" -> Copy path/reference -> absolute path)
-      3. Remplacer le constant "UPLOAD_DIRECTORY" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
+      3. Remplacer le constant "UPLOAD_DIRECTORY" de model/JustificatifConstant.java en ajoutant "\\" à la fin
       4. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\photoProfil"
-      5. Remplacer le constant "UPLOAD_DIRECTORY_PHOTO" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
+      5. Remplacer le constant "UPLOAD_DIRECTORY_PHOTO" de model/JustificatifConstant.java en ajoutant "\\" à la fin
       6. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\outPutFiles"
-      7. Remplacer le constant "PDF_DIRECTORY" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
+      7. Remplacer le constant "PDF_DIRECTORY" de model/JustificatifConstant.java en ajoutant "\\" à la fin
 7. Configuration de Tomcat
 
 ## 3. Présentation du projet

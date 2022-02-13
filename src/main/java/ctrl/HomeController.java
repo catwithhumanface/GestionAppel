@@ -1,7 +1,6 @@
 package ctrl;
 
-import dao.HomeDao;
-import dao.HomeService;
+import model.HomeService;
 import metier.SeanceCours;
 import metier.Utilisateur;
 
@@ -9,11 +8,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "HomeController", value = "/HomeController")

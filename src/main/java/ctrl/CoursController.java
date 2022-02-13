@@ -1,11 +1,10 @@
 package ctrl;
 
-import dao.*;
+import model.*;
 import metier.Cours;
 import metier.SeanceCours;
 import metier.Utilisateur;
 
-import javax.persistence.DiscriminatorValue;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

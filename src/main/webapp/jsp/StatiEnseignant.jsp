@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"  import="dao.*" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="model.*" pageEncoding="utf-8"%>
 <%@ page import="metier.Utilisateur" %>
 <%@ page import="metier.Cours" %>
 <%@ page import="java.util.ArrayList" %>

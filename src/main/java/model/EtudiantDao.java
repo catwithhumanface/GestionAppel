@@ -1,14 +1,11 @@
-package dao;
+package model;
 
-import metier.Cours;
 import metier.Presence;
-import metier.SeanceCours;
 import metier.Utilisateur;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.Query;
 import java.util.*;
 
 

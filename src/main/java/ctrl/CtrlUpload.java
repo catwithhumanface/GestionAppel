@@ -1,6 +1,6 @@
 package ctrl;
 
-import dao.JustificatifService;
+import model.JustificatifService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -18,8 +18,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import static dao.JustificatifConstant.UPLOAD_DIRECTORY;
+
+import static model.JustificatifConstant.UPLOAD_DIRECTORY;
 
 @WebServlet(name = "/ctrlUpload", value = "/ctrlUpload")
 public class CtrlUpload extends HttpServlet {

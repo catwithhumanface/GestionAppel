@@ -1,8 +1,7 @@
 package ctrl;
 
-import dao.JustificatifService;
+import model.JustificatifService;
 import metier.Presence;
-import metier.Utilisateur;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 
 

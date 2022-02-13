@@ -1,6 +1,5 @@
-package dao;
+package model;
 
-import metier.Cours;
 import metier.Etudiant;
 import metier.Presence;
 import metier.SeanceCours;

@@ -1,5 +1,4 @@
-package dao;
-import metier.Cours;
+package model;
 import metier.Presence;
 
 import java.util.List;

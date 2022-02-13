@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 import javax.mail.*;
 import javax.mail.internet.AddressException;

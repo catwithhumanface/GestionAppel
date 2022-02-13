@@ -1,14 +1,10 @@
-package dao;
+package model;
 
-import metier.Cours;
 import metier.Presence;
-import metier.SeanceCours;
-import metier.Utilisateur;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 public class EtudiantService {
     private final EtudiantDao dao;

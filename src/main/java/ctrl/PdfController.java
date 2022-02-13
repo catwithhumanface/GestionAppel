@@ -1,8 +1,7 @@
 package ctrl;
 
-import dao.FicheAppelDao;
-import dao.FicheAppelService;
-import dao.PdfService;
+import model.FicheAppelService;
+import model.PdfService;
 import metier.Presence;
 
 import javax.servlet.*;

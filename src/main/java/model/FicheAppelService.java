@@ -1,7 +1,6 @@
-package dao;
+package model;
 
 import metier.Presence;
-import metier.Utilisateur;
 
 import java.util.List;
 

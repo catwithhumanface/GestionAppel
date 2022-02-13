@@ -1,7 +1,6 @@
-package dao;
+package model;
 
 import metier.Presence;
-import metier.SeanceCours;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;

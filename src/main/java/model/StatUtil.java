@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 public class StatUtil {
     public String nom;

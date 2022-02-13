@@ -1,17 +1,12 @@
-package dao;
+package model;
 
-import metier.Cours;
 import metier.Etudiant;
-import metier.SeanceCours;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ListeEtudiantDao {
 

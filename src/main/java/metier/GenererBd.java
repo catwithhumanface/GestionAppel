@@ -1,7 +1,7 @@
 package metier;
 
 
-import dao.HibernateUtil;
+import model.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.text.ParseException;

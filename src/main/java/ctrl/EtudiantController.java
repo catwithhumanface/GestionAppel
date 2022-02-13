@@ -1,9 +1,7 @@
 package ctrl;
 
-import dao.CoursService;
-import dao.EtudiantService;
-import dao.UtilisateurSet;
-import metier.Cours;
+import model.EtudiantService;
+import model.UtilisateurSet;
 import metier.Presence;
 import metier.Utilisateur;
 
@@ -19,7 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
 @WebServlet("/etudiant.do")
 public class EtudiantController extends HttpServlet {
     EtudiantService service = EtudiantService.getInstance();

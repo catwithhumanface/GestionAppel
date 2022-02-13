@@ -1,6 +1,6 @@
 package ctrl;
 
-import dao.JustificatifService;
+import model.JustificatifService;
 import metier.*;
 
 import javax.servlet.ServletException;

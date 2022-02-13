@@ -1,6 +1,6 @@
 package ctrl;
 
-import dao.*;
+import model.*;
 import metier.Presence;
 
 import javax.servlet.*;

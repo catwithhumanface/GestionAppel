@@ -1,15 +1,13 @@
 package ctrl;
 
-import dao.RecapHebdoService;
+import model.RecapHebdoService;
 import metier.Etudiant;
-import metier.Utilisateur;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 

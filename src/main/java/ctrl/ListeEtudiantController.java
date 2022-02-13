@@ -1,9 +1,8 @@
 package ctrl;
 
-import dao.ListeEtudiantDao;
-import dao.RecapHebdoService;
+import model.ListeEtudiantDao;
+import model.RecapHebdoService;
 import metier.Etudiant;
-import metier.Presence;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

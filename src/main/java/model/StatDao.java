@@ -1,14 +1,10 @@
-package dao;
+package model;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class StatDao {
     public float nombreAvg(int idC) {
@@ -46,7 +42,7 @@ public class StatDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction t = session.beginTransaction();
         List<StatUtil> listRes ;
-        Query query = session.createQuery("select new dao.StatUtil(e.prenom, e.nom, count(*)) " +
+        Query query = session.createQuery("select new model.StatUtil(e.prenom, e.nom, count(*)) " +
                 "from Presence as p, Etudiant as e, SeanceCours as sc where p.idP.idSC = sc.idSC and sc.cours.idC=:idC and p.etatP ='Absent' and sc.dateValidation is not null " +
                 "group by e.nom,e.prenom having count(*)>3");
         query.setParameter("idC",idC);

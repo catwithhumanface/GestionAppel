@@ -1,11 +1,7 @@
 package ctrl;
 
-import dao.FicheAppelService;
-import dao.JustificatifService;
-import dao.UtilisateurService;
-import dao.UtilisateurSet;
-import metier.Presence;
-import metier.SeanceCours;
+import model.UtilisateurService;
+import model.UtilisateurSet;
 import metier.Utilisateur;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -23,13 +19,11 @@ import javax.servlet.http.HttpSession;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static dao.JustificatifConstant.UPLOAD_DIRECTORY;
-import static dao.JustificatifConstant.UPLOAD_DIRECTORY_PHOTO;
+import static model.JustificatifConstant.UPLOAD_DIRECTORY_PHOTO;
 
 @WebServlet("/member.do")
 public class UtilisateurController extends HttpServlet {

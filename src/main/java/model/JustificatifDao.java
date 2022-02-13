@@ -1,6 +1,5 @@
-package dao;
+package model;
 
-import metier.Cours;
 import metier.Presence;
 import org.hibernate.Session;
 import org.hibernate.query.Query;

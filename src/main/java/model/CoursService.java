@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 import metier.Cours;
 import metier.SeanceCours;

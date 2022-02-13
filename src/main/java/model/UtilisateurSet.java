@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 public class UtilisateurSet {
     public static final int NO_ID = 1;

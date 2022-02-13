@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" import="dao.*" pageEncoding="utf-8" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" import="static dao.JustificatifConstant.DownloadPath"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="model.*" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="static model.JustificatifConstant.DownloadPath"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>

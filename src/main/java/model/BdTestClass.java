@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 import metier.Etudiant;
 import metier.*;

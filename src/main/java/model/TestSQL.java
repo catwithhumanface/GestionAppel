@@ -1,12 +1,6 @@
-package dao;
-import metier.*;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+package model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TestSQL {
     public static void main(String[] args){
