@@ -24,6 +24,7 @@
    3. Changement de hibernate.cfg.xml - hibernate.hbmdd1.auto (validate)
    4. Changement de chemin d'accès absolu (JustificatifConstant.java)
    5. Configuration de Tomcat
+
 ## 3. Présentation du projet
 <br>
 &nbsp;L’UFR d’informatique de l’UT1 Capitole souhaite se doter d’un outil de gestion de l’appel en ligne.<br><br>
@@ -43,4 +44,27 @@ Le recueil des besoins a permis d’élaborer une liste de User stories, point d
 ![MVC](img/mvc.png)
 
 ## 5. Technologie
+
+### 5.1 APIs
+
+**Développement**
+
+- JSTL
+
+- javax.servlet
+
+- commons-fileupload
+
+- javax.mail
+
+- org.apache.pdfbox
+
+**Test**
+
+- com.masterxml.jaskson.dataformat
+
+- com.github.servanter
+
+- Junit
+
 
