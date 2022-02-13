@@ -23,7 +23,7 @@
       5. Remplacer le constant "UPLOAD_DIRECTORY_PHOTO" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
       6. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\outPutFiles"
       7. Remplacer le constant "PDF_DIRECTORY" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
-7. Configuration de Tomcat
+7. Configuration de Tomcat (Tomcat 9 utilisé)
 
 ## 3. Présentation du projet
 <br>
