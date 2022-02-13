@@ -9,7 +9,7 @@ import java.util.Properties;
 public class Mail {
     public static void sendEmailAbsence(String emailTo, String nomCours, String dateCours) {
         Properties prop = new Properties();
-        String user = "allococon@gmail.com";
+        String user = "miage.ut1@gmail.com";
         String pass = "Projet020909!";
         prop.put("mail.smtp.host", "smtp.gmail.com");
         prop.put("mail.smtp.port", 465);
@@ -44,7 +44,7 @@ public class Mail {
     public static void sendMailDepotJustifi(String prenom, String nom, String emailTo, String nomCours, String dateCours) {
         Properties prop = new Properties();
         String user = "allococon@gmail.com";
-        String pass = "Projet020909!";
+        String pass = "Projet02090909!";
         prop.put("mail.smtp.host", "smtp.gmail.com");
         prop.put("mail.smtp.port", 465);
         prop.put("mail.smtp.auth", "true");
@@ -62,7 +62,7 @@ public class Mail {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(user));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("nathalie.valles@ut-capitole.fr"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress("joohyun.ann@ut-capitole.fr"));
             message.setSubject("Notification - Reçu de justificatif");
             message.setText("Bonjour,"
                     + "\n\n Etudiant  : " + prenom + " " + nom +
