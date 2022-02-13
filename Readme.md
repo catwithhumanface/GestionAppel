@@ -15,24 +15,15 @@
 1. Copier URL Github 
 2. Import Projet
 3. Connexion DB to MySQL
-   1. Adapation de hibernate.cfg.xml
-      1. hibernate.connection.url
-      2. hibernate.connection.username
-      3. hibernate.connection.password
-      4. hibernate.hbm2ddl.auto (create)
-   2. Adapdation de chemin d'accès 
+(Notre projet utilise une base de données déploiée sur SKYSQL donc pas de configuration en plus) 
+4. Adapdation de chemin d'accès 
       1. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\fileJustificatif" (dans IntelliJ, cliquer droit de dossier "fileJustificatif" -> Copy path/reference -> absolute path)
       3. Remplacer le constant "UPLOAD_DIRECTORY" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
       4. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\photoProfil"
-      5. Remplacer le constant "UPLOAD_DIRECTORY_PHOTO" de dao/photoProfil.java en ajoutant "\\" à la fin
-   4. Exécution HQL (GenererBD.java)
-   5. Changement de hibernate.cfg.xml - hibernate.hbmdd1.auto (validate)
-   6. Changement de chemin d'accès absolu (JustificatifConstant.java)
-   7. Configuration de Tomcat
-   8. Exécution de serveur Tomcat
-   9. Se connecter en tant qu'étudiant (joohyun.ann@ut-capitole.fr , mdp : 123)<br>
-      Se connecter en tant qu'étudiant (nathalie.valles@ut-capitole.fr , mdp : sdd)<br>
-      Se connecter en tant qu'étudiant (elodie.fontana@ut-capitole.fr , mdp : 123)<br>
+      5. Remplacer le constant "UPLOAD_DIRECTORY_PHOTO" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
+      6. Copier le chemin d'accès absolue de dossier "GestionAppel\src\main\webapp\resources\outPutFiles"
+      7. Remplacer le constant "PDF_DIRECTORY" de dao/JustificatifConstant.java en ajoutant "\\" à la fin
+7. Configuration de Tomcat
 
 ## 3. Présentation du projet
 <br>
@@ -40,8 +31,8 @@
 Pour cela, l’UFR souhaite disposer rapidement d’un PoC (Proof of Concept).<br>
 Un recueil des besoins a été mené durant le mois de décembre auprès des deux types d’acteurs impliqués dans le projet :<br>
 - Les étudiants<br>
-- Les enseignants<br>
-Le recueil des besoins a permis d’élaborer une liste de User stories, point de départ du projet. Il s’agit du backlog de démarrage, il sera enrichi.<br><br>
+- Les enseignants<br><br>
+- Le recueil des besoins a permis d’élaborer une liste de User stories, point de départ du projet. Il s’agit du backlog de démarrage, il sera enrichi.<br><br>
 
 **User Stories**<br>
 ![US](img/US.png)
