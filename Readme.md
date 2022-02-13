@@ -40,8 +40,8 @@
 Pour cela, l’UFR souhaite disposer rapidement d’un PoC (Proof of Concept).<br>
 Un recueil des besoins a été mené durant le mois de décembre auprès des deux types d’acteurs impliqués dans le projet :<br>
 - Les étudiants<br>
-- Les enseignants<br><br>
-- Le recueil des besoins a permis d’élaborer une liste de User stories, point de départ du projet. Il s’agit du backlog de démarrage, il sera enrichi.<br><br>
+- Les enseignants<br>
+Le recueil des besoins a permis d’élaborer une liste de User stories, point de départ du projet. Il s’agit du backlog de démarrage, il sera enrichi.<br><br>
 
 **User Stories**<br>
 ![US](img/US.png)
