@@ -6,10 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.hibernate.Transaction;
 
@@ -46,12 +43,12 @@ public class JustificatifDao {
 
             t.commit();
         }
-        public Set<Presence> toValider(){
+        public List<Presence> toValider(){
             Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction t = session.beginTransaction();
             Query query = session.createQuery( "from Presence as p where p.etatValider='false'");
             List<Presence> listV= query.list();
-            HashSet<Presence> setV = new HashSet<>();
+            List<Presence> setV = new ArrayList<>();
             for(Presence p : listV){
                 setV.add(p);
             }

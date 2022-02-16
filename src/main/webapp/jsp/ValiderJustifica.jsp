@@ -118,12 +118,10 @@
             </thead>
             <tbody>
             <c:forEach items="${setJustifi}" var="row">
-            <c:set var="pathparts" value="${fn:split(row.url, '\\\\')}" />                <!-- String[] with values "dir1", "dir2", "dir3" and "filename.xml" -->
-            <c:set var="filename" value="${pathparts[fn:length(pathparts) - 1]}" /> <!-- Last item of String[]: "filename.xml" -->
-            <c:set var="basename" value="${fn:split(filename, '.')[0]}" />          <!-- Result: "filename" -->
-                 <form method="post" action = "ctrlValiderJ" >
+                   <!-- Result: "filename" -->
+            <form method="post" action = "ctrlValiderJ" >
                 <tr>
-                    <td><a href =<%=DownloadPath%>${filename}>${filename}</a></td>
+                    <td><a href =#>${row.getUrl()}</a></td>
                     <td>${row.getEtudiant().getNom()} ${row.getEtudiant().getPrenom()}</td>
                     <td>${row.getSeanceCours().getDateSeance()}</td>
                     <td>${row.getSeanceCours().getCours().getLibelles()}</td>
